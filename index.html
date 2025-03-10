@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="">
+  <meta property="og:title" content="MORPHEUS"/>
+  <meta property="og:description" content="MORPHEUS: MOdel Reasoning for PHysical Experiments Understanding and Scoring Benchmark"/>
+  <meta property="og:url" content="https://morpheus-bench.github.io/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+  <meta name="twitter:title" content="MORPHEUS">
+  <meta name="twitter:description" content="">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
+  <meta name="twitter:card" content="summary_large_image">-->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="video generation models, physical reasoning, physical laws, physical score, statistical score, physical experiments, physical invariances">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MORPHEUS</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/avatar.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <!--<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>-->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+  <script src="./static/js/bulma-carousel.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">MORPHEUS: MOdel Reasoning for PHysical Experiments Understanding and Scoring Benchmark</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <p>Anonymous submission</p>&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+
+
+
+
+
+
+            </div>
+
+            <div class="is-size-4" style="padding-top: 0.25em;">
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+              <!-- OpenReview link -->
+              <!-- <span class="link-block">
+                <a href="XXX" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-circle"></i>
+                  </span>
+                  <span>OpenReview</span>
+                </a>
+                &nbsp;
+              </span>
+               -->
+              <!-- <span class="link-block">
+                <a href="XXX" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+                &nbsp;
+              </span>                 -->
+
+              <!-- ArXiv abstract Link -->
+              <!-- <span class="link-block">
+                <a href="XXX" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+                &nbsp;
+              </span> -->
+
+              <!-- Github link -->
+              <!-- <span class="link-block">
+                <a href="XXX" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+                &nbsp;
+              </span> -->
+
+              <!-- Github link -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Summary</h2>
+          <div class="content has-text-justified">
+            <p>
+              As the development of Video Generation Models (VGMs) progresses, many are claimed to possess world modeling capabilities—the ability to generate arbitrary realistic videos. These models have significant potential for applications in fields such as robotics and autonomous driving as well as in scientific simulation and medical data augmentation. However, a critical question arises: to what extent do these models adhere to physical laws? To address this, we introduce MORPHEUS, a novel benchmark designed to evaluate the intrinsic physical reasoning capabilities of VGMs. MORPHEUS provides a curated dataset comprising 80 real-world videos of experiments that capture physical phenomena, guided by specific physical invariances such as energy or momentum conservation. These invariances reveal the specific physical phenomena missed by the models, enabling a fine-grained evaluation and forming the foundation of our interpretable Physical Score measure. We also propose a Statistical Score, based on Physics-Informed Neural Networks (PINNs), to provide a complementary evaluation across a broader range of physical scenarios. Our findings reveal that even with advanced prompting techniques, such as multi-frame prompting and enhanced textual descriptions, current VGMs demonstrate substantial limitations in their ability to model and understand physical phenomena.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+
+  <br>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Evaluation of Real-world Video Generation</h2>
+
+
+        <section class="hero teaser">
+          <div class="container is-max-desktop">
+            <div class="hero-body">
+          <h2 class="title is-3">Leaderboard</h2>
+           <table class="table" id="mainTable" data-order='[[ 5, "dsc" ]]' >
+          <thead>
+            <tr>
+              <th scope="col">Model Name</th>
+              <th scope="col">Experiment Type</th>
+              <th scope="col">Category</th>
+              <th scope="col">Prompt Type</th>
+              <th scope="col">Discard rate</th>
+              <th scope="col">Physical Invariance Score</th>
+              <th scope="col">Dynamical Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">real-world</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">real-world-video</th>
+              <th scope="col">-</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">falling ball</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">real-world</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">real-world-video</th>
+              <th scope="col">-</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">bouncing ball</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">real-world</th>
+              <th scope="col">projectile</th>
+              <th scope="col">real-world-video</th>
+              <th scope="col">-</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">projectile</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">projectile</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">projectile</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">projectile</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">real-world</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">real-world-video</th>
+              <th scope="col">-</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">holonomic pendulum</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">real-world</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">real-world-video</th>
+              <th scope="col">-</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">single-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">COSMOS</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">LTX</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">PyramidalFlow</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">multi-frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">enhanced</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col">CogVideo</th>
+              <th scope="col">non-holonomic pendulum</th>
+              <th scope="col">first&last frame</th>
+              <th scope="col">plain</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+          </div>
+        </section>
+        <hr>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              <!-- You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> 
+              This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>. -->
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
