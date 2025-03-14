@@ -33,6 +33,35 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
+  <!-- Add CSS for experiment filter buttons -->
+  <style>
+    .experiment-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .experiment-btn {
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .experiment-btn:hover {
+      background-color: #e9ecef;
+    }
+    
+    .experiment-btn.active {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+  </style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <!--<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>-->
@@ -161,10 +190,22 @@
         <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold;">
           <b>MORPHEUS Leaderboard</b> (Click to Switch)
         </button>
+
+        <!-- Add experiment filter buttons -->
+        <div class="experiment-filter" style="margin-top: 15px; margin-bottom: 15px;">
+          <button class="experiment-btn active" data-experiment="all">All Experiments</button>
+          <button class="experiment-btn" data-experiment="falling ball">Falling Ball</button>
+          <button class="experiment-btn" data-experiment="bouncing ball">Bouncing Ball</button>
+          <button class="experiment-btn" data-experiment="projectile">Projectile</button>
+          <button class="experiment-btn" data-experiment="holonomic pendulum">Holonomic Pendulum</button>
+          <button class="experiment-btn" data-experiment="non-holonomic pendulum">Non-holonomic Pendulum</button>
+        </div>
+
         <div class="model-labels-container">
-            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
-            <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">Proprietary</span>
-            <!-- <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span> -->
+            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">real-world</span>
+            <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">single-frame</span>
+            <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">multi-frame</span>
+            <span class="leaderboard-label" style="background-color: rgba(161, 117, 215, 0.1);">first&last-frame</span>
         </div>
           <!-- Validation Set Leaderboard -->
           <table id="table1" class="js-sort-table">
@@ -177,7 +218,7 @@
               <td class="js-sort-number"><strong>Physical Invariance Score</strong></td>
               <td class="js-sort-number"><strong>Dynamical score</strong></td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(249, 242, 248, 1);">
               <td style="text-align: left;">
                 <!-- <a href="https://openai.com/index/hello-gpt-4o/"> -->
                     <b>Real-world</b>
@@ -190,7 +231,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>COSMOS</b>
               </td>
@@ -201,7 +242,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>COSMOS</b>
               </td>
@@ -212,7 +253,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>CogVideo</b>
               </td>
@@ -223,7 +264,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>CogVideo</b>
               </td>
@@ -234,7 +275,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>LTX</b>
               </td>
@@ -245,7 +286,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>LTX</b>
               </td>
@@ -256,7 +297,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(117, 209, 215, 0.1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                 <b>PyramidalFlow</b>
               </td>
@@ -267,7 +308,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(255, 208, 80, 0.15);">
               <td style="text-align: left;">
                  <b>PyramidalFlow</b>
               </td>
@@ -278,7 +319,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>COSMOS</b>
               </td>
@@ -289,7 +330,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>COSMOS</b>
               </td>
@@ -300,7 +341,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>CogVideo</b>
               </td>
@@ -311,7 +352,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>CogVideo</b>
               </td>
@@ -322,7 +363,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>LTX</b>
               </td>
@@ -333,7 +374,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>LTX</b>
               </td>
@@ -344,7 +385,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>PyramidalFlow</b>
               </td>
@@ -355,7 +396,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(117, 209, 215, 0.1);">
               <td style="text-align: left;">
                  <b>PyramidalFlow</b>
               </td>
@@ -366,7 +407,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(161, 117, 215, 0.1);">
               <td style="text-align: left;">
                  <b>CogVideo</b>
               </td>
@@ -377,7 +418,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
-            <tr style="background-color: rgba(249, 242, 248, 1);">
+            <tr style="background-color: rgba(161, 117, 215, 0.1);">
               <td style="text-align: left;">
                  <b>CogVideo</b>
               </td>
@@ -1303,5 +1344,38 @@
     </div>
   </footer>
 
+  <!-- Add experiment filter JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all filter buttons
+      const experimentBtns = document.querySelectorAll('.experiment-btn');
+      
+      // Add click event to each button
+      experimentBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          experimentBtns.forEach(b => b.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get the experiment type to filter by
+          const experimentType = this.getAttribute('data-experiment');
+          
+          // Filter the table rows
+          const tableRows = document.querySelectorAll('#table1 tr:not(:first-child)');
+          tableRows.forEach(row => {
+            const experimentCell = row.cells[1]; // Assuming Experiment Type is in column index 1
+            
+            if (experimentType === 'all' || (experimentCell && experimentCell.textContent.trim() === experimentType)) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
