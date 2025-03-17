@@ -199,6 +199,7 @@
           <button class="experiment-btn" data-experiment="projectile">Projectile</button>
           <button class="experiment-btn" data-experiment="holonomic pendulum">Holonomic Pendulum</button>
           <button class="experiment-btn" data-experiment="non-holonomic pendulum">Non-holonomic Pendulum</button>
+          <button class="experiment-btn" data-experiment="double pendulum">Double Pendulum</button>
         </div>
 
         <div class="model-labels-container">
@@ -504,6 +505,16 @@
       function populateTable(data) {
         const tableBody = document.querySelector('#table1 tbody');
         tableBody.innerHTML = '';
+
+        // Add experiment type mapping
+        const experimentTypeMapping = {
+          'falling_ball': 'Falling Ball',
+          'bouncing_ball': 'Bouncing Ball',
+          'projectile': 'Projectile',
+          'holonomic_pendulum': 'Holonomic Pendulum',
+          'non_holonomic': 'Non-holonomic Pendulum',
+          'double_pendulum': 'Double Pendulum'
+        };
         
         data.forEach(row => {
           // Determine background color based on category
@@ -517,10 +528,16 @@
           } else if(row.category === 'first&last-frame') {
             bgColor = 'rgba(161, 117, 215, 0.1)';
           }
+
+          // Map the experiment type from CSV format to display format
+          const experimentType = experimentTypeMapping[row.experiment_type] || row.experiment_type;
           
           // Create the table row
           const tr = document.createElement('tr');
           tr.style.backgroundColor = bgColor;
+
+          // Add data-experiment attribute for filtering
+          tr.setAttribute('data-experiment', experimentType.toLowerCase());
 
           // Assuming CSV columns match table columns
           tr.innerHTML = `
