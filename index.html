@@ -456,6 +456,8 @@
 
   <!-- Add experiment filter JavaScript -->
   <script>
+    let dataTable;
+
     document.addEventListener('DOMContentLoaded', function() {
       // Fetch the CSV data
       fetch('./summary.csv')
@@ -465,8 +467,10 @@
           const parsedData = parseCSV(data);
           // Populate the table
           populateTable(parsedData);
-          // Initialize DataTable and filters after loading the data
-          initializeTableAndFilters();
+          // Initialize DataTable AFTER the data is loaded
+          initializeDataTable();
+          // Initialize filters
+          initializeFilters();
         })
         .catch(error => {
           console.error('Error loading CSV data:', error);
@@ -533,10 +537,15 @@
         });
       }
 
-      // Function to initialize DataTable and filters
-      function initializeTableAndFilters() {
-        // Initialize DataTable
-        const dataTable = $('#table1').DataTable({
+      // Function to initialize DataTable
+      function initializeDataTable() {
+        // destroy the existing DataTable instance
+        if(dataTable) {
+          dataTable.destroy();
+        }
+        
+        // reinitialize DataTable
+        dataTable = $('#table1').DataTable({
           paging: false,
           searching: false,
           info: false,
@@ -546,7 +555,10 @@
             { "targets": "_all", "orderable": true }
           ]
         });
+      }
 
+      // Function to initialize filters
+      function initializeFilters() {
         // Get all filter buttons
         const experimentBtns = document.querySelectorAll('.experiment-btn');
         
@@ -563,11 +575,11 @@
             const experimentType = this.getAttribute('data-experiment');
             
             // Filter the table rows
-            const tableRows = document.querySelectorAll('#table1 tr:not(:first-child)');
+            const tableRows = document.querySelectorAll('#table1 tbody tr');
             tableRows.forEach(row => {
-              const experimentCell = row.cells[1]; // Assuming Experiment Type is in column index 1
+              const experiment = row.getAttribute('data-experiment');
               
-              if (experimentType === 'all' || (experimentCell && experimentCell.textContent.trim() === experimentType)) {
+              if (experimentType === 'all' || experiment === experimentType) {
                 row.style.display = '';
               } else {
                 row.style.display = 'none';
@@ -576,21 +588,23 @@
           });
         });
       }
-
-      // initialize the table for sorting
-      $(document).ready(function() {
-        $('#table1').DataTable({
-          paging: false,    // do not show the pagination
-          searching: false, // do not show the search box
-          info: false,      // do not show the information text
-          "order": [],      // default no sorting
-          "columnDefs": [
-            { "targets": [4, 5, 6], "orderable": true }, // make Discard Rate、Physical Invariance Score and Dynamical score columns sortable
-            { "targets": "_all", "orderable": true }     // all columns are sortable
-          ]
-        });
-      });
     });
+
+        
+
+      // // initialize the table for sorting
+      // $(document).ready(function() {
+      //   $('#table1').DataTable({
+      //     paging: false,    // do not show the pagination
+      //     searching: false, // do not show the search box
+      //     info: false,      // do not show the information text
+      //     "order": [],      // default no sorting
+      //     "columnDefs": [
+      //       { "targets": [4, 5, 6], "orderable": true }, // make Discard Rate、Physical Invariance Score and Dynamical score columns sortable
+      //       { "targets": "_all", "orderable": true }     // all columns are sortable
+      //     ]
+      //   });
+      // });
   </script>
 </body>
 </html>
