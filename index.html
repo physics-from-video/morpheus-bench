@@ -458,7 +458,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Fetch the CSV data
-      fetch('https://github.com/physics-from-video/icml_plots/blob/main/outputs/summary.csv')
+      fetch('./summary.csv')
         .then(response => response.text())
         .then(data => {
           // Parse CSV data
