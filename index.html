@@ -507,7 +507,7 @@
       // Helper function to get column value with multiple possible column names
       function getColumnValue(row, possibleKeys) {
         for(const key of possibleKeys) {
-          if(row[key] !== undefined && row[key] !== null) {
+          if(row[key] !== undefined && row[key] !== null && row[key] !== '') {
             return row[key];
           }
         }
@@ -542,17 +542,12 @@
             const experimentType = experimentMapping[rawExperimentType] || rawExperimentType;
             
             // get other column values
-            const modelName = getColumnValue(row, ['model_name', 'Model Name', 'ModelName', 'model', 'Model']);
+            const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
             const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
             const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
             const discardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
-            const physicalScore = getColumnValue(row, [
-              'physical_invariance_score', 'Physical Invariance Score', 
-              'overall_mean_physical_score', 'Physical Score', 'PhysicalScore'
-            ]);
-            const dynamicalScore = getColumnValue(row, [
-              'dynamical_score', 'Dynamical Score', 'DynamicalScore', 'overall_mean_statistical_score'
-            ]);
+            const physicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
+            const dynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
 
           // Determine background color based on category
           let bgColor = '';
@@ -608,11 +603,16 @@
           info: false,
           "order": [],
           "columnDefs": [
-            { "targets": [4, 5, 6], "orderable": true },
-            { "targets": "_all", "orderable": true }
+            { "targets": [0, 1, 2, 3], "orderable": false },
+            { "targets": [4, 5, 6], "orderable": true }
           ]
         });
       }
+
+      // Log key values for debugging
+      console.log('Model:', modelName);
+      console.log('Experiment:', experimentType);
+      console.log('Conditioning:', conditioning);
 
       // Function to initialize filters
       function initializeFilters() {
