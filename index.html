@@ -213,7 +213,7 @@
             <tr>
               <td class="js-sort-number"><strong>Model Name</strong></td>
               <td class="js-sort-date"><strong>Experiment Type</strong></td>
-              <td class="js-sort-number"><strong>Category</strong></td>
+              <td class="js-sort-number"><strong>Conditioning</strong></td>
               <td class="js-sort-string"><strong>Prompt Type</strong></td>
               <td class="js-sort-number"><strong>Discard Rate</strong></td>
               <td class="js-sort-number"><strong>Physical Invariance Score</strong></td>
@@ -507,7 +507,7 @@
         tableBody.innerHTML = '';
 
         // Add experiment type mapping
-        const experimentTypeMapping = {
+        const experimentMapping = {
           'falling_ball': 'Falling Ball',
           'bouncing_ball': 'Bouncing Ball',
           'projectile': 'Projectile',
@@ -517,6 +517,30 @@
         };
         
         data.forEach(row => {
+          try {
+            // get the experiment type
+            const rawExperimentType = getColumnValue(row, [
+              'experiment', 'Experiment', 'experiment_type', 'Experiment Type'
+            ]);
+            
+            console.log('Raw experiment type:', rawExperimentType);
+            
+            // transform the experiment type
+            const experimentType = experimentMapping[rawExperimentType] || rawExperimentType;
+            
+            // get other column values
+            const modelName = getColumnValue(row, ['model_name', 'Model Name', 'ModelName', 'model', 'Model']);
+            const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
+            const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
+            const discardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
+            const physicalScore = getColumnValue(row, [
+              'physical_invariance_score', 'Physical Invariance Score', 
+              'overall_mean_physical_score', 'Physical Score', 'PhysicalScore'
+            ]);
+            const dynamicalScore = getColumnValue(row, [
+              'dynamical_score', 'Dynamical Score', 'DynamicalScore', 'overall_mean_statistical_score'
+            ]);
+
           // Determine background color based on category
           let bgColor = '';
           if(row.category === 'real-world-video') {
@@ -529,8 +553,8 @@
             bgColor = 'rgba(161, 117, 215, 0.1)';
           }
 
-          // Map the experiment type from CSV format to display format
-          const experimentType = experimentTypeMapping[row.experiment_type] || row.experiment_type;
+          // // Map the experiment type from CSV format to display format
+          // const experimentType = experimentTypeMapping[row.experiment_type] || row.experiment_type;
           
           // Create the table row
           const tr = document.createElement('tr');
@@ -543,7 +567,7 @@
           tr.innerHTML = `
             <td style="text-align: left;"><b>${row.model_name || ''}</b></td>
             <td>${row.experiment_type || ''}</td>
-            <td>${row.category || ''}</td>
+            <td>${row.conditioning || ''}</td>
             <td>${row.prompt_type || ''}</td>
             <td>${row.discard_rate || 'xxx'}</td>
             <td>${row.physical_invariance_score || 'xxx'}</td>
@@ -551,6 +575,9 @@
           `;
           
           tableBody.appendChild(tr);
+        } catch (error) {
+          console.error('Error processing row:', error);
+        }
         });
       }
 
