@@ -551,22 +551,27 @@
 
           // Determine background color based on category
           let bgColor = '';
-          if(row.category === 'real-world-video') {
-            bgColor = 'rgba(249, 242, 248, 1)';
-          } else if(row.category === 'single-frame') {
-            bgColor = 'rgba(255, 208, 80, 0.15)';
-          } else if(row.category === 'multi-frame') {
-            bgColor = 'rgba(117, 209, 215, 0.1)';
-          } else if(row.category === 'first&last-frame') {
-            bgColor = 'rgba(161, 117, 215, 0.1)';
+          if (model.includes('real-world') || model === 'real-world') {
+            bgColor = 'rgba(249, 242, 248, 1)';  // light pink
+          } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
+                    conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
+            bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
+          } else if (conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame' || 
+                    conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame_conditioning') {
+            bgColor = 'rgba(117, 209, 215, 0.1)';  // light blue
+          } else if (conditioning.includes('keyframe_interpolation') || conditioning === 'keyframe_interpolation' || 
+                    conditioning.includes('keyframe_interpolation_conditioning') || conditioning === 'keyframe_interpolation_conditioning') {
+            bgColor = 'rgba(161, 117, 215, 0.1)';  // light purple
           }
 
           // // Map the experiment type from CSV format to display format
           // const experimentType = experimentTypeMapping[row.experiment_type] || row.experiment_type;
           
-          // Create the table row
+          // Apply background color to the entire row
           const tr = document.createElement('tr');
           tr.style.backgroundColor = bgColor;
+          tr.setAttribute('data-experiment', experimentType.toLowerCase());
+
 
           // Add data-experiment attribute for filtering
           tr.setAttribute('data-experiment', experimentType.toLowerCase());
