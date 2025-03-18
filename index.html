@@ -501,8 +501,24 @@
         return results;
       }
 
+      // Helper function to get column value with multiple possible column names
+      function getColumnValue(row, possibleKeys) {
+        for(const key of possibleKeys) {
+          if(row[key] !== undefined && row[key] !== null) {
+            return row[key];
+          }
+        }
+        return '';
+      }
+
       // Function to populate the table
       function populateTable(data) {
+        // Make sure table has tbody
+        if (!document.querySelector('#table1 tbody')) {
+          const tbody = document.createElement('tbody');
+          document.querySelector('#table1').appendChild(tbody);
+        }
+        
         const tableBody = document.querySelector('#table1 tbody');
         tableBody.innerHTML = '';
 
