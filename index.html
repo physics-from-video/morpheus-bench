@@ -210,20 +210,21 @@
         </div>
           <!-- Validation Set Leaderboard -->
           <table id="table1" class="js-sort-table">
+            <thead>
             <tr>
-              <td class="js-sort-number"><strong>Model Name</strong></td>
-              <td class="js-sort-date"><strong>Experiment Type</strong></td>
-              <td class="js-sort-number"><strong>Conditioning</strong></td>
-              <td class="js-sort-string"><strong>Prompt Type</strong></td>
-              <td class="js-sort-number"><strong>Discard Rate</strong></td>
-              <td class="js-sort-number"><strong>Physical Invariance Score</strong></td>
-              <td class="js-sort-number"><strong>Dynamical score</strong></td>
+              <th class="js-sort-number"><strong>Model Name</strong></th>
+              <th class="js-sort-date"><strong>Experiment Type</strong></th>
+              <th class="js-sort-number"><strong>Conditioning</strong></th>
+              <th class="js-sort-string"><strong>Prompt Type</strong></th>
+              <th class="js-sort-number"><strong>Discard Rate</strong></th>
+              <th class="js-sort-number"><strong>Physical Invariance Score</strong></th>
+              <th class="js-sort-number"><strong>Dynamical score</strong></th>
             </tr>
+            </thead>
+            <tbody>
             <tr style="background-color: rgba(249, 242, 248, 1);">
               <td style="text-align: left;">
-                <!-- <a href="https://openai.com/index/hello-gpt-4o/"> -->
-                    <b>Real-world</b>
-                <!-- </a> -->
+                <b>Real-world</b>
               </td>
               <td>Falling Ball</td>
               <td>real-world-video</td>
@@ -430,6 +431,7 @@
               <td>xxx</td>
               <td>xxx</td>
             </tr>
+            </tbody>
           </table>
           <p class="test-desc hidden"> Overall results of different models on Morpheus-bench.</p>
       </div>
@@ -483,6 +485,7 @@
       function parseCSV(csvText) {
         const lines = csvText.split('\n');
         const headers = lines[0].split(',');
+        console.log('CSV Headers:', headers); // Debug: log headers
         const results = [];
         
         for(let i = 1; i < lines.length; i++) {
@@ -513,12 +516,6 @@
 
       // Function to populate the table
       function populateTable(data) {
-        // Make sure table has tbody
-        if (!document.querySelector('#table1 tbody')) {
-          const tbody = document.createElement('tbody');
-          document.querySelector('#table1').appendChild(tbody);
-        }
-        
         const tableBody = document.querySelector('#table1 tbody');
         tableBody.innerHTML = '';
 
@@ -599,9 +596,9 @@
 
       // Function to initialize DataTable
       function initializeDataTable() {
-        // destroy the existing DataTable instance
-        if(dataTable) {
-          dataTable.destroy();
+        // destroy the existing DataTable instance if it exists
+        if($.fn.DataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
         }
         
         // reinitialize DataTable
