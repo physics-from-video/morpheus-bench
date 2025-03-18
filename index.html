@@ -551,7 +551,7 @@
 
           // Determine background color based on category
           let bgColor = '';
-          if (model.includes('real-world') || model === 'real-world') {
+          if (modelName.includes('real-world') || modelName === 'real-world') {
             bgColor = 'rgba(249, 242, 248, 1)';  // light pink
           } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
                     conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
