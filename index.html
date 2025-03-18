@@ -573,13 +573,13 @@
 
           // Assuming CSV columns match table columns
           tr.innerHTML = `
-            <td style="text-align: left;"><b>${row.model_name || ''}</b></td>
-            <td>${row.experiment_type || ''}</td>
+            <td style="text-align: left;"><b>${row.model || ''}</b></td>
+            <td>${row.experiment || ''}</td>
             <td>${row.conditioning || ''}</td>
             <td>${row.prompt_type || ''}</td>
             <td>${row.discard_rate || 'xxx'}</td>
-            <td>${row.physical_invariance_score || 'xxx'}</td>
-            <td>${row.dynamical_score || 'xxx'}</td>
+            <td>${row.overall_mean_physical_score || 'xxx'}</td>
+            <td>${row.overall_mean_statistical_score || 'xxx'}</td>
           `;
           
           tableBody.appendChild(tr);
