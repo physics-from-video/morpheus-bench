@@ -277,6 +277,7 @@
         .then(data => {
           // Parse CSV data
           const parsedData = parseCSV(data);
+          window.originalData = parsedData;
           // Populate the table
           populateTable(parsedData);
           // Initialize DataTable AFTER the data is loaded
@@ -490,10 +491,10 @@
             <td style="text-align: left;"><b>${row.model || ''}</b></td>
             <td>${experimentType || ''}</td>
             <td>${conditioning || ''}</td>
-            <td>${promptType || ''}</td>
-            <td>${discardRate}</td>
-            <td>${physicalScore}</td>
-            <td>${dynamicalScore}</td>
+            <td>${row.prompt_type || ''}</td>
+            <td>${row.discard_rate || 'xxx'}</td>
+            <td>${row.overall_mean_physical_score || 'xxx'}</td>
+            <td>${row.overall_mean_statistical_score || 'xxx'}</td>
           `;
           
           tableBody.appendChild(tr);
@@ -611,22 +612,145 @@
             
             // Get the experiment type to filter by
             const experimentType = this.getAttribute('data-experiment');
+
+            if (experimentType === 'all') {
+              // Show averages across all experiments
+              showAverages();
+            } else {
+              // Filter by specific experiment type
+              filterTableByExperiment(experimentType);
+            }
             
-            // Filter the table rows
-            const tableRows = document.querySelectorAll('#table1 tbody tr');
-            tableRows.forEach(row => {
-              const experiment = row.getAttribute('data-experiment');
+            // // Filter the table rows
+            // const tableRows = document.querySelectorAll('#table1 tbody tr');
+            // tableRows.forEach(row => {
+            //   const experiment = row.getAttribute('data-experiment');
               
-              if (experimentType === 'all' || experiment === experimentType) {
-                row.style.display = '';
-              } else {
-                row.style.display = 'none';
-              }
-            });
+            //   if (experimentType === 'all' || experiment === experimentType) {
+            //     row.style.display = '';
+            //   } else {
+            //     row.style.display = 'none';
+            //   }
+            // });
           });
         });
+
+        // Trigger click on "All Experiments" button by default
+        document.querySelector('.experiment-btn[data-experiment="all"]').click();
       }
+
+      // Function to filter table by experiment type
+      function filterTableByExperiment(experimentType) {
+        // Get all table rows
+        const tableRows = document.querySelectorAll('#table1 tbody tr');
+        
+        // Show/hide rows based on experiment type
+        tableRows.forEach(row => {
+          const rowExperiment = row.getAttribute('data-experiment');
+          if (experimentType === 'all' || rowExperiment === experimentType) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+
+      // Function to show averages across all experiments
+      function showAverages() {
+        // Clear the table
+        const tableBody = document.querySelector('#table1 tbody');
+        tableBody.innerHTML = '';
+        
+        // Group and calculate averages
+        const groupedData = {};
+        
+        // Clone the original data to avoid modifying it
+        const data = JSON.parse(JSON.stringify(window.originalData || []));
+        
+        // Group by model, conditioning, and prompt_type
+        data.forEach(row => {
+          const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
+          const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
+          const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
+          
+          const key = `${modelName}-${conditioning}-${promptType}`;
+          
+          if (!groupedData[key]) {
+            groupedData[key] = {
+              model: modelName,
+              conditioning: conditioning,
+              prompt_type: promptType,
+              discard_rates: [],
+              physical_scores: [],
+              dynamical_scores: []
+            };
+          }
+          
+          // Add numeric values to arrays for averaging
+          const discardRate = parseFloat(getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']));
+          const physicalScore = parseFloat(getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']));
+          const dynamicalScore = parseFloat(getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']));
+          
+          if (!isNaN(discardRate)) groupedData[key].discard_rates.push(discardRate);
+          if (!isNaN(physicalScore)) groupedData[key].physical_scores.push(physicalScore);
+          if (!isNaN(dynamicalScore)) groupedData[key].dynamical_scores.push(dynamicalScore);
+        });
+        
+        // Calculate averages and add rows to table
+        Object.values(groupedData).forEach(group => {
+          // Calculate averages
+          const avgDiscardRate = group.discard_rates.length > 0 
+            ? group.discard_rates.reduce((sum, val) => sum + val, 0) / group.discard_rates.length 
+            : 'xxx';
+            
+          const avgPhysicalScore = group.physical_scores.length > 0 
+            ? group.physical_scores.reduce((sum, val) => sum + val, 0) / group.physical_scores.length 
+            : 'xxx';
+            
+          const avgDynamicalScore = group.dynamical_scores.length > 0 
+            ? group.dynamical_scores.reduce((sum, val) => sum + val, 0) / group.dynamical_scores.length 
+            : 'xxx';
+          
+          // Format the values
+          const formattedDiscardRate = formatNumberValue(avgDiscardRate, 2);
+          const formattedPhysicalScore = formatNumberValue(avgPhysicalScore, 3);
+          const formattedDynamicalScore = formatNumberValue(avgDynamicalScore, 3);
+          
+          // Create table row
+          const tr = document.createElement('tr');
+          
+          // Set background color
+          let bgColor = '';
+          if (group.model.includes('real-world') || group.model === 'real-world') {
+            bgColor = 'rgba(249, 242, 248, 1)';  // light pink
+          } else if (group.conditioning.includes('single_frame') || group.conditioning === 'single_frame_conditioning') {
+            bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
+          } else if (group.conditioning.includes('multi_frame') || group.conditioning === 'multi_frame_conditioning') {
+            bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
+          } else if (group.conditioning.includes('keyframe') || group.conditioning === 'keyframe_interpolation') {
+            bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
+          }
+          
+          tr.style.backgroundColor = bgColor;
+          
+          // Add data to the row - note we're hiding the experiment column for averages
+          tr.innerHTML = `
+            <td style="text-align: left;"><b>${group.model || ''}</b></td>
+            <td>All Experiments</td>
+            <td>${group.conditioning || ''}</td>
+            <td>${group.prompt_type || ''}</td>
+            <td>${formattedDiscardRate}</td>
+            <td>${formattedPhysicalScore}</td>
+            <td>${formattedDynamicalScore}</td>
+          `;
+          
+          tableBody.appendChild(tr);
+        });
+      }
+
     });
+
+
 
         
 
