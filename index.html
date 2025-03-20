@@ -337,6 +337,21 @@
           'non_holonomic': 'Non-holonomic Pendulum',
           'double_pendulum': 'Double Pendulum'
         };
+
+        // add a helper function to format the number value, support specify the decimal places
+        function formatNumberValue(value, decimals = 2) {
+          if (value === '' || value === 'xxx' || value === null || value === undefined) {
+            return 'xxx';
+          }
+          // try to convert the value to a number
+          const num = parseFloat(value);
+          // check if it is a valid number
+          if (!isNaN(num)) {
+            // format to the specified decimal places
+            return num.toFixed(decimals);
+          }
+          return value;
+        }
         
         data.forEach(row => {
           try {
@@ -354,9 +369,14 @@
             const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
             const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
             const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
-            const discardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
-            const physicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
-            const dynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
+            // const discardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
+            // const physicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
+            // const dynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
+
+            // format the number value, support specify the decimal places
+            const discardRate = formatNumberValue(getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']), 2);
+            const physicalScore = formatNumberValue(getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']), 3);
+            const dynamicalScore = formatNumberValue(getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']), 3);
 
           // Determine background color based on category
           let bgColor = '';
