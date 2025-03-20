@@ -271,6 +271,22 @@
     let dataTable;
 
     document.addEventListener('DOMContentLoaded', function() {
+      // add a helper function to format the number value, support specify the decimal places
+      function formatNumberValue(value, decimals = 2) {
+        if (value === '' || value === 'xxx' || value === null || value === undefined) {
+          return 'xxx';
+        }
+        // try to convert the value to a number
+        const num = parseFloat(value);
+        // check if it is a valid number
+        if (!isNaN(num)) {
+          // format to the specified decimal places
+          return num.toFixed(decimals);
+        }
+        return value;
+      }
+
+
       // Fetch the CSV data
       fetch('./summary.csv')
         .then(response => response.text())
@@ -420,21 +436,6 @@
           'non_holonomic': 'Non-holonomic Pendulum',
           'double_pendulum': 'Double Pendulum'
         };
-
-        // add a helper function to format the number value, support specify the decimal places
-        function formatNumberValue(value, decimals = 2) {
-          if (value === '' || value === 'xxx' || value === null || value === undefined) {
-            return 'xxx';
-          }
-          // try to convert the value to a number
-          const num = parseFloat(value);
-          // check if it is a valid number
-          if (!isNaN(num)) {
-            // format to the specified decimal places
-            return num.toFixed(decimals);
-          }
-          return value;
-        }
         
         data.forEach(row => {
           try {
@@ -452,15 +453,19 @@
             const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
             const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
             const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
+
+            const rawDiscardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
+            const rawPhysicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
+            const rawDynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
             // const discardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
             // const physicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
             // const dynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
 
             // format the number value, support specify the decimal places
-            const discardRate = formatNumberValue(getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']), 2);
-            const physicalScore = formatNumberValue(getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']), 3);
-            const dynamicalScore = formatNumberValue(getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']), 3);
-
+            const discardRate = formatNumberValue(rawDiscardRate, 2);
+            const physicalScore = formatNumberValue(rawPhysicalScore, 3);
+            const dynamicalScore = formatNumberValue(rawDynamicalScore, 3);
+          
           // Determine background color based on category
           let bgColor = '';
           if (modelName.includes('real-world') || modelName === 'real-world') {
@@ -491,16 +496,16 @@
             <td style="text-align: left;"><b>${row.model || ''}</b></td>
             <td>${experimentType || ''}</td>
             <td>${conditioning || ''}</td>
-            <td>${row.prompt_type || ''}</td>
-            <td>${row.discard_rate || 'xxx'}</td>
-            <td>${row.overall_mean_physical_score || 'xxx'}</td>
-            <td>${row.overall_mean_statistical_score || 'xxx'}</td>
+            <td>${promptType || ''}</td>
+            <td>${discardRate || 'xxx'}</td>
+            <td>${physicalScore || 'xxx'}</td>
+            <td>${dynamicalScore || 'xxx'}</td>
           `;
           
           tableBody.appendChild(tr);
-        } catch (error) {
-          console.error('Error processing row:', error);
-        }
+          } catch (error) {
+            console.error('Error processing row:', error);
+          }
         });
       }
 
