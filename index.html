@@ -199,6 +199,7 @@
         <!-- Add experiment filter buttons -->
         <div class="experiment-filter" style="margin-top: 15px; margin-bottom: 15px;">
           <button class="experiment-btn active" data-experiment="all">All Experiments</button>
+          <button class="experiment-btn" data-experiment="conditioning comparison">Conditioning Comparison</button>
           <button class="experiment-btn" data-experiment="falling ball">Falling Ball</button>
           <button class="experiment-btn" data-experiment="bouncing ball">Bouncing Ball</button>
           <button class="experiment-btn" data-experiment="projectile">Projectile</button>
@@ -269,6 +270,7 @@
   <!-- Add experiment filter JavaScript -->
   <script>
     let dataTable;
+    let currentDisplayData = []; 
 
     document.addEventListener('DOMContentLoaded', function() {
       // add a helper function to format the number value, support specify the decimal places
@@ -609,6 +611,7 @@
         // Add click event to each button
         experimentBtns.forEach(btn => {
           btn.addEventListener('click', function() {
+            if (this.id === 'conditioning-comparison-btn') return;
             // Remove active class from all buttons
             experimentBtns.forEach(b => b.classList.remove('active'));
             
@@ -640,8 +643,8 @@
           });
         });
 
-        // Trigger click on "All Experiments" button by default
-        document.querySelector('.experiment-btn[data-experiment="all"]').click();
+        // // Trigger click on "All Experiments" button by default
+        // document.querySelector('.experiment-btn[data-experiment="all"]').click();
       }
 
       function filterBySpecificExperiment(experimentType) {
