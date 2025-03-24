@@ -629,80 +629,80 @@
         });
 
         // // Trigger click on "All Experiments" button by default
-        document.querySelector('.experiment-btn[data-experiment="all"]').click();
+        // document.querySelector('.experiment-btn[data-experiment="all"]').click();
       }
 
       // Function to load all experiments data
       function loadAllExperimentsData() {
-          fetch('./experiment_summary.csv')
-            .then(response => response.text())
-            .then(data => {
-              // Parse CSV data
-              const parsedData = parseCSV(data);
-              
-              // empty the table
-              const tableBody = document.querySelector('#table1 tbody');
-              tableBody.innerHTML = '';
-              
-              // fill the table
-              parsedData.forEach(row => {
-                try {
-                  // get the necessary data
-                  const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
-                  const experimentType = "All Experiments"; // fixed as All Experiments
-                  const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
-                  const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
-                  
-                  const rawDiscardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
-                  const rawPhysicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
-                  const rawDynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
-                  
-                  // format the number value, support specify the decimal places
-                  const discardRate = formatNumberValue(rawDiscardRate, 2);
-                  const physicalScore = formatNumberValue(rawPhysicalScore, 3);
-                  const dynamicalScore = formatNumberValue(rawDynamicalScore, 3);
-                  
-                  // set the background color
-                  let bgColor = '';
-                  if (modelName.includes('real-world') || modelName === 'real-world') {
-                    bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-                  } else if (conditioning.includes('single_frame') || conditioning === 'single_frame_conditioning') {
-                    bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-                  } else if (conditioning.includes('multi_frame') || conditioning === 'multi_frame_conditioning') {
-                    bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-                  } else if (conditioning.includes('keyframe') || conditioning === 'keyframe_interpolation') {
-                    bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
-                  }
-                  
-                  // create the table row
-                  const tr = document.createElement('tr');
-                  tr.style.backgroundColor = bgColor;
-                  tr.setAttribute('data-experiment', 'all');
-                  
-                  tr.innerHTML = `
-                    <td style="text-align: left;"><b>${modelName || ''}</b></td>
-                    <td>${experimentType || ''}</td>
-                    <td>${conditioning || ''}</td>
-                    <td>${promptType || ''}</td>
-                    <td>${discardRate || 'xxx'}</td>
-                    <td>${physicalScore || 'xxx'}</td>
-                    <td>${dynamicalScore || 'xxx'}</td>
-                  `;
-                  
-                  tableBody.appendChild(tr);
-                } catch (error) {
-                  console.error('Error processing row:', error);
-                }
-              });
+        fetch('./experiment_summary.csv')
+          .then(response => response.text())
+          .then(data => {
+            // Parse CSV data
+            const parsedData = parseCSV(data);
+            
+            // empty the table
+            const tableBody = document.querySelector('#table1 tbody');
+            tableBody.innerHTML = '';
+            
+            // fill the table
+            parsedData.forEach(row => {
+              try {
+                // get the necessary data
+                const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
+                const experimentType = "All Experiments"; // fixed as All Experiments
+                const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
+                const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
                 
-              // reinitialize DataTable
-              initializeDataTable();
-            })
-            .catch(error => {
-              console.error('Error loading experiment_summary.csv:', error);
-              const tableBody = document.querySelector('#table1 tbody');
-              tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
+                const rawDiscardRate = getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']);
+                const rawPhysicalScore = getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']);
+                const rawDynamicalScore = getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']);
+                
+                // format the number value, support specify the decimal places
+                const discardRate = formatNumberValue(rawDiscardRate, 2);
+                const physicalScore = formatNumberValue(rawPhysicalScore, 3);
+                const dynamicalScore = formatNumberValue(rawDynamicalScore, 3);
+                
+                // set the background color
+                let bgColor = '';
+                if (modelName.includes('real-world') || modelName === 'real-world') {
+                  bgColor = 'rgba(249, 242, 248, 1)';  // light pink
+                } else if (conditioning.includes('single_frame') || conditioning === 'single_frame_conditioning') {
+                  bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
+                } else if (conditioning.includes('multi_frame') || conditioning === 'multi_frame_conditioning') {
+                  bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
+                } else if (conditioning.includes('keyframe') || conditioning === 'keyframe_interpolation') {
+                  bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
+                }
+                
+                // create the table row
+                const tr = document.createElement('tr');
+                tr.style.backgroundColor = bgColor;
+                tr.setAttribute('data-experiment', 'all');
+                
+                tr.innerHTML = `
+                  <td style="text-align: left;"><b>${modelName || ''}</b></td>
+                  <td>${experimentType || ''}</td>
+                  <td>${conditioning || ''}</td>
+                  <td>${promptType || ''}</td>
+                  <td>${discardRate || 'xxx'}</td>
+                  <td>${physicalScore || 'xxx'}</td>
+                  <td>${dynamicalScore || 'xxx'}</td>
+                `;
+                
+                tableBody.appendChild(tr);
+              } catch (error) {
+                console.error('Error processing row:', error);
+              }
             });
+              
+            // reinitialize DataTable
+            initializeDataTable();
+          })
+          .catch(error => {
+            console.error('Error loading experiment_summary.csv:', error);
+            const tableBody = document.querySelector('#table1 tbody');
+            tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
+          });
         }
 
 
