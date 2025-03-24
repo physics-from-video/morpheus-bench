@@ -463,6 +463,11 @@
           } catch (error) {
             console.error('Error processing row:', error);
           }
+
+          // Log key values for debugging
+          console.log('Model:', modelName);
+          console.log('Experiment:', experimentType);
+          console.log('Conditioning:', conditioning);
         });
       }
 
@@ -486,10 +491,7 @@
         });
       }
 
-      // Log key values for debugging
-      console.log('Model:', modelName);
-      console.log('Experiment:', experimentType);
-      console.log('Conditioning:', conditioning);
+      
 
       // Function to initialize filters
       function initializeFilters() {
