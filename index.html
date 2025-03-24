@@ -625,18 +625,6 @@
               // Filter by specific experiment type
               filterTableByExperiment(experimentType);
             }
-            
-            // // Filter the table rows
-            // const tableRows = document.querySelectorAll('#table1 tbody tr');
-            // tableRows.forEach(row => {
-            //   const experiment = row.getAttribute('data-experiment');
-              
-            //   if (experimentType === 'all' || experiment === experimentType) {
-            //     row.style.display = '';
-            //   } else {
-            //     row.style.display = 'none';
-            //   }
-            // });
           });
         });
 
@@ -712,6 +700,8 @@
             })
             .catch(error => {
               console.error('Error loading experiment_summary.csv:', error);
+              const tableBody = document.querySelector('#table1 tbody');
+              tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
             });
         }
 
