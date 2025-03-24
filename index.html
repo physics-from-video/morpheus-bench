@@ -192,9 +192,9 @@
 <div class="container">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;">
-          <b>MORPHEUS Leaderboard</b>
-        </button>
+        <!-- <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;"> -->
+        <b>MORPHEUS Leaderboard</b>
+        <!-- </button> -->
 
         <!-- Add experiment filter buttons -->
         <div class="experiment-filter" style="margin-top: 15px; margin-bottom: 15px;">
@@ -327,6 +327,24 @@
           document.querySelector('#table1 tbody').innerHTML = 
             '<tr><td colspan="7">Error loading data. Please try again later.</td></tr>';
         });
+
+      
+      const allExperimentsBtn = document.querySelector('.experiment-btn[data-experiment="all"]');
+      allExperimentsBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log("All Experiments button clicked");
+        
+        // remove the active class from all buttons
+        document.querySelectorAll('.experiment-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // add the active class to the current button
+        this.classList.add('active');
+        
+        // manually trigger the loading of aggregated data
+        loadAllExperimentsData();
+      });
       
       // Function to parse CSV data
       function parseCSV(csvText) {
@@ -360,88 +378,6 @@
         }
         return '';
       }
-
-      // function calculateAverages(data) {
-      //   const groupedData = {};
-        
-      //   // group by model and conditioning
-      //   data.forEach(row => {
-      //     const modelName = getColumnValue(row, ['model', 'model_name', 'Model Name', 'ModelName', 'Model']);
-      //     const conditioning = getColumnValue(row, ['conditioning', 'Conditioning']);
-      //     const key = `${modelName}-${conditioning}`;
-          
-      //     if (!groupedData[key]) {
-      //       groupedData[key] = {
-      //         model: modelName,
-      //         conditioning: conditioning,
-      //         rows: [],
-      //         promptTypes: new Set()
-      //       };
-      //     }
-          
-      //     // add prompt_type to the set, so we know how many different prompt_type
-      //     const promptType = getColumnValue(row, ['prompt_type', 'Prompt Type', 'PromptType', 'prompt', 'Prompt']);
-      //     groupedData[key].promptTypes.add(promptType);
-          
-      //     // add the row data to the corresponding group
-      //     groupedData[key].rows.push(row);
-      //   });
-        
-      //   // calculate the average value for each group
-      //   const averages = [];
-      //   for (const key in groupedData) {
-      //     const group = groupedData[key];
-      //     const rows = group.rows;
-          
-      //     let totalDiscardRate = 0;
-      //     let validDiscardRateCount = 0;
-      //     let totalPhysicalScore = 0;
-      //     let validPhysicalScoreCount = 0;
-      //     let totalDynamicalScore = 0;
-      //     let validDynamicalScoreCount = 0;
-          
-      //     rows.forEach(row => {
-      //       // get the metrics
-      //       const discardRate = parseFloat(getColumnValue(row, ['discard_rate', 'Discard Rate', 'DiscardRate', 'discard', 'Discard']));
-      //       const physicalScore = parseFloat(getColumnValue(row, ['overall_mean_physical_score', 'physical_invariance_score', 'Physical Invariance Score', 'Physical Score', 'PhysicalScore']));
-      //       const dynamicalScore = parseFloat(getColumnValue(row, ['overall_mean_statistical_score', 'dynamical_score', 'Dynamical Score', 'DynamicalScore']));
-            
-      //       // add the valid value
-      //       if (!isNaN(discardRate)) {
-      //         totalDiscardRate += discardRate;
-      //         validDiscardRateCount++;
-      //       }
-            
-      //       if (!isNaN(physicalScore)) {
-      //         totalPhysicalScore += physicalScore;
-      //         validPhysicalScoreCount++;
-      //       }
-            
-      //       if (!isNaN(dynamicalScore)) {
-      //         totalDynamicalScore += dynamicalScore;
-      //         validDynamicalScoreCount++;
-      //       }
-      //     });
-          
-      //     // calculate the average value
-      //     const avgDiscardRate = validDiscardRateCount > 0 ? totalDiscardRate / validDiscardRateCount : 'xxx';
-      //     const avgPhysicalScore = validPhysicalScoreCount > 0 ? totalPhysicalScore / validPhysicalScoreCount : 'xxx';
-      //     const avgDynamicalScore = validDynamicalScoreCount > 0 ? totalDynamicalScore / validDynamicalScoreCount : 'xxx';
-          
-      //     // build the average value row data
-      //     averages.push({
-      //       model: group.model,
-      //       experiment: 'All Experiments',
-      //       conditioning: group.conditioning,
-      //       prompt_type: Array.from(group.promptTypes).join(', '),
-      //       discard_rate: avgDiscardRate,
-      //       overall_mean_physical_score: avgPhysicalScore,
-      //       overall_mean_statistical_score: avgDynamicalScore
-      //     });
-      //   }
-        
-      //   return averages;
-      // }
 
       // Function to populate the table
       function populateTable(data) {
@@ -530,74 +466,6 @@
         });
       }
 
-      /*
-      document.getElementById('experiment-select').addEventListener('change', function() {
-        const selectedExperiment = this.value;
-        console.log('Selected experiment:', selectedExperiment);
-        
-        // all rows in the table
-        const rows = document.querySelectorAll('#table1 tbody tr');
-        
-        // if (selectedExperiment === 'all') {
-        //   // if select "All Experiments", clear the table and fill the average value data
-        //   const tableBody = document.querySelector('#table1 tbody');
-        //   tableBody.innerHTML = ''; // clear the table
-          
-        //   // calculate the average value
-        //   const averageData = calculateAverages(originalData);
-          
-        //   // fill the table with the average value data
-        //   averageData.forEach(row => {
-        //     const tr = document.createElement('tr');
-            
-        //     // format the number value, support specify the decimal places
-        //     const discardRate = formatNumberValue(row.discard_rate, 2);
-        //     const physicalScore = formatNumberValue(row.overall_mean_physical_score, 3);
-        //     const dynamicalScore = formatNumberValue(row.overall_mean_statistical_score, 3);
-            
-        //     // set the row background color
-        //     let bgColor = '';
-        //     if (modelName.includes('real-world') || modelName === 'real-world') {
-        //     bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-        //   } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
-        //             conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
-        //     bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-        //   } else if (conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame' || 
-        //             conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame_conditioning') {
-        //     bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-        //   } else if (conditioning.includes('keyframe_interpolation') || conditioning === 'keyframe_interpolation' || 
-        //             conditioning.includes('keyframe_interpolation_conditioning') || conditioning === 'keyframe_interpolation_conditioning') {
-        //     bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
-        //   }
-            
-        //     tr.style.backgroundColor = bgColor;
-            
-        //     // build the table row content
-        //     tr.innerHTML = `
-        //       <td style="text-align: left;"><b>${row.model || ''}</b></td>
-        //       <td>${row.experiment || ''}</td>
-        //       <td>${row.conditioning || ''}</td>
-        //       <td>${row.prompt_type || ''}</td>
-        //       <td>${discardRate}</td>
-        //       <td>${physicalScore}</td>
-        //       <td>${dynamicalScore}</td>
-        //     `;
-            
-        //     tableBody.appendChild(tr);
-        //   });
-        // } else {
-          // the original filter logic
-        rows.forEach(row => {
-          const experimentType = row.getAttribute('data-experiment');
-          if (selectedExperiment === 'all' || experimentType === selectedExperiment.toLowerCase()) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      });
-      */
-
       // Function to initialize DataTable
       function initializeDataTable() {
         // destroy the existing DataTable instance if it exists
@@ -656,9 +524,12 @@
 
       // Function to load all experiments data
       function loadAllExperimentsData() {
+        console.log('Loading experiment_summary.csv...');
+
         fetch('./experiment_summary.csv')
           .then(response => response.text())
           .then(data => {
+            console.log('Successfully loaded experiment_summary.csv...');
             // Parse CSV data
             const parsedData = parseCSV(data);
             
@@ -667,6 +538,7 @@
             tableBody.innerHTML = '';
             
             // fill the table
+            let rowsAdded = 0;
             parsedData.forEach(row => {
               try {
                 // get the necessary data
@@ -683,6 +555,10 @@
                 const discardRate = formatNumberValue(rawDiscardRate, 2);
                 const physicalScore = formatNumberValue(rawPhysicalScore, 3);
                 const dynamicalScore = formatNumberValue(rawDynamicalScore, 3);
+
+                // create the table row
+                const tr = document.createElement('tr');
+                tr.setAttribute('data-experiment', 'all');
                 
                 // set the background color
                 let bgColor = '';
@@ -696,10 +572,7 @@
                   bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
                 }
                 
-                // create the table row
-                const tr = document.createElement('tr');
                 tr.style.backgroundColor = bgColor;
-                tr.setAttribute('data-experiment', 'all');
                 
                 tr.innerHTML = `
                   <td style="text-align: left;"><b>${modelName || ''}</b></td>
@@ -712,10 +585,13 @@
                 `;
                 
                 tableBody.appendChild(tr);
+                rowsAdded++;
               } catch (error) {
                 console.error('Error processing row:', error);
               }
             });
+
+            console.log('Rows added:', rowsAdded);
               
             // reinitialize DataTable
             initializeDataTable();
