@@ -423,51 +423,54 @@
             const physicalScore = formatNumberValue(rawPhysicalScore, 3);
             const dynamicalScore = formatNumberValue(rawDynamicalScore, 3);
           
-          // Determine background color based on category
-          let bgColor = '';
-          if (modelName.includes('real-world') || modelName === 'real-world') {
-            bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-          } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
-                    conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
-            bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-          } else if (conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame' || 
-                    conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame_conditioning') {
-            bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-          } else if (conditioning.includes('keyframe_interpolation') || conditioning === 'keyframe_interpolation' || 
-                    conditioning.includes('keyframe_interpolation_conditioning') || conditioning === 'keyframe_interpolation_conditioning') {
-            bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
-          }
+            // Determine background color based on category
+            let bgColor = '';
+            if (modelName.includes('real-world') || modelName === 'real-world') {
+              bgColor = 'rgba(249, 242, 248, 1)';  // light pink
+            } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
+                      conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
+              bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
+            } else if (conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame' || 
+                      conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame_conditioning') {
+              bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
+            } else if (conditioning.includes('keyframe_interpolation') || conditioning === 'keyframe_interpolation' || 
+                      conditioning.includes('keyframe_interpolation_conditioning') || conditioning === 'keyframe_interpolation_conditioning') {
+              bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
+            }
 
-          // // Map the experiment type from CSV format to display format
-          // const experimentType = experimentTypeMapping[row.experiment_type] || row.experiment_type;
+            // // Map the experiment type from CSV format to display format
+            // const experimentType = experimentTypeMapping[row.experiment_type] || row.experiment_type;
+            
+            // Apply background color to the entire row
+            const tr = document.createElement('tr');
+            tr.style.backgroundColor = bgColor;
+
+            // Add data-experiment attribute for filtering
+            tr.setAttribute('data-experiment', experimentType.toLowerCase());
+
+            // Assuming CSV columns match table columns
+            tr.innerHTML = `
+              <td style="text-align: left;"><b>${modelName || ''}</b></td>
+              <td>${experimentType || ''}</td>
+              <td>${conditioning || ''}</td>
+              <td>${promptType || ''}</td>
+              <td>${discardRate || 'xxx'}</td>
+              <td>${physicalScore || 'xxx'}</td>
+              <td>${dynamicalScore || 'xxx'}</td>
+            `;
           
-          // Apply background color to the entire row
-          const tr = document.createElement('tr');
-          tr.style.backgroundColor = bgColor;
+            tableBody.appendChild(tr);
+            
+            // Log key values for debugging
+            console.log('Model:', modelName);
+            console.log('Experiment:', experimentType);
+            console.log('Conditioning:', conditioning);
 
-          // Add data-experiment attribute for filtering
-          tr.setAttribute('data-experiment', experimentType.toLowerCase());
-
-          // Assuming CSV columns match table columns
-          tr.innerHTML = `
-            <td style="text-align: left;"><b>${modelName || ''}</b></td>
-            <td>${experimentType || ''}</td>
-            <td>${conditioning || ''}</td>
-            <td>${promptType || ''}</td>
-            <td>${discardRate || 'xxx'}</td>
-            <td>${physicalScore || 'xxx'}</td>
-            <td>${dynamicalScore || 'xxx'}</td>
-          `;
-          
-          tableBody.appendChild(tr);
           } catch (error) {
             console.error('Error processing row:', error);
           }
 
-          // Log key values for debugging
-          console.log('Model:', modelName);
-          console.log('Experiment:', experimentType);
-          console.log('Conditioning:', conditioning);
+          
         });
       }
 
