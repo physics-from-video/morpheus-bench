@@ -460,11 +460,11 @@
             `;
           
             tableBody.appendChild(tr);
-            
-            // Log key values for debugging
-            console.log('Model:', modelName);
-            console.log('Experiment:', experimentType);
-            console.log('Conditioning:', conditioning);
+
+            // // Log key values for debugging
+            // console.log('Model:', modelName);
+            // console.log('Experiment:', experimentType);
+            // console.log('Conditioning:', conditioning);
 
           } catch (error) {
             console.error('Error processing row:', error);
@@ -599,7 +599,22 @@
             console.log('Rows added:', rowsAdded);
               
             // reinitialize DataTable
-            initializeDataTable();
+            // initializeDataTable();
+            // Properly reinitialize DataTable AFTER the DOM has been updated
+            setTimeout(() => {
+              dataTable = $('#table1').DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                "order": [],
+                "columnDefs": [
+                  { "targets": [0, 1, 2, 3], "orderable": false },
+                  { "targets": [4, 5, 6], "orderable": true }
+                ]
+              });
+            }, 0);
+            // log the data table
+            console.log('DataTable:', dataTable);
           })
           .catch(error => {
             console.error('Error loading experiment_summary.csv:', error);
