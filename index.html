@@ -522,7 +522,7 @@
               loadAllExperimentsData();
             } else {
               // Filter by specific experiment type
-              filterTableByExperiment(experimentType);
+              filterBySpecificExperiment(experimentType);
             }
           });
         });
@@ -680,20 +680,20 @@
       }
 
       // Function to filter table by experiment type
-      function filterTableByExperiment(experimentType) {
-        // Get all table rows
-        const tableRows = document.querySelectorAll('#table1 tbody tr');
+      // function filterTableByExperiment(experimentType) {
+      //   // Get all table rows
+      //   const tableRows = document.querySelectorAll('#table1 tbody tr');
         
-        // Show/hide rows based on experiment type
-        tableRows.forEach(row => {
-          const rowExperiment = row.getAttribute('data-experiment');
-          if (experimentType === 'all' || rowExperiment === experimentType) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      }
+      //   // Show/hide rows based on experiment type
+      //   tableRows.forEach(row => {
+      //     const rowExperiment = row.getAttribute('data-experiment');
+      //     if (experimentType === 'all' || rowExperiment === experimentType) {
+      //       row.style.display = '';
+      //     } else {
+      //       row.style.display = 'none';
+      //     }
+      //   });
+      // }
 
       // Function to show averages across all experiments
       function showAverages() {
