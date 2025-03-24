@@ -307,6 +307,12 @@
         return value;
       }
 
+      // Initialize dataTable as null
+      let dataTable = null;
+
+      // Load All Experiments data by default when page loads
+      loadAllExperimentsData();
+
 
       // Fetch the CSV data
       fetch('./summary_old.csv')
@@ -316,9 +322,9 @@
           const parsedData = parseCSV(data);
           window.originalData = parsedData;
           // Populate the table
-          populateTable(parsedData);
+          // populateTable(parsedData);
           // Initialize DataTable AFTER the data is loaded
-          initializeDataTable();
+          // initializeDataTable();
           // Initialize filters
           initializeFilters();
         })
