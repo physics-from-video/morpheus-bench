@@ -192,9 +192,9 @@
 <div class="container">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <!-- <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;"> -->
-        <b>MORPHEUS Leaderboard</b>
-        <!-- </button> -->
+        <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;">
+          <b>MORPHEUS Leaderboard</b>
+        </button>
 
         <!-- Add experiment filter buttons -->
         <div class="experiment-filter" style="margin-top: 15px; margin-bottom: 15px;">
@@ -476,22 +476,26 @@
 
       // Function to initialize DataTable
       function initializeDataTable() {
-        // destroy the existing DataTable instance if it exists
-        if($.fn.DataTable.isDataTable('#table1')) {
-          $('#table1').DataTable().destroy();
+        try {
+          // destroy the existing DataTable instance if it exists
+          if(dataTable && $.fn.DataTable.isDataTable('#table1')) {
+            dataTable.destroy();
+          }
+          
+          // reinitialize DataTable
+          dataTable = $('#table1').DataTable({
+            paging: false,
+            searching: false,
+            info: false,
+            "order": [],
+            "columnDefs": [
+              { "targets": [0, 1, 2, 3], "orderable": false },
+              { "targets": [4, 5, 6], "orderable": true }
+            ]
+          });
+        } catch (e) {
+          console.error("Error initializing DataTable:", e);
         }
-        
-        // reinitialize DataTable
-        dataTable = $('#table1').DataTable({
-          paging: false,
-          searching: false,
-          info: false,
-          "order": [],
-          "columnDefs": [
-            { "targets": [0, 1, 2, 3], "orderable": false },
-            { "targets": [4, 5, 6], "orderable": true }
-          ]
-        });
       }
 
       
@@ -601,7 +605,8 @@
             // reinitialize DataTable
             // initializeDataTable();
             // Properly reinitialize DataTable AFTER the DOM has been updated
-            setTimeout(() => {
+            try {
+              console.log("Initializing new DataTable");
               dataTable = $('#table1').DataTable({
                 paging: false,
                 searching: false,
@@ -612,9 +617,9 @@
                   { "targets": [4, 5, 6], "orderable": true }
                 ]
               });
-            }, 0);
-            // log the data table
-            console.log('DataTable:', dataTable);
+            } catch (e) {
+              console.error("Error initializing DataTable:", e);
+            }
           })
           .catch(error => {
             console.error('Error loading experiment_summary.csv:', error);
@@ -626,31 +631,52 @@
 
 
       function filterBySpecificExperiment(experimentType) {
-        const tableBody = document.querySelector('#table1 tbody');
-        tableBody.innerHTML = '';
-        
-        // Filter original data for the specific experiment
-        const filteredData = window.originalData.filter(row => {
-          const rawExperimentType = getColumnValue(row, [
-            'experiment', 'Experiment', 'experiment_type', 'Experiment Type'
-          ]);
+        try {
+          // Destroy existing DataTable if it exists
+          if(dataTable && $.fn.DataTable.isDataTable('#table1')) {
+            dataTable.destroy();
+          }
+
+          const tableBody = document.querySelector('#table1 tbody');
+          tableBody.innerHTML = '';
           
-          // Use the mapping to compare consistently
-          const experimentMapping = {
-            'falling_ball': 'falling ball',
-            'bouncing_ball': 'bouncing ball',
-            'projectile': 'projectile',
-            'holonomic_pendulum': 'holonomic pendulum',
-            'non_holonomic': 'non-holonomic pendulum',
-            'double_pendulum': 'double pendulum'
-          };
-          
-          const normalizedExperiment = experimentMapping[rawExperimentType] || rawExperimentType.toLowerCase();
-          return normalizedExperiment === experimentType;
-        });
+          // Filter original data for the specific experiment
+          const filteredData = window.originalData.filter(row => {
+            const rawExperimentType = getColumnValue(row, [
+              'experiment', 'Experiment', 'experiment_type', 'Experiment Type'
+            ]);
+            
+            // Use the mapping to compare consistently
+            const experimentMapping = {
+              'falling_ball': 'falling ball',
+              'bouncing_ball': 'bouncing ball',
+              'projectile': 'projectile',
+              'holonomic_pendulum': 'holonomic pendulum',
+              'non_holonomic': 'non-holonomic pendulum',
+              'double_pendulum': 'double pendulum'
+            };
+            
+            const normalizedExperiment = experimentMapping[rawExperimentType] || rawExperimentType.toLowerCase();
+            return normalizedExperiment === experimentType;
+          });
         
-        // Repopulate the table with filtered data
-        populateTable(filteredData);
+          // Repopulate the table with filtered data
+          populateTable(filteredData);
+
+          // Reinitialize DataTable
+          dataTable = $('#table1').DataTable({
+            paging: false,
+            searching: false,
+            info: false,
+            "order": [],
+            "columnDefs": [
+              { "targets": [0, 1, 2, 3], "orderable": false },
+              { "targets": [4, 5, 6], "orderable": true }
+            ]
+          });
+        } catch (error) {
+          console.error("Error filterBySpecificExperiment:", error);
+        }
       }
 
       // Function to filter table by experiment type
