@@ -309,6 +309,7 @@
 
       // Initialize dataTable as null
       let dataTable = null;
+      window.dataTable = null;
 
       // Load All Experiments data by default when page loads
       loadAllExperimentsData();
@@ -542,14 +543,20 @@
         console.log('Loading experiment_summary.csv...');
 
         // make sure to destroy the existing DataTable instance
-        if($.fn.DataTable.isDataTable('#table1')) {
-          $('#table1').DataTable().destroy();
-          console.log('Successfully destroyed existing DataTable');
+        // if($.fn.DataTable.isDataTable('#table1')) {
+        //   $('#table1').DataTable().destroy();
+        //   console.log('Successfully destroyed existing DataTable');
+        // }
+        if(window.dataTable) {
+          try {
+            window.dataTable.destroy();
+          } catch(e) { console.error('Failed to destroy dataTable:', e); }
         }
 
         // empty the table
-        const tableBody = document.querySelector('#table1 tbody');
-        tableBody.innerHTML = '';
+        $('#table1').find('tbody').empty();
+        // const tableBody = document.querySelector('#table1 tbody');
+        // tableBody.innerHTML = '';
 
         fetch('./experiment_summary.csv')
           .then(response => response.text())
@@ -621,19 +628,7 @@
             // reinitialize DataTable
             // initializeDataTable();
             // Properly reinitialize DataTable AFTER the DOM has been updated
-            setTimeout(function()  {
-              console.log("Initializing new DataTable");
-              dataTable = $('#table1').DataTable({
-                paging: false,
-                searching: false,
-                info: false,
-                "order": [],
-                "columnDefs": [
-                  { "targets": [0, 1, 2, 3], "orderable": false },
-                  { "targets": [4, 5, 6], "orderable": true }
-                ]
-              });
-            }, 100);
+            reinitializeDataTable();
           })
           .catch(error => {
             console.error('Error loading experiment_summary.csv:', error);
@@ -647,14 +642,19 @@
       function filterBySpecificExperiment(experimentType) {
         try {
           // Destroy existing DataTable if it exists
-          if($.fn.DataTable.isDataTable('#table1')) {
-            $('#table1').DataTable().destroy();
+          // if($.fn.DataTable.isDataTable('#table1')) {
+          //   $('#table1').DataTable().destroy();
+          // }
+          if(window.dataTable) {
+            try {
+              window.dataTable.destroy();
+            } catch(e) { console.error('Failed to destroy dataTable:', e); }
           }
 
           // 清空表格内容
-          // $('#table1 tbody').empty();
-          const tableBody = document.querySelector('#table1 tbody');
-          tableBody.innerHTML = '';
+          $('#table1 tbody').empty();
+          // const tableBody = document.querySelector('#table1 tbody');
+          // tableBody.innerHTML = '';
 
           // Get the CSV file to load based on experiment type
           const csvFile = './summary_old.csv';
@@ -693,18 +693,7 @@
             populateTable(filteredData);
 
             // Reinitialize DataTable
-            setTimeout(function()  {
-              dataTable = $('#table1').DataTable({
-                paging: false,
-                searching: false,
-                info: false,
-                "order": [],
-                "columnDefs": [
-                { "targets": [0, 1, 2, 3], "orderable": false },
-                { "targets": [4, 5, 6], "orderable": true }
-                ]
-              });
-            }, 100);
+            reinitializeDataTable();
           })
           .catch(error => {
             console.error('Error loading summary_old.csv:', error);
@@ -826,6 +815,39 @@
       }
 
     });
+
+    function reinitializeDataTable() {
+      // make sure to destroy the existing DataTable instance
+      if(window.dataTable) {
+        try {
+          window.dataTable.destroy();
+          console.log('DataTable manually destroyed');
+        } catch(e) {
+          console.log('Failed to destroy dataTable:', e);
+        }
+      }
+      
+      // empty the table
+      $('#table1').removeData();
+
+      setTimeout(function() {
+        try {
+          window.dataTable = $('#table1').DataTable({
+            paging: false,
+            searching: false,
+            info: false,
+            "order": [],
+            "columnDefs": [
+              { "targets": [0, 1, 2, 3], "orderable": false },
+              { "targets": [4, 5, 6], "orderable": true }
+            ]
+          });
+          console.log('DataTable successfully reinitialized');
+        } catch(e) {
+          console.error('Error initializing DataTable:', e);
+        }
+      }, 100); 
+    }
 
 
 
