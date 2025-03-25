@@ -542,10 +542,14 @@
         console.log('Loading experiment_summary.csv...');
 
         // make sure to destroy the existing DataTable instance
-        if(dataTable && $.fn.DataTable.isDataTable('#table1')) {
-          dataTable.destroy();
+        if($.fn.DataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
           console.log('Successfully destroyed existing DataTable');
         }
+
+        // empty the table
+        const tableBody = document.querySelector('#table1 tbody');
+        tableBody.innerHTML = '';
 
         fetch('./experiment_summary.csv')
           .then(response => response.text())
@@ -645,10 +649,12 @@
       function filterBySpecificExperiment(experimentType) {
         try {
           // Destroy existing DataTable if it exists
-          if(dataTable && $.fn.DataTable.isDataTable('#table1')) {
-            dataTable.destroy();
+          if($.fn.DataTable.isDataTable('#table1')) {
+            $('#table1').DataTable().destroy();
           }
 
+          // 清空表格内容
+          // $('#table1 tbody').empty();
           const tableBody = document.querySelector('#table1 tbody');
           tableBody.innerHTML = '';
 
