@@ -541,6 +541,12 @@
       function loadAllExperimentsData() {
         console.log('Loading experiment_summary.csv...');
 
+        // make sure to destroy the existing DataTable instance
+        if(dataTable && $.fn.DataTable.isDataTable('#table1')) {
+          dataTable.destroy();
+          console.log('Successfully destroyed existing DataTable');
+        }
+
         fetch('./experiment_summary.csv')
           .then(response => response.text())
           .then(data => {
