@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="MORPHEUS">
   <meta name="twitter:description" content="">
   <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
-  <meta name="twitter:card" content="summary_large_image">-->
+  <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="video generation models, physical reasoning, physical laws, physical score, statistical score, physical experiments, physical invariances">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,6 +77,10 @@
   <script src="./static/js/index.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Add these in the head section -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 </head>
 <body>
 
@@ -176,7 +180,249 @@
   </section>
   <!-- End paper abstract -->
 
+  <!-- Video Examples -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3" style="margin-bottom: 0;">Examples of discarded videos</h2>
+          
+          <!-- Bulma Carousel -->
+          <div class="carousel-container" style="position: relative; padding-top: 10px;">
+            <div class="carousel" style="width: 100%;">
+              <!-- First Video -->
+              <div class="carousel-item is-active">
+                <div class="video-wrapper">
+                  <video controls playsinline class="video-player">
+                    <source src="static/videos/dissaperance.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">An example of the <b>disappearance</b> of the object (the projectile ball). Model: PyramidalFlow, multi-frame conditioning, enhanced text prompt.</p>
+              </div>
+              
+              <!-- Second Video -->
+              <div class="carousel-item">
+                <div class="video-wrapper">
+                  <video controls playsinline class="video-player">
+                    <source src="static/videos/duplicate.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">An example of the <b>duplication</b> of the object (non-holonomic pendulum). Model: COSMOS, multi-frame conditioning, plain text prompt.</p>
+              </div>
+              
+              <!-- Third Video -->
+              <div class="carousel-item">
+                <div class="video-wrapper">
+                  <video controls playsinline class="video-player">
+                    <source src="static/videos/stillness.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">An example of the <b>stillness</b> of the object (double pendulum). Model: LTX, single frame conditioning, plain text prompt.</p>
+              </div>
+            </div>
 
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav-left" aria-label="Previous slide">
+              <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+              </span>
+            </button>
+            <button class="carousel-nav-right" aria-label="Next slide">
+              <span class="icon">
+                <i class="fas fa-chevron-right"></i>
+              </span>
+            </button>
+          </div>
+
+          <style>
+            .section.hero.is-light {
+              padding: 3rem 1.5rem;
+            }
+
+            .container.is-max-desktop {
+              max-width: 100% !important;
+              width: 100%;
+              padding: 0 2rem;
+            }
+
+            .carousel-container {
+              width: 100%;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 20px 60px;
+              position: relative;
+              overflow: visible;
+            }
+
+            .carousel {
+              width: 100%;
+              background: transparent;
+              position: relative;
+              min-height: 200px;
+              overflow: hidden;
+            }
+
+            .carousel-item {
+              width: 100%;
+              padding: 0;
+              background: transparent;
+              position: absolute;
+              left: 100%;
+              top: 0;
+              transition: left 0.5s ease-in-out;
+              display: block !important;
+              height: auto;
+              visibility: visible;
+              opacity: 1;
+            }
+
+            .carousel-item.is-active {
+              left: 0;
+              position: relative;
+            }
+
+            .carousel-item.is-previous {
+              left: -100%;
+            }
+
+            .video-wrapper {
+              width: 100%;
+              position: relative;
+              background: #000;
+              border-radius: 24px;
+              overflow: hidden;
+              box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+              margin: 0 auto;
+            }
+
+            .video-player {
+              width: 100%;
+              display: block;
+              height: auto;
+              max-height: none;
+              object-fit: contain;
+            }
+
+            .video-caption {
+              text-align: center;
+              margin-top: 2rem;
+              font-size: 1.4rem;
+              font-weight: 500;
+              color: #363636;
+            }
+
+            /* Navigation buttons */
+            .carousel-nav-left,
+            .carousel-nav-right {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 60px;  /* Back to original size */
+              height: 60px;  /* Back to original size */
+              border: none;
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 0.95);
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.3s ease;
+              z-index: 10;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            }
+
+            .carousel-nav-left {
+              left: -30px;  /* Back to original position */
+            }
+
+            .carousel-nav-right {
+              right: -30px;  /* Back to original position */
+            }
+
+            .carousel-nav-left:hover,
+            .carousel-nav-right:hover {
+              background: rgba(255, 255, 255, 1);
+              transform: translateY(-50%) scale(1.1);
+            }
+
+            .carousel-nav-left .icon,
+            .carousel-nav-right .icon {
+              color: #363636;
+              font-size: 1.8rem;  /* Back to original size */
+            }
+
+            /* Media query for large screens */
+            @media screen and (min-width: 1408px) {
+              .carousel-container {
+                padding: 60px 100px;
+              }
+            }
+          </style>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const carousel = document.querySelector('.carousel');
+              const items = carousel.querySelectorAll('.carousel-item');
+              const leftBtn = document.querySelector('.carousel-nav-left');
+              const rightBtn = document.querySelector('.carousel-nav-right');
+              let currentIndex = 0;
+              let isTransitioning = false;
+
+              function showSlide(index, direction) {
+                if (isTransitioning) return;
+                isTransitioning = true;
+
+                const currentSlide = carousel.querySelector('.carousel-item.is-active');
+                const nextSlide = items[index];
+
+                // Position the next slide
+                nextSlide.style.left = direction === 'right' ? '100%' : '-100%';
+                
+                // Force a reflow
+                nextSlide.offsetHeight;
+
+                // Start transition
+                requestAnimationFrame(() => {
+                  currentSlide.style.left = direction === 'right' ? '-100%' : '100%';
+                  nextSlide.style.left = '0';
+                  
+                  setTimeout(() => {
+                    currentSlide.classList.remove('is-active');
+                    nextSlide.classList.add('is-active');
+                    
+                    setTimeout(() => {
+                      isTransitioning = false;
+                    }, 50);
+                  }, 500);
+                });
+              }
+
+              leftBtn.addEventListener('click', () => {
+                if (!isTransitioning) {
+                  currentIndex = (currentIndex - 1 + items.length) % items.length;
+                  showSlide(currentIndex, 'left');
+                }
+              });
+
+              rightBtn.addEventListener('click', () => {
+                if (!isTransitioning) {
+                  currentIndex = (currentIndex + 1) % items.length;
+                  showSlide(currentIndex, 'right');
+                }
+              });
+
+              // Initial setup
+              items[0].classList.add('is-active');
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Video Examples -->
 
   <br>
 
@@ -848,24 +1094,7 @@
         }
       }, 100); 
     }
-
-
-
-        
-
-      // // initialize the table for sorting
-      // $(document).ready(function() {
-      //   $('#table1').DataTable({
-      //     paging: false,    // do not show the pagination
-      //     searching: false, // do not show the search box
-      //     info: false,      // do not show the information text
-      //     "order": [],      // default no sorting
-      //     "columnDefs": [
-      //       { "targets": [4, 5, 6], "orderable": true }, // make Discard Rate、Physical Invariance Score and Dynamical score columns sortable
-      //       { "targets": "_all", "orderable": true }     // all columns are sortable
-      //     ]
-      //   });
-      // });
   </script>
 </body>
 </html>
+
