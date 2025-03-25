@@ -554,9 +554,9 @@
         }
 
         // empty the table
-        $('#table1').find('tbody').empty();
-        // const tableBody = document.querySelector('#table1 tbody');
-        // tableBody.innerHTML = '';
+        // $('#table1').find('tbody').empty();
+        const tableBody = document.querySelector('#table1 tbody');
+        tableBody.innerHTML = '';
 
         fetch('./experiment_summary.csv')
           .then(response => response.text())
@@ -652,9 +652,9 @@
           }
 
           // 清空表格内容
-          $('#table1 tbody').empty();
-          // const tableBody = document.querySelector('#table1 tbody');
-          // tableBody.innerHTML = '';
+          // $('#table1 tbody').empty();
+          const tableBody = document.querySelector('#table1 tbody');
+          tableBody.innerHTML = '';
 
           // Get the CSV file to load based on experiment type
           const csvFile = './summary_old.csv';
