@@ -621,7 +621,7 @@
             // reinitialize DataTable
             // initializeDataTable();
             // Properly reinitialize DataTable AFTER the DOM has been updated
-            try {
+            setTimeout(function()  {
               console.log("Initializing new DataTable");
               dataTable = $('#table1').DataTable({
                 paging: false,
@@ -633,9 +633,7 @@
                   { "targets": [4, 5, 6], "orderable": true }
                 ]
               });
-            } catch (e) {
-              console.error("Error initializing DataTable:", e);
-            }
+            }, 50);
           })
           .catch(error => {
             console.error('Error loading experiment_summary.csv:', error);
@@ -695,16 +693,18 @@
             populateTable(filteredData);
 
             // Reinitialize DataTable
-            dataTable = $('#table1').DataTable({
-              paging: false,
-              searching: false,
-              info: false,
-              "order": [],
-              "columnDefs": [
+            setTimeout(function()  {
+              dataTable = $('#table1').DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                "order": [],
+                "columnDefs": [
                 { "targets": [0, 1, 2, 3], "orderable": false },
                 { "targets": [4, 5, 6], "orderable": true }
-              ]
-            });
+                ]
+              });
+            }, 50);
           })
           .catch(error => {
             console.error('Error loading summary_old.csv:', error);
