@@ -556,7 +556,21 @@
         // empty the table
         // $('#table1').find('tbody').empty();
         const tableBody = document.querySelector('#table1 tbody');
-        tableBody.innerHTML = '';
+        if (!tableBody) {
+          const table = document.getElementById('table1');
+          if (table) {
+            const newTbody = document.createElement('tbody');
+            table.appendChild(newTbody);
+            console.log('Created missing tbody element');
+            // 使用新创建的tbody
+            newTbody.innerHTML = '';
+          } else {
+            console.error('Table element not found');
+            return;
+          }
+        } else {
+          tableBody.innerHTML = '';
+        }
 
         fetch('./experiment_summary.csv')
           .then(response => response.text())
@@ -654,7 +668,21 @@
           // 清空表格内容
           // $('#table1 tbody').empty();
           const tableBody = document.querySelector('#table1 tbody');
-          tableBody.innerHTML = '';
+          if (!tableBody) {
+            const table = document.getElementById('table1');
+            if (table) {
+              const newTbody = document.createElement('tbody');
+              table.appendChild(newTbody);
+              console.log('Created missing tbody element');
+              // 使用新创建的tbody
+              newTbody.innerHTML = '';
+            } else {
+              console.error('Table element not found');
+              return;
+            }
+          } else {
+            tableBody.innerHTML = '';
+          }
 
           // Get the CSV file to load based on experiment type
           const csvFile = './summary_old.csv';
@@ -825,6 +853,19 @@
         } catch(e) {
           console.log('Failed to destroy dataTable:', e);
         }
+      }
+
+      const table = document.getElementById('table1');
+      if (!table) {
+        console.error('Table element not found');
+        return;
+      }
+
+      let tbody = table.querySelector('tbody');
+      if (!tbody) {
+        tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+        console.log('Created new tbody element');
       }
       
       // empty the table
