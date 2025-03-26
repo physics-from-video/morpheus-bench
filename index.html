@@ -543,15 +543,15 @@
         console.log('Loading experiment_summary.csv...');
 
         // make sure to destroy the existing DataTable instance
-        // if($.fn.DataTable.isDataTable('#table1')) {
-        //   $('#table1').DataTable().destroy();
-        //   console.log('Successfully destroyed existing DataTable');
-        // }
-        if(window.dataTable) {
-          try {
-            window.dataTable.destroy();
-          } catch(e) { console.error('Failed to destroy dataTable:', e); }
+        if($.fn.DataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
+          console.log('Successfully destroyed existing DataTable');
         }
+        // if(window.dataTable) {
+        //   try {
+        //     window.dataTable.destroy();
+        //   } catch(e) { console.error('Failed to destroy dataTable:', e); }
+        // }
 
         // empty the table
         // $('#table1').find('tbody').empty();
@@ -656,16 +656,16 @@
       function filterBySpecificExperiment(experimentType) {
         try {
           // Destroy existing DataTable if it exists
-          // if($.fn.DataTable.isDataTable('#table1')) {
-          //   $('#table1').DataTable().destroy();
-          // }
-          if(window.dataTable) {
-            try {
-              window.dataTable.destroy();
-            } catch(e) { console.error('Failed to destroy dataTable:', e); }
+          if($.fn.DataTable.isDataTable('#table1')) {
+            $('#table1').DataTable().destroy();
           }
+          // if(window.dataTable) {
+          //   try {
+          //     window.dataTable.destroy();
+          //   } catch(e) { console.error('Failed to destroy dataTable:', e); }
+          // }
 
-          // 清空表格内容
+          // empty the table
           // $('#table1 tbody').empty();
           const tableBody = document.querySelector('#table1 tbody');
           if (!tableBody) {
@@ -674,7 +674,7 @@
               const newTbody = document.createElement('tbody');
               table.appendChild(newTbody);
               console.log('Created missing tbody element');
-              // 使用新创建的tbody
+              // use the new created tbody
               newTbody.innerHTML = '';
             } else {
               console.error('Table element not found');
@@ -874,7 +874,7 @@
       // $('#table1').removeData();
 
       try {
-        console.log('正在初始化新DataTable...');
+        console.log('Initializing new DataTable...');
         window.dataTable = $('#table1').DataTable({
           paging: false,
           searching: false,
@@ -885,9 +885,9 @@
             { "targets": [4, 5, 6], "orderable": true }
           ]
         });
-        console.log('DataTable初始化成功');
+        console.log('DataTable initialized successfully');
       } catch(e) {
-        console.error('初始化DataTable时出错:', e);
+        console.error('Error initializing DataTable:', e);
       }
     }
 
