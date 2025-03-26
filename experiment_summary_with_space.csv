@@ -1,20 +1,20 @@
-,model,conditioning,prompt type,overall mean physical score,overall mean statistical score,discard rate
-0,COSMOS,multi_frame_conditioning,enhanced,0.492,0.474,0.306
-1,COSMOS,multi_frame_conditioning,plain,0.428,0.424,0.382
-2,COSMOS,single_frame_conditioning,enhanced,0.491,0.421,0.297
-3,COSMOS,single_frame_conditioning,plain,0.443,0.446,0.31
-4,CogVideo,keyframe_interpolation,enhanced,0.502,0.503,0.226
-5,CogVideo,keyframe_interpolation,plain,0.449,0.461,0.317
-6,CogVideo,multi_frame_conditioning,enhanced,0.446,0.457,0.25
-7,CogVideo,multi_frame_conditioning,plain,0.42,0.441,0.255
-8,CogVideo,single_frame_conditioning,enhanced,0.442,0.429,0.255
-9,CogVideo,single_frame_conditioning,plain,0.361,0.428,0.337
-10,LTX,multi_frame_conditioning,enhanced,0.486,0.42,0.265
-11,LTX,multi_frame_conditioning,plain,0.473,0.429,0.244
-12,LTX,single_frame_conditioning,enhanced,0.263,0.163,0.638
-13,LTX,single_frame_conditioning,plain,0.452,0.363,0.356
-14,PyramidalFlow,multi_frame_conditioning,enhanced,0.51,0.368,0.31
-15,PyramidalFlow,multi_frame_conditioning,plain,0.528,0.403,0.242
-16,PyramidalFlow,single_frame_conditioning,enhanced,0.51,0.42,0.296
-17,PyramidalFlow,single_frame_conditioning,plain,0.497,0.419,0.23
+,model,conditioning,prompt_type,overall_mean_physical_score,overall_mean_statistical_score,discard_rate
+0,COSMOS,multi frame conditioning,enhanced,0.492,0.474,0.306
+1,COSMOS,multi frame conditioning,plain,0.428,0.424,0.382
+2,COSMOS,single frame conditioning,enhanced,0.491,0.421,0.297
+3,COSMOS,single frame conditioning,plain,0.443,0.446,0.31
+4,CogVideo,keyframe interpolation,enhanced,0.502,0.503,0.226
+5,CogVideo,keyframe interpolation,plain,0.449,0.461,0.317
+6,CogVideo,multi frame conditioning,enhanced,0.446,0.457,0.25
+7,CogVideo,multi frame conditioning,plain,0.42,0.441,0.255
+8,CogVideo,single frame conditioning,enhanced,0.442,0.429,0.255
+9,CogVideo,single frame conditioning,plain,0.361,0.428,0.337
+10,LTX,multi frame conditioning,enhanced,0.486,0.42,0.265
+11,LTX,multi frame conditioning,plain,0.473,0.429,0.244
+12,LTX,single frame conditioning,enhanced,0.263,0.163,0.638
+13,LTX,single frame conditioning,plain,0.452,0.363,0.356
+14,PyramidalFlow,multi frame conditioning,enhanced,0.51,0.368,0.31
+15,PyramidalFlow,multi frame conditioning,plain,0.528,0.403,0.242
+16,PyramidalFlow,single frame conditioning,enhanced,0.51,0.42,0.296
+17,PyramidalFlow,single frame conditioning,plain,0.497,0.419,0.23
 18,real-world,none,none,0.95,0.959,0.0
