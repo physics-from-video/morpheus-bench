@@ -322,7 +322,7 @@
 
 
       // Fetch the CSV data
-      fetch('./summary_old.csv')
+      fetch('./summary_old_with_space.csv')
         .then(response => response.text())
         .then(data => {
           // Parse CSV data
@@ -568,7 +568,7 @@
 
       // Function to load all experiments data
       function loadAllExperimentsData() {
-        console.log('Loading experiment_summary.csv...');
+        console.log('Loading experiment_summary_with_space.csv...');
 
         // make sure to destroy the existing DataTable instance
         if($.fn.DataTable.isDataTable('#table1')) {
@@ -608,10 +608,10 @@
           tableBody.innerHTML = '';
         }
 
-        fetch('./experiment_summary.csv')
+        fetch('./experiment_summary_with_space.csv')
           .then(response => response.text())
           .then(data => {
-            console.log('Successfully loaded experiment_summary.csv...');
+            console.log('Successfully loaded experiment_summary_with_space.csv...');
             // Parse CSV data
             const parsedData = parseCSV(data);
             
@@ -677,7 +677,7 @@
             reinitializeDataTable();
           })
           .catch(error => {
-            console.error('Error loading experiment_summary.csv:', error);
+            console.error('Error loading experiment_summary_with_space.csv:', error);
             const tableBody = document.querySelector('#table1 tbody');
             tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
           });
@@ -724,7 +724,7 @@
           }
 
           // Get the CSV file to load based on experiment type
-          const csvFile = './summary_old.csv';
+          const csvFile = './summary_old_with_space.csv';
           
           // Fetch and process the data
           fetch(csvFile)
@@ -765,7 +765,7 @@
             }
           })
           .catch(error => {
-            console.error('Error loading summary_old.csv:', error);
+            console.error('Error loading summary_old_with_space.csv:', error);
             const tableBody = document.querySelector('#table1 tbody');
             tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
           });
