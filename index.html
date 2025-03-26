@@ -547,12 +547,19 @@
           $('#table1').DataTable().destroy();
           console.log('Successfully destroyed existing DataTable');
         }
-        // if(window.dataTable) {
-        //   try {
-        //     window.dataTable.destroy();
-        //   } catch(e) { console.error('Failed to destroy dataTable:', e); }
-        // }
+        
+        if ($('#table1').length === 0) {
+          console.error('Table element not found in loadAllExperimentsData');
+          return;
+        }
 
+        if ($('#table1 tbody').length === 0) {
+          $('#table1').append('<tbody></tbody>');
+          console.log('Created missing tbody element');
+        } else {
+          $('#table1 tbody').empty();
+        }
+  
         // empty the table
         // $('#table1').find('tbody').empty();
         const tableBody = document.querySelector('#table1 tbody');
@@ -562,7 +569,7 @@
             const newTbody = document.createElement('tbody');
             table.appendChild(newTbody);
             console.log('Created missing tbody element');
-            // 使用新创建的tbody
+            // use the new created tbody
             newTbody.innerHTML = '';
           } else {
             console.error('Table element not found');
@@ -659,12 +666,18 @@
           if($.fn.DataTable.isDataTable('#table1')) {
             $('#table1').DataTable().destroy();
           }
-          // if(window.dataTable) {
-          //   try {
-          //     window.dataTable.destroy();
-          //   } catch(e) { console.error('Failed to destroy dataTable:', e); }
-          // }
+          
+          if ($('#table1').length === 0) {
+            console.error('Table element not found in filterBySpecificExperiment');
+            return;
+          }
 
+          if ($('#table1 tbody').length === 0) {
+            $('#table1').append('<tbody></tbody>');
+          } else {
+            $('#table1 tbody').empty();
+          }
+          
           // empty the table
           // $('#table1 tbody').empty();
           const tableBody = document.querySelector('#table1 tbody');
@@ -847,52 +860,67 @@
     function reinitializeDataTable() {
       console.log('Reinitializing DataTable...');
 
-      const table = document.getElementById('table1');
-      if (!table) {
-        console.error('Table element not found');
+      if ($('#table1').length === 0) {
+        console.error('Table element not found during reinitialization');
         return;
       }
 
-      let tbody = table.querySelector('tbody');
-      if (!tbody) {
-        tbody = document.createElement('tbody');
-        table.appendChild(tbody);
+      if ($('#table1 tbody').length === 0) {
+        $('#table1').append('<tbody></tbody>');
         console.log('Created new tbody element');
       }
 
-      // make sure to destroy the existing DataTable instance
-      if(window.dataTable) {
-        try {
-          window.dataTable.destroy();
-          console.log('DataTable manually destroyed');
-        } catch(e) {
-          console.log('Failed to destroy dataTable:', e);
-        }
+      if ($.fn.DataTable.isDataTable('#table1')) {
+        $('#table1').DataTable().destroy();
+        console.log('DataTable destroyed using jQuery method');
       }
+
+
+      // const table = document.getElementById('table1');
+      // if (!table) {
+      //   console.error('Table element not found');
+      //   return;
+      // }
+
+      // let tbody = table.querySelector('tbody');
+      // if (!tbody) {
+      //   tbody = document.createElement('tbody');
+      //   table.appendChild(tbody);
+      //   console.log('Created new tbody element');
+      // }
+
+      // // make sure to destroy the existing DataTable instance
+      // if(window.dataTable) {
+      //   try {
+      //     window.dataTable.destroy();
+      //     console.log('DataTable manually destroyed');
+      //   } catch(e) {
+      //     console.log('Failed to destroy dataTable:', e);
+      //   }
+      // }
       
       // empty the table
       // $('#table1').removeData();
 
-      try {
-        console.log('Initializing new DataTable...');
-        window.dataTable = $('#table1').DataTable({
-          paging: false,
-          searching: false,
-          info: false,
-          "order": [],
-          "columnDefs": [
-            { "targets": [0, 1, 2, 3], "orderable": false },
-            { "targets": [4, 5, 6], "orderable": true }
-          ]
-        });
-        console.log('DataTable initialized successfully');
-      } catch(e) {
-        console.error('Error initializing DataTable:', e);
-      }
+      setTimeout(function() {
+        try {
+          console.log('Initializing new DataTable...');
+          window.dataTable = $('#table1').DataTable({
+            paging: false,
+            searching: false,
+            info: false,
+            "order": [],
+            "columnDefs": [
+              { "targets": [0, 1, 2, 3], "orderable": false },
+              { "targets": [4, 5, 6], "orderable": true }
+            ]
+          });
+          console.log('DataTable initialized successfully');
+        } catch(e) {
+          console.error('Error initializing DataTable:', e);
+        }
+      }, 50); 
     }
-
-
-
         
 
       // // initialize the table for sorting
