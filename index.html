@@ -315,8 +315,8 @@
 
       // Load All Experiments data by default when page loads
       if (!eventsAttached) {
-        loadAllExperimentsData();
         initializeFilters();
+        loadAllExperimentsData();
         eventsAttached = true;
       }
 
@@ -342,22 +342,22 @@
         });
 
       
-      const allExperimentsBtn = document.querySelector('.experiment-btn[data-experiment="all"]');
-      allExperimentsBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log("All Experiments button clicked");
+      // const allExperimentsBtn = document.querySelector('.experiment-btn[data-experiment="all"]');
+      // allExperimentsBtn.addEventListener('click', function(e) {
+      //   e.preventDefault();
+      //   console.log("All Experiments button clicked");
         
-        // remove the active class from all buttons
-        document.querySelectorAll('.experiment-btn').forEach(btn => {
-          btn.classList.remove('active');
-        });
+      //   // remove the active class from all buttons
+      //   document.querySelectorAll('.experiment-btn').forEach(btn => {
+      //     btn.classList.remove('active');
+      //   });
         
-        // add the active class to the current button
-        this.classList.add('active');
+      //   // add the active class to the current button
+      //   this.classList.add('active');
         
-        // manually trigger the loading of aggregated data
-        loadAllExperimentsData();
-      });
+      //   // manually trigger the loading of aggregated data
+      //   loadAllExperimentsData();
+      // });
       
       // Function to parse CSV data
       function parseCSV(csvText) {
@@ -548,13 +548,20 @@
 
       // Function to display all experiments data
       function displayAllExperimentsData() {
+        if (dataTableInitialized && $.fn.DataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
+          dataTableInitialized = false;
+        }
         // empty the table
         $('#table1 tbody').empty();
         
         // get the cached data, if not, load the data
         if (window.aggregatedData) {
+          console.log("Using cached data for All Experiments");
           populateTableWithAggregatedData(window.aggregatedData);
+          reinitializeDataTable();
         } else {
+          console.log("No cached data, loading from CSV");
           loadAllExperimentsData();
         }
       }
