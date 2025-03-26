@@ -847,16 +847,6 @@
     function reinitializeDataTable() {
       console.log('Reinitializing DataTable...');
 
-      // make sure to destroy the existing DataTable instance
-      if(window.dataTable) {
-        try {
-          window.dataTable.destroy();
-          console.log('DataTable manually destroyed');
-        } catch(e) {
-          console.log('Failed to destroy dataTable:', e);
-        }
-      }
-
       const table = document.getElementById('table1');
       if (!table) {
         console.error('Table element not found');
@@ -868,6 +858,16 @@
         tbody = document.createElement('tbody');
         table.appendChild(tbody);
         console.log('Created new tbody element');
+      }
+
+      // make sure to destroy the existing DataTable instance
+      if(window.dataTable) {
+        try {
+          window.dataTable.destroy();
+          console.log('DataTable manually destroyed');
+        } catch(e) {
+          console.log('Failed to destroy dataTable:', e);
+        }
       }
       
       // empty the table
