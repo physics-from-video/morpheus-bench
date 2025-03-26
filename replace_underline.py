@@ -8,6 +8,9 @@ def replace_underline():
     # Replace underline with space in all string columns (data values only)
     for col in df.select_dtypes(include=['object']).columns:
         df[col] = df[col].str.replace('_', ' ')
+
+    for col in df.select_dtypes(include=['object']).columns:
+        df[col] = df[col].str.replace('non holonomic', 'non-holonomic pendulum', case=False)
     
     # Save results
     df.to_csv('summary_old_with_space.csv')
