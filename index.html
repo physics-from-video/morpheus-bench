@@ -440,14 +440,14 @@
             let bgColor = '';
             if (modelName.includes('real-world') || modelName === 'real-world') {
               bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-            } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
-                      conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
+            } else if (conditioning.includes('single frame') || conditioning === 'single frame' || 
+                      conditioning.includes('single frame_conditioning') || conditioning === 'single frame_conditioning') {
               bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-            } else if (conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame' || 
-                      conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame_conditioning') {
+            } else if (conditioning.includes('multi frame') || conditioning === 'multi frame' || 
+                      conditioning.includes('multi frame') || conditioning === 'multi frame') {
               bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-            } else if (conditioning.includes('keyframe_interpolation') || conditioning === 'keyframe_interpolation' || 
-                      conditioning.includes('keyframe_interpolation_conditioning') || conditioning === 'keyframe_interpolation_conditioning') {
+            } else if (conditioning.includes('keyframe interpolation') || conditioning === 'keyframe interpolation' || 
+                      conditioning.includes('keyframe interpolation') || conditioning === 'keyframe interpolation') {
               bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
             }
 
@@ -642,11 +642,11 @@
                 let bgColor = '';
                 if (modelName.includes('real-world') || modelName === 'real-world') {
                   bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-                } else if (conditioning.includes('single_frame') || conditioning === 'single_frame_conditioning') {
+                } else if (conditioning.includes('single frame') || conditioning === 'single frame') {
                   bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-                } else if (conditioning.includes('multi_frame') || conditioning === 'multi_frame_conditioning') {
+                } else if (conditioning.includes('multi frame') || conditioning === 'multi frame') {
                   bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-                } else if (conditioning.includes('keyframe') || conditioning === 'keyframe_interpolation') {
+                } else if (conditioning.includes('keyframe interpolation') || conditioning === 'keyframe interpolation') {
                   bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
                 }
                 
@@ -858,11 +858,11 @@
           let bgColor = '';
           if (group.model.includes('real-world') || group.model === 'real-world') {
             bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-          } else if (group.conditioning.includes('single_frame') || group.conditioning === 'single_frame_conditioning') {
+          } else if (group.conditioning.includes('single frame') || group.conditioning === 'single frame') {
             bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-          } else if (group.conditioning.includes('multi_frame') || group.conditioning === 'multi_frame_conditioning') {
+          } else if (group.conditioning.includes('multi frame') || group.conditioning === 'multi frame') {
             bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-          } else if (group.conditioning.includes('keyframe') || group.conditioning === 'keyframe_interpolation') {
+          } else if (group.conditioning.includes('keyframe interpolation') || group.conditioning === 'keyframe interpolation') {
             bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
           }
           
