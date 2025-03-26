@@ -290,6 +290,8 @@
   <script>
     let dataTable;
     let currentDisplayData = []; 
+    let dataTableInitialized = false;
+    let eventsAttached = false;
 
     document.addEventListener('DOMContentLoaded', function() {
       // add a helper function to format the number value, support specify the decimal places
@@ -312,7 +314,11 @@
       window.dataTable = null;
 
       // Load All Experiments data by default when page loads
-      loadAllExperimentsData();
+      if (!eventsAttached) {
+        loadAllExperimentsData();
+        initializeFilters();
+        eventsAttached = true;
+      }
 
 
       // Fetch the CSV data
@@ -509,6 +515,8 @@
 
       // Function to initialize filters
       function initializeFilters() {
+        if (eventsAttached) return;
+
         // Get all filter buttons
         const experimentBtns = document.querySelectorAll('.experiment-btn');
         
@@ -526,7 +534,7 @@
 
             if (experimentType === 'all') {
               // Show averages across all experiments
-              loadAllExperimentsData();
+              displayAllExperimentsData();
             } else {
               // Filter by specific experiment type
               filterBySpecificExperiment(experimentType);
@@ -538,6 +546,19 @@
         // document.querySelector('.experiment-btn[data-experiment="all"]').click();
       }
 
+      // Function to display all experiments data
+      function displayAllExperimentsData() {
+        // empty the table
+        $('#table1 tbody').empty();
+        
+        // get the cached data, if not, load the data
+        if (window.aggregatedData) {
+          populateTableWithAggregatedData(window.aggregatedData);
+        } else {
+          loadAllExperimentsData();
+        }
+      }
+
       // Function to load all experiments data
       function loadAllExperimentsData() {
         console.log('Loading experiment_summary.csv...');
@@ -545,6 +566,7 @@
         // make sure to destroy the existing DataTable instance
         if($.fn.DataTable.isDataTable('#table1')) {
           $('#table1').DataTable().destroy();
+          dataTableInitialized = false;
           console.log('Successfully destroyed existing DataTable');
         }
         
@@ -585,10 +607,6 @@
             console.log('Successfully loaded experiment_summary.csv...');
             // Parse CSV data
             const parsedData = parseCSV(data);
-            
-            // empty the table
-            // const tableBody = document.querySelector('#table1 tbody');
-            // tableBody.innerHTML = '';
             
             // fill the table
             let rowsAdded = 0;
@@ -663,8 +681,9 @@
       function filterBySpecificExperiment(experimentType) {
         try {
           // Destroy existing DataTable if it exists
-          if($.fn.DataTable.isDataTable('#table1')) {
+          if(dataTableInitialized && $.fn.DataTable.isDataTable('#table1')) {
             $('#table1').DataTable().destroy();
+            dataTableInitialized = false;
           }
           
           if ($('#table1').length === 0) {
@@ -734,7 +753,9 @@
             populateTable(filteredData);
 
             // Reinitialize DataTable
-            reinitializeDataTable();
+            if (!dataTableInitialized) {
+              reinitializeDataTable();
+            }
           })
           .catch(error => {
             console.error('Error loading summary_old.csv:', error);
@@ -870,8 +891,9 @@
         console.log('Created new tbody element');
       }
 
-      if ($.fn.DataTable.isDataTable('#table1')) {
+      if (dataTableInitialized && $.fn.DataTable.isDataTable('#table1')) {
         $('#table1').DataTable().destroy();
+        dataTableInitialized = false;
         console.log('DataTable destroyed using jQuery method');
       }
 
@@ -913,8 +935,10 @@
             "columnDefs": [
               { "targets": [0, 1, 2, 3], "orderable": false },
               { "targets": [4, 5, 6], "orderable": true }
-            ]
+            ],
+            "retrieve": true
           });
+          dataTableInitialized = true;
           console.log('DataTable initialized successfully');
         } catch(e) {
           console.error('Error initializing DataTable:', e);
