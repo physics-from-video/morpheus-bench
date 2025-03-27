@@ -536,6 +536,8 @@
   <script>
     let dataTable;
     let currentDisplayData = []; 
+    let dataTableInitialized = false;
+    let eventsAttached = false;
 
     document.addEventListener('DOMContentLoaded', function() {
       // add a helper function to format the number value, support specify the decimal places
@@ -558,11 +560,15 @@
       window.dataTable = null;
 
       // Load All Experiments data by default when page loads
-      loadAllExperimentsData();
+      if (!eventsAttached) {
+        initializeFilters();
+        loadAllExperimentsData();
+        eventsAttached = true;
+      }
 
 
       // Fetch the CSV data
-      fetch('./summary_old.csv')
+      fetch('./summary_old_with_space.csv')
         .then(response => response.text())
         .then(data => {
           // Parse CSV data
@@ -582,22 +588,22 @@
         });
 
       
-      const allExperimentsBtn = document.querySelector('.experiment-btn[data-experiment="all"]');
-      allExperimentsBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log("All Experiments button clicked");
+      // const allExperimentsBtn = document.querySelector('.experiment-btn[data-experiment="all"]');
+      // allExperimentsBtn.addEventListener('click', function(e) {
+      //   e.preventDefault();
+      //   console.log("All Experiments button clicked");
         
-        // remove the active class from all buttons
-        document.querySelectorAll('.experiment-btn').forEach(btn => {
-          btn.classList.remove('active');
-        });
+      //   // remove the active class from all buttons
+      //   document.querySelectorAll('.experiment-btn').forEach(btn => {
+      //     btn.classList.remove('active');
+      //   });
         
-        // add the active class to the current button
-        this.classList.add('active');
+      //   // add the active class to the current button
+      //   this.classList.add('active');
         
-        // manually trigger the loading of aggregated data
-        loadAllExperimentsData();
-      });
+      //   // manually trigger the loading of aggregated data
+      //   loadAllExperimentsData();
+      // });
       
       // Function to parse CSV data
       function parseCSV(csvText) {
@@ -639,12 +645,12 @@
 
         // Add experiment type mapping
         const experimentMapping = {
-          'falling_ball': 'Falling Ball',
-          'bouncing_ball': 'Bouncing Ball',
+          'falling ball': 'Falling Ball',
+          'bouncing ball': 'Bouncing Ball',
           'projectile': 'Projectile',
-          'holonomic_pendulum': 'Holonomic Pendulum',
-          'non_holonomic': 'Non-holonomic Pendulum',
-          'double_pendulum': 'Double Pendulum'
+          'holonomic pendulum': 'Holonomic Pendulum',
+          'non-holonomic pendulum': 'Non-holonomic Pendulum',
+          'double pendulum': 'Double Pendulum'
         };
         
         data.forEach(row => {
@@ -680,14 +686,14 @@
             let bgColor = '';
             if (modelName.includes('real-world') || modelName === 'real-world') {
               bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-            } else if (conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning' || 
-                      conditioning.includes('single_frame_conditioning') || conditioning === 'single_frame_conditioning') {
+            } else if (conditioning.includes('single frame') || conditioning === 'single frame' || 
+                      conditioning.includes('single frame_conditioning') || conditioning === 'single frame_conditioning') {
               bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-            } else if (conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame' || 
-                      conditioning.includes('multi_frame_conditioning') || conditioning === 'multi_frame_conditioning') {
+            } else if (conditioning.includes('multi frame') || conditioning === 'multi frame' || 
+                      conditioning.includes('multi frame') || conditioning === 'multi frame') {
               bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-            } else if (conditioning.includes('keyframe_interpolation') || conditioning === 'keyframe_interpolation' || 
-                      conditioning.includes('keyframe_interpolation_conditioning') || conditioning === 'keyframe_interpolation_conditioning') {
+            } else if (conditioning.includes('keyframe interpolation') || conditioning === 'keyframe interpolation' || 
+                      conditioning.includes('keyframe interpolation') || conditioning === 'keyframe interpolation') {
               bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
             }
 
@@ -755,6 +761,8 @@
 
       // Function to initialize filters
       function initializeFilters() {
+        if (eventsAttached) return;
+
         // Get all filter buttons
         const experimentBtns = document.querySelectorAll('.experiment-btn');
         
@@ -772,7 +780,7 @@
 
             if (experimentType === 'all') {
               // Show averages across all experiments
-              loadAllExperimentsData();
+              displayAllExperimentsData();
             } else {
               // Filter by specific experiment type
               filterBySpecificExperiment(experimentType);
@@ -784,36 +792,74 @@
         // document.querySelector('.experiment-btn[data-experiment="all"]').click();
       }
 
+      // Function to display all experiments data
+      function displayAllExperimentsData() {
+        if (dataTableInitialized && $.fn.DataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
+          dataTableInitialized = false;
+        }
+        // empty the table
+        $('#table1 tbody').empty();
+        
+        // get the cached data, if not, load the data
+        if (window.aggregatedData) {
+          console.log("Using cached data for All Experiments");
+          populateTableWithAggregatedData(window.aggregatedData);
+          reinitializeDataTable();
+        } else {
+          console.log("No cached data, loading from CSV");
+          loadAllExperimentsData();
+        }
+      }
+
       // Function to load all experiments data
       function loadAllExperimentsData() {
-        console.log('Loading experiment_summary.csv...');
+        console.log('Loading experiment_summary_with_space.csv...');
 
         // make sure to destroy the existing DataTable instance
-        // if($.fn.DataTable.isDataTable('#table1')) {
-        //   $('#table1').DataTable().destroy();
-        //   console.log('Successfully destroyed existing DataTable');
-        // }
-        if(window.dataTable) {
-          try {
-            window.dataTable.destroy();
-          } catch(e) { console.error('Failed to destroy dataTable:', e); }
+        if($.fn.DataTable.isDataTable('#table1')) {
+          $('#table1').DataTable().destroy();
+          dataTableInitialized = false;
+          console.log('Successfully destroyed existing DataTable');
+        }
+        
+        if ($('#table1').length === 0) {
+          console.error('Table element not found in loadAllExperimentsData');
+          return;
         }
 
+        if ($('#table1 tbody').length === 0) {
+          $('#table1').append('<tbody></tbody>');
+          console.log('Created missing tbody element');
+        } else {
+          $('#table1 tbody').empty();
+        }
+  
         // empty the table
         // $('#table1').find('tbody').empty();
         const tableBody = document.querySelector('#table1 tbody');
-        tableBody.innerHTML = '';
+        if (!tableBody) {
+          const table = document.getElementById('table1');
+          if (table) {
+            const newTbody = document.createElement('tbody');
+            table.appendChild(newTbody);
+            console.log('Created missing tbody element');
+            // use the new created tbody
+            newTbody.innerHTML = '';
+          } else {
+            console.error('Table element not found');
+            return;
+          }
+        } else {
+          tableBody.innerHTML = '';
+        }
 
-        fetch('./experiment_summary.csv')
+        fetch('./experiment_summary_with_space.csv')
           .then(response => response.text())
           .then(data => {
-            console.log('Successfully loaded experiment_summary.csv...');
+            console.log('Successfully loaded experiment_summary_with_space.csv...');
             // Parse CSV data
             const parsedData = parseCSV(data);
-            
-            // empty the table
-            // const tableBody = document.querySelector('#table1 tbody');
-            // tableBody.innerHTML = '';
             
             // fill the table
             let rowsAdded = 0;
@@ -842,11 +888,11 @@
                 let bgColor = '';
                 if (modelName.includes('real-world') || modelName === 'real-world') {
                   bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-                } else if (conditioning.includes('single_frame') || conditioning === 'single_frame_conditioning') {
+                } else if (conditioning.includes('single frame') || conditioning === 'single frame') {
                   bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-                } else if (conditioning.includes('multi_frame') || conditioning === 'multi_frame_conditioning') {
+                } else if (conditioning.includes('multi frame') || conditioning === 'multi frame') {
                   bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-                } else if (conditioning.includes('keyframe') || conditioning === 'keyframe_interpolation') {
+                } else if (conditioning.includes('keyframe interpolation') || conditioning === 'keyframe interpolation') {
                   bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
                 }
                 
@@ -877,7 +923,7 @@
             reinitializeDataTable();
           })
           .catch(error => {
-            console.error('Error loading experiment_summary.csv:', error);
+            console.error('Error loading experiment_summary_with_space.csv:', error);
             const tableBody = document.querySelector('#table1 tbody');
             tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
           });
@@ -888,22 +934,43 @@
       function filterBySpecificExperiment(experimentType) {
         try {
           // Destroy existing DataTable if it exists
-          // if($.fn.DataTable.isDataTable('#table1')) {
-          //   $('#table1').DataTable().destroy();
-          // }
-          if(window.dataTable) {
-            try {
-              window.dataTable.destroy();
-            } catch(e) { console.error('Failed to destroy dataTable:', e); }
+          if(dataTableInitialized && $.fn.DataTable.isDataTable('#table1')) {
+            $('#table1').DataTable().destroy();
+            dataTableInitialized = false;
+          }
+          
+          if ($('#table1').length === 0) {
+            console.error('Table element not found in filterBySpecificExperiment');
+            return;
           }
 
-          // 清空表格内容
+          if ($('#table1 tbody').length === 0) {
+            $('#table1').append('<tbody></tbody>');
+          } else {
+            $('#table1 tbody').empty();
+          }
+          
+          // empty the table
           // $('#table1 tbody').empty();
           const tableBody = document.querySelector('#table1 tbody');
-          tableBody.innerHTML = '';
+          if (!tableBody) {
+            const table = document.getElementById('table1');
+            if (table) {
+              const newTbody = document.createElement('tbody');
+              table.appendChild(newTbody);
+              console.log('Created missing tbody element');
+              // use the new created tbody
+              newTbody.innerHTML = '';
+            } else {
+              console.error('Table element not found');
+              return;
+            }
+          } else {
+            tableBody.innerHTML = '';
+          }
 
           // Get the CSV file to load based on experiment type
-          const csvFile = './summary_old.csv';
+          const csvFile = './summary_old_with_space.csv';
           
           // Fetch and process the data
           fetch(csvFile)
@@ -939,10 +1006,12 @@
             populateTable(filteredData);
 
             // Reinitialize DataTable
-            reinitializeDataTable();
+            if (!dataTableInitialized) {
+              reinitializeDataTable();
+            }
           })
           .catch(error => {
-            console.error('Error loading summary_old.csv:', error);
+            console.error('Error loading summary_old_with_space.csv:', error);
             const tableBody = document.querySelector('#table1 tbody');
             tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Error loading data</td></tr>';
           });
@@ -1035,11 +1104,11 @@
           let bgColor = '';
           if (group.model.includes('real-world') || group.model === 'real-world') {
             bgColor = 'rgba(249, 242, 248, 1)';  // light pink
-          } else if (group.conditioning.includes('single_frame') || group.conditioning === 'single_frame_conditioning') {
+          } else if (group.conditioning.includes('single frame') || group.conditioning === 'single frame') {
             bgColor = 'rgba(255, 208, 80, 0.15)';  // light yellow
-          } else if (group.conditioning.includes('multi_frame') || group.conditioning === 'multi_frame_conditioning') {
+          } else if (group.conditioning.includes('multi frame') || group.conditioning === 'multi frame') {
             bgColor = 'rgba(117, 166, 215, 0.1)';  // light blue
-          } else if (group.conditioning.includes('keyframe') || group.conditioning === 'keyframe_interpolation') {
+          } else if (group.conditioning.includes('keyframe interpolation') || group.conditioning === 'keyframe interpolation') {
             bgColor = 'rgba(112, 230, 102, 0.1)';  // light green
           }
           
@@ -1063,21 +1132,54 @@
     });
 
     function reinitializeDataTable() {
-      // make sure to destroy the existing DataTable instance
-      if(window.dataTable) {
-        try {
-          window.dataTable.destroy();
-          console.log('DataTable manually destroyed');
-        } catch(e) {
-          console.log('Failed to destroy dataTable:', e);
-        }
+      console.log('Reinitializing DataTable...');
+
+      if ($('#table1').length === 0) {
+        console.error('Table element not found during reinitialization');
+        return;
       }
+
+      if ($('#table1 tbody').length === 0) {
+        $('#table1').append('<tbody></tbody>');
+        console.log('Created new tbody element');
+      }
+
+      if (dataTableInitialized && $.fn.DataTable.isDataTable('#table1')) {
+        $('#table1').DataTable().destroy();
+        dataTableInitialized = false;
+        console.log('DataTable destroyed using jQuery method');
+      }
+
+
+      // const table = document.getElementById('table1');
+      // if (!table) {
+      //   console.error('Table element not found');
+      //   return;
+      // }
+
+      // let tbody = table.querySelector('tbody');
+      // if (!tbody) {
+      //   tbody = document.createElement('tbody');
+      //   table.appendChild(tbody);
+      //   console.log('Created new tbody element');
+      // }
+
+      // // make sure to destroy the existing DataTable instance
+      // if(window.dataTable) {
+      //   try {
+      //     window.dataTable.destroy();
+      //     console.log('DataTable manually destroyed');
+      //   } catch(e) {
+      //     console.log('Failed to destroy dataTable:', e);
+      //   }
+      // }
       
       // empty the table
-      $('#table1').removeData();
+      // $('#table1').removeData();
 
       setTimeout(function() {
         try {
+          console.log('Initializing new DataTable...');
           window.dataTable = $('#table1').DataTable({
             paging: false,
             searching: false,
@@ -1086,14 +1188,31 @@
             "columnDefs": [
               { "targets": [0, 1, 2, 3], "orderable": false },
               { "targets": [4, 5, 6], "orderable": true }
-            ]
+            ],
+            "retrieve": true
           });
-          console.log('DataTable successfully reinitialized');
+          dataTableInitialized = true;
+          console.log('DataTable initialized successfully');
         } catch(e) {
           console.error('Error initializing DataTable:', e);
         }
-      }, 100); 
+      }, 50); 
     }
+        
+
+      // // initialize the table for sorting
+      // $(document).ready(function() {
+      //   $('#table1').DataTable({
+      //     paging: false,    // do not show the pagination
+      //     searching: false, // do not show the search box
+      //     info: false,      // do not show the information text
+      //     "order": [],      // default no sorting
+      //     "columnDefs": [
+      //       { "targets": [4, 5, 6], "orderable": true }, // make Discard Rate、Physical Invariance Score and Dynamical score columns sortable
+      //       { "targets": "_all", "orderable": true }     // all columns are sortable
+      //     ]
+      //   });
+      // });
   </script>
 </body>
 </html>
