@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="MORPHEUS">
   <meta name="twitter:description" content="">
   <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
-  <meta name="twitter:card" content="summary_large_image">-->
+  <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="video generation models, physical reasoning, physical laws, physical score, statistical score, physical experiments, physical invariances">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,6 +77,10 @@
   <script src="./static/js/index.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Add these in the head section -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 </head>
 <body>
 
@@ -86,7 +90,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">MORPHEUS: MOdel Reasoning for PHysical Experiments Understanding and Scoring Benchmark</h1>
+            <h1 class="title is-1 publication-title">MORPHEUS: Benchmarking Physical Reasoning of Video Generative Models with Real Physical Experiments</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -176,8 +180,6 @@
   </section>
   <!-- End paper abstract -->
 
-
-
   <br>
 
 <!-- DATASET SECTION -->
@@ -259,10 +261,109 @@
           <iframe src="plots/scores_plot_double_pendulum.html"></iframe>
         </div>
 
+        <!-- Video Examples -->
+        <section class="section hero">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-full">
+                <h3 class="title is-3" style="margin-bottom: 2rem;">Discarded videos</h3>
+                
+                <!-- Video Grid -->
+                <div class="columns is-centered">
+                  <!-- First Video -->
+                  <div class="column is-4">
+                    <div class="video-wrapper">
+                      <video autoplay loop muted playsinline class="video-player">
+                        <source src="static/videos/discarded/dissaperance.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <p class="video-caption">An example of the <b>disappearance</b> of the object (the projectile ball). Model: PyramidalFlow, multi-frame conditioning, enhanced text prompt.</p>
+                  </div>
+                  
+                  <!-- Second Video -->
+                  <div class="column is-4">
+                    <div class="video-wrapper">
+                      <video autoplay loop muted playsinline class="video-player">
+                        <source src="static/videos/discarded/duplicate.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <p class="video-caption">An example of the <b>duplication</b> of the object (non-holonomic pendulum). Model: COSMOS, multi-frame conditioning, plain text prompt.</p>
+                  </div>
+                  
+                  <!-- Third Video -->
+                  <div class="column is-4">
+                    <div class="video-wrapper">
+                      <video autoplay loop muted playsinline class="video-player">
+                        <source src="static/videos/discarded/stillness.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <p class="video-caption">An example of the <b>stillness</b> of the object (double pendulum). Model: LTX, single frame conditioning, plain text prompt.</p>
+                  </div>
+                </div>
+
+                <style>
+                  .section.hero {
+                    padding: 3rem 1.5rem;
+                    background-color: white;
+                  }
+
+                  .container.is-max-desktop {
+                    max-width: 100% !important;
+                    width: 100%;
+                    padding: 0 2rem;
+                  }
+
+                  .video-wrapper {
+                    width: 100%;
+                    position: relative;
+                    background: #000;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+                    margin: 0 auto;
+                  }
+
+                  .video-player {
+                    width: 100%;
+                    display: block;
+                    height: auto;
+                    max-height: none;
+                    object-fit: contain;
+                  }
+
+                  .video-caption {
+                    text-align: center;
+                    margin-top: 1.5rem;
+                    font-size: 1rem;
+                    line-height: 1.4;
+                    color: #363636;
+                  }
+
+                  @media screen and (max-width: 768px) {
+                    .columns {
+                      margin: 0;
+                    }
+                    .column {
+                      padding: 0.5rem;
+                    }
+                    .video-caption {
+                      font-size: 0.9rem;
+                    }
+                  }
+                </style>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Video Examples -->
+
         <div id="plotly-container2">
           <iframe src="plots/discard_rate_agg_plot.html" width="100%" height="900px" style="border:none;"></iframe>
           <iframe src="plots/depth_cons_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
-      </div>
+        </div>
       </div>
     </div>
 </div>
@@ -970,3 +1071,4 @@
   </script>
 </body>
 </html>
+

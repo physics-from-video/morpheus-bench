@@ -133,5 +133,138 @@ body {
   font-size: smaller;
 }
 
+/* Video Carousel Styles */
+.carousel {
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.carousel .carousel-container {
+    height: auto;
+}
+
+.carousel .carousel-item {
+    padding: 1rem;
+}
+
+.carousel .carousel-item figure.image {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-navigation {
+    background: none;
+}
+
+.carousel-nav-left,
+.carousel-nav-right {
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 1rem;
+}
+
+.carousel p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Video carousel specific styles */
+#video-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-container {
+    padding: 1rem;
+}
+
+.video-container video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-container .caption {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+    padding: 0 1rem;
+}
+
+/* Navigation styles */
+.carousel-navigation-next,
+.carousel-navigation-previous {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Video showcase styles */
+.video-showcase {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.video-wrapper {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.video-wrapper video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-caption {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+    text-align: center;
+}
+
+/* Video.js custom styles */
+.video-js {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vjs-default-skin {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 
 
