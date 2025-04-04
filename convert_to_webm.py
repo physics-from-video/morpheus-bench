@@ -3,20 +3,57 @@
 
 import os
 import sys
-import argparse
+from pathlib import Path
 
 def convert_to_webm(video_path):
-    # Convert the video to webm format
-    os.system(f"ffmpeg -i {video_path} -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k {video_path.replace('.mp4', '.webm')}")
+    """Convert a single video file to webm format."""
+    try:
+        output_path = str(video_path).replace('.mp4', '.webm')
+        if os.path.exists(output_path):
+            print(f"Skipping {video_path} - WebM version already exists")
+            return True
+            
+        print(f"Converting {video_path} to WebM...")
+        result = os.system(f"ffmpeg -i '{video_path}' -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k '{output_path}'")
+        if result == 0:
+            print(f"Successfully converted {video_path}")
+            return True
+        else:
+            print(f"Failed to convert {video_path}")
+            return False
+    except Exception as e:
+        print(f"Error converting {video_path}: {str(e)}")
+        return False
+
+def process_directory(directory):
+    """Process all MP4 files in the given directory and its subdirectories."""
+    directory_path = Path(directory)
+    if not directory_path.exists():
+        print(f"Directory {directory} does not exist")
+        return
+
+    mp4_files = list(directory_path.rglob("*.mp4"))
+    if not mp4_files:
+        print(f"No MP4 files found in {directory}")
+        return
+
+    print(f"Found {len(mp4_files)} MP4 files to process")
+    successful = 0
+    failed = 0
+
+    for video_path in mp4_files:
+        if convert_to_webm(video_path):
+            successful += 1
+        else:
+            failed += 1
+
+    print(f"\nConversion complete:")
+    print(f"Successfully converted: {successful}")
+    print(f"Failed to convert: {failed}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--videos_path", type=str, required=True)
-    args = parser.parse_args()
-
-    # Recursively find all videos in the directory
-    for root, dirs, files in os.walk(args.videos_path):
-        for file in files:
-            if file.endswith(".mp4"):
-                print(f"Converting {os.path.join(root, file)} to webm")
-                convert_to_webm(os.path.join(root, file))
+    if len(sys.argv) != 2:
+        print("Usage: python convert_to_webm.py <directory_path>")
+        sys.exit(1)
+    
+    process_directory(sys.argv[1])
