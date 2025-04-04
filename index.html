@@ -376,6 +376,7 @@
               const modelSelect = document.getElementById('model-select');
               const conditioningSelect = document.getElementById('conditioning-select');
               const promptSelect = document.getElementById('prompt-select');
+              const keyframeOption = conditioningSelect.querySelector('option[value="keyframe_interpolation"]');
 
               const model = modelSelect.value;
               const conditioning = conditioningSelect.value.toLowerCase().replace(/ /g, '_');
@@ -387,6 +388,22 @@
               const isRealWorld = model === 'real-world';
               conditioningSelect.disabled = isRealWorld;
               promptSelect.disabled = isRealWorld;
+
+              // Disable/enable Keyframe Interpolation based on model
+              if (keyframeOption) {
+                if (model !== 'CogVideo' && !isRealWorld) {
+                  keyframeOption.disabled = true;
+                  // If Keyframe Interpolation was selected, switch to Single Frame
+                  if (conditioningSelect.value === 'keyframe_interpolation') {
+                    conditioningSelect.value = 'single_frame_conditioning';
+                    // Explicitly call updateVideoSources again and exit the current run
+                    updateVideoSources();
+                    return; 
+                  }
+                } else {
+                  keyframeOption.disabled = false;
+                }
+              }
 
               for (const id of videoIds) {
                 const player = document.getElementById(id);
