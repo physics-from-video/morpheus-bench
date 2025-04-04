@@ -183,6 +183,291 @@
   <br>
 
 <!-- DATASET SECTION -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;">Morpheus</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div style="text-align: center;">
+            <img src="./static/images/figure1.png" style="width: 70%;" alt="Morpheus"/>
+          </div>
+          <div class="content has-text-justified"><br />
+            The Morpheus benchmark. Physical Evaluation of VGMs for the holonomic pendulum experiment using Dynamical and Physical Invariance scores computed from the extracted trajectories.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Video Configuration and Grid Section -->
+  <section class="section hero is-light">
+    <div class="container is-fluid">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3">Video examples</h2>
+          
+          <!-- Configuration Selector -->
+          <div class="configuration-selector" style="margin-bottom: 2rem;">
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <div class="select">
+                  <select id="model-select">
+                    <option value="real-world">Real World</option>
+                    <option value="CogVideo">CogVideo</option>
+                    <option value="COSMOS">COSMOS</option>
+                    <option value="LTX">LTX</option>
+                    <option value="PyramidalFlow">PyramidalFlow</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="conditioning-select">
+                    <option value="single_frame_conditioning">Single Frame</option>
+                    <option value="multi_frame_conditioning">Multi Frame</option>
+                    <option value="keyframe_interpolation">Keyframe Interpolation</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select">
+                  <select id="prompt-select">
+                    <option value="plain">Plain Text</option>
+                    <option value="enhanced">Enhanced Text</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Grid -->
+          <div class="video-grid">
+            <!-- First Row -->
+            <div class="columns is-centered">
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-ball">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Ball</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="bouncing-ball">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Bouncing Ball</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="projectile">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Projectile</p>
+              </div>
+            </div>
+            <!-- Second Row -->
+            <div class="columns is-centered">
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="holonomic-pendulum">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Holonomic Pendulum</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="non-holonomic-pendulum">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Non-holonomic Pendulum</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="double-pendulum">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Double Pendulum</p>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            .configuration-selector {
+              margin-bottom: 2rem;
+            }
+            
+            .configuration-selector .select {
+              margin: 0 0.5rem;
+            }
+            
+            .video-grid {
+              margin-top: 2rem;
+              max-width: 1200px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            
+            .video-grid .columns {
+              margin-bottom: 2rem;
+            }
+            
+            .video-wrapper {
+              width: 100%;
+              position: relative;
+              background: #000;
+              border-radius: 24px;
+              overflow: hidden;
+              box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+              margin: 0 auto;
+              aspect-ratio: 16/9;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              max-width: 350px;
+            }
+            
+            .video-player {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              max-width: 100%;
+              max-height: 100%;
+              display: block;
+              background: #000;
+            }
+            
+            .video-caption {
+              text-align: center;
+              margin-top: 1rem;
+              font-size: 1.1rem;
+              color: #363636;
+            }
+
+            /* Add media query for smaller screens */
+            @media screen and (max-width: 768px) {
+              .video-wrapper {
+                aspect-ratio: 4/3;
+              }
+              
+              .video-player {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          </style>
+
+          <script>
+            async function updateVideoSources() {
+              const modelSelect = document.getElementById('model-select');
+              const conditioningSelect = document.getElementById('conditioning-select');
+              const promptSelect = document.getElementById('prompt-select');
+              const keyframeOption = conditioningSelect.querySelector('option[value="keyframe_interpolation"]');
+
+              const model = modelSelect.value;
+              const conditioning = conditioningSelect.value.toLowerCase().replace(/ /g, '_');
+              const promptType = promptSelect.value.toLowerCase().replace(/ /g, '_');
+
+              const videoIds = ['falling-ball', 'bouncing-ball', 'projectile', 'holonomic-pendulum', 'non-holonomic-pendulum', 'double-pendulum'];
+
+              // Disable/enable conditioning and prompt selects based on model choice
+              const isRealWorld = model === 'real-world';
+              conditioningSelect.disabled = isRealWorld;
+              promptSelect.disabled = isRealWorld;
+
+              // Disable/enable Keyframe Interpolation based on model
+              if (keyframeOption) {
+                if (model !== 'CogVideo' && !isRealWorld) {
+                  keyframeOption.disabled = true;
+                  // If Keyframe Interpolation was selected, switch to Single Frame
+                  if (conditioningSelect.value === 'keyframe_interpolation') {
+                    conditioningSelect.value = 'single_frame_conditioning';
+                    // Explicitly call updateVideoSources again and exit the current run
+                    updateVideoSources();
+                    return; 
+                  }
+                } else {
+                  keyframeOption.disabled = false;
+                }
+              }
+
+              for (const id of videoIds) {
+                const player = document.getElementById(id);
+                 if (!player) {
+                    console.warn(`Player element with ID ${id} not found.`);
+                    continue;
+                }
+                const source = player.querySelector('source');
+                if (!source) {
+                    console.warn(`Source element not found for player ${id}.`);
+                    continue;
+                }
+                const experimentId = id.replace(/-/g, '_'); // e.g., falling-ball -> falling_ball
+                let videoPath = '';
+
+                if (isRealWorld) {
+                  // Construct path for real-world videos
+                  videoPath = `static/videos/real-world/${experimentId}.webm`;
+                } else {
+                  // Construct path for generated videos
+                  videoPath = `static/videos/generated_videos/${conditioning}/${model}/${promptType}/${experimentId}/output_video.webm`;
+                }
+
+
+                try {
+                  // Check if the video file exists
+                  const response = await fetch(videoPath, { method: 'HEAD' });
+                  if (response.ok) {
+                    source.src = videoPath;
+                    player.load(); // Reload the video player with the new source
+                    // It's generally better practice to let users initiate play, but keeping autoplay logic as per original structure
+                    player.play().catch(e => console.log(`Autoplay prevented for ${id}:`, e.message)); // Attempt to play, catch errors
+                  } else {
+                    console.log(`Video not found: ${videoPath}`);
+                    source.removeAttribute('src'); // Clear the source if video not found
+                    player.load(); // Reload player to reflect the empty source
+                  }
+                } catch (error) {
+                  console.error(`Error checking or loading video ${id} at path ${videoPath}:`, error);
+                  source.removeAttribute('src'); // Clear the source on error
+                  player.load(); // Reload player
+                }
+              }
+            }
+
+            // Initialize videos and event listeners when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+              // Initial call to set videos based on default selections
+              updateVideoSources();
+
+              // Attach event listeners to dropdowns (Ensure this isn't duplicated elsewhere)
+              document.getElementById('model-select').addEventListener('change', updateVideoSources);
+              document.getElementById('conditioning-select').addEventListener('change', updateVideoSources);
+              document.getElementById('prompt-select').addEventListener('change', updateVideoSources);
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+
+<!-- DATASET SECTION -->
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
   <h1 class="title is-1 mmmu">
@@ -273,7 +558,7 @@
                   <!-- First Video -->
                   <div class="column is-4">
                     <div class="video-wrapper">
-                      <video autoplay loop muted playsinline class="video-player">
+                      <video autoplay loop muted playsinline class="video-player discarded-video">
                         <source src="static/videos/discarded/dissaperance.webm" type="video/webm">
                         Your browser does not support the video tag.
                       </video>
@@ -284,7 +569,7 @@
                   <!-- Second Video -->
                   <div class="column is-4">
                     <div class="video-wrapper">
-                      <video autoplay loop muted playsinline class="video-player">
+                      <video autoplay loop muted playsinline class="video-player discarded-video">
                         <source src="static/videos/discarded/duplicate.webm" type="video/webm">
                         Your browser does not support the video tag.
                       </video>
@@ -295,7 +580,7 @@
                   <!-- Third Video -->
                   <div class="column is-4">
                     <div class="video-wrapper">
-                      <video autoplay loop muted playsinline class="video-player">
+                      <video autoplay loop muted playsinline class="video-player discarded-video">
                         <source src="static/videos/discarded/stillness.webm" type="video/webm">
                         Your browser does not support the video tag.
                       </video>
@@ -303,6 +588,29 @@
                     <p class="video-caption">An example of the <b>stillness</b> of the object (double pendulum). Model: LTX, single frame conditioning, plain text prompt.</p>
                   </div>
                 </div>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                    const discardedVideos = document.querySelectorAll('.discarded-video');
+                    
+                    discardedVideos.forEach(video => {
+                      // Add error handling before attempting to play
+                      video.addEventListener('error', function(e) {
+                        console.log('Error loading discarded video:', video.id, e.target.error);
+                      });
+
+                      video.addEventListener('loadeddata', function() {
+                        // Only try to play once the video is actually loaded
+                        video.play().catch(e => {
+                          console.log('Discarded video play failed:', video.id, e);
+                        });
+                      });
+
+                      // Load the video
+                      video.load();
+                    });
+                  });
+                </script>
 
                 <style>
                   .section.hero {
@@ -324,14 +632,20 @@
                     overflow: hidden;
                     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
                     margin: 0 auto;
+                    aspect-ratio: 16/9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                   }
 
                   .video-player {
                     width: 100%;
-                    display: block;
-                    height: auto;
-                    max-height: none;
+                    height: 100%;
                     object-fit: contain;
+                    max-width: 100%;
+                    max-height: 100%;
+                    display: block;
+                    background: #000;
                   }
 
                   .video-caption {
@@ -351,6 +665,13 @@
                     }
                     .video-caption {
                       font-size: 0.9rem;
+                    }
+                    .video-wrapper {
+                      aspect-ratio: 16/9;
+                    }
+                    .video-player {
+                      width: 100%;
+                      height: 100%;
                     }
                   }
                 </style>
