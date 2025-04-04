@@ -214,6 +214,7 @@
               <div class="control">
                 <div class="select">
                   <select id="model-select">
+                    <option value="real-world">Real World</option>
                     <option value="CogVideo">CogVideo</option>
                     <option value="COSMOS">COSMOS</option>
                     <option value="LTX">LTX</option>
@@ -382,40 +383,65 @@
 
               const videoIds = ['falling-ball', 'bouncing-ball', 'projectile', 'holonomic-pendulum', 'non-holonomic-pendulum', 'double-pendulum'];
 
+              // Disable/enable conditioning and prompt selects based on model choice
+              const isRealWorld = model === 'real-world';
+              conditioningSelect.disabled = isRealWorld;
+              promptSelect.disabled = isRealWorld;
+
               for (const id of videoIds) {
                 const player = document.getElementById(id);
+                 if (!player) {
+                    console.warn(`Player element with ID ${id} not found.`);
+                    continue;
+                }
                 const source = player.querySelector('source');
-                const experimentId = id.replace(/-/g, '_');
-                const videoPath = `static/videos/generated_videos/${conditioning}/${model}/${promptType}/${experimentId}/output_video.webm`;
+                if (!source) {
+                    console.warn(`Source element not found for player ${id}.`);
+                    continue;
+                }
+                const experimentId = id.replace(/-/g, '_'); // e.g., falling-ball -> falling_ball
+                let videoPath = '';
+
+                if (isRealWorld) {
+                  // Construct path for real-world videos
+                  videoPath = `static/videos/real-world/${experimentId}.webm`;
+                } else {
+                  // Construct path for generated videos
+                  videoPath = `static/videos/generated_videos/${conditioning}/${model}/${promptType}/${experimentId}/output_video.webm`;
+                }
+
 
                 try {
+                  // Check if the video file exists
                   const response = await fetch(videoPath, { method: 'HEAD' });
                   if (response.ok) {
                     source.src = videoPath;
-                    player.load();
-                    player.play().catch(e => console.log(`Play failed for ${id}:`, e));
+                    player.load(); // Reload the video player with the new source
+                    // It's generally better practice to let users initiate play, but keeping autoplay logic as per original structure
+                    player.play().catch(e => console.log(`Autoplay prevented for ${id}:`, e.message)); // Attempt to play, catch errors
                   } else {
                     console.log(`Video not found: ${videoPath}`);
-                    source.removeAttribute('src');
-                    player.load();
+                    source.removeAttribute('src'); // Clear the source if video not found
+                    player.load(); // Reload player to reflect the empty source
                   }
                 } catch (error) {
-                  console.error(`Error checking video ${id}:`, error);
-                  source.removeAttribute('src');
-                  player.load();
+                  console.error(`Error checking or loading video ${id} at path ${videoPath}:`, error);
+                  source.removeAttribute('src'); // Clear the source on error
+                  player.load(); // Reload player
                 }
               }
             }
 
-            // Initialize videos when the page loads
+            // Initialize videos and event listeners when the page loads
             document.addEventListener('DOMContentLoaded', () => {
+              // Initial call to set videos based on default selections
               updateVideoSources();
-            });
 
-            // Update videos when selections change
-            document.getElementById('model-select').addEventListener('change', updateVideoSources);
-            document.getElementById('conditioning-select').addEventListener('change', updateVideoSources);
-            document.getElementById('prompt-select').addEventListener('change', updateVideoSources);
+              // Attach event listeners to dropdowns (Ensure this isn't duplicated elsewhere)
+              document.getElementById('model-select').addEventListener('change', updateVideoSources);
+              document.getElementById('conditioning-select').addEventListener('change', updateVideoSources);
+              document.getElementById('prompt-select').addEventListener('change', updateVideoSources);
+            });
           </script>
         </div>
       </div>
