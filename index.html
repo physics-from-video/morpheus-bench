@@ -65,6 +65,23 @@
     background-color: #e8e8e8;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
+    /* Table and content max-width constraints */
+    .js-sort-table {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    
+    /* Center content and add max-width for better readability */
+    @media screen and (min-width: 1600px) {
+      .container.is-max-desktop {
+        max-width: 1400px !important;
+      }
+      
+      .video-grid, .plot-grid, #plotly-container, #plotly-container2 {
+        max-width: 1400px !important;
+      }
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -100,9 +117,6 @@
                 <a >Daniil Cherniavskii</a><sup>2,*</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a >Andrii Zadaianchuk</a><sup>2,*</sup>,&nbsp;
-              </span>
-              <span class="author-block">
                 <a >Antonios Tragoudaras</a><sup>2,*</sup>,&nbsp;
               </span>
               <span class="author-block">
@@ -121,7 +135,10 @@
                 <a >Nicu Sebe</a><sup>1</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a >Efstratios Gavves</a><sup>2,3</sup>
+                <a >Andrii Zadaianchuk</a><sup>2,††</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a >Efstratios Gavves</a><sup>2,3,††</sup>
               </span>
             </div>
 
@@ -130,7 +147,8 @@
               <span class="author-block"><sup>2</sup><a href="https://www.uva.nl/" target="_blank">University of Amsterdam, the Netherlands</a></span><br>
               <span class="author-block"><sup>3</sup><a href="https://www.athenarc.gr/en/archimedes" target="_blank">Archimedes, Athena Research Center, Greece</a></span><br>
               <span class="author-block"><sup>*</sup>Equal contribution of first authors</span><br>
-               <span class="author-block"><sup>†</sup>Equal contribution of second authors</span>
+               <span class="author-block"><sup>†</sup>Equal contribution of second authors</span><br>
+               <span class="author-block"><sup>††</sup>Equal advising</span>
             </div>
 
             <div class="is-size-4" style="padding-top: 0.25em;">
@@ -232,7 +250,7 @@
 
   <!-- Video Configuration and Grid Section -->
   <section class="section hero is-light">
-    <div class="container is-fluid">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-12">
           <h2 class="title is-3">Video examples</h2>
@@ -349,6 +367,13 @@
               max-width: 1200px;
               margin-left: auto;
               margin-right: auto;
+            }
+            
+            /* Improve responsive design for large screens */
+            @media screen and (min-width: 1408px) {
+              .container.is-max-desktop {
+                max-width: 1344px;
+              }
             }
             
             .video-grid .columns {
@@ -505,7 +530,7 @@
   </h1>
   </div>
 </section>
-<div class="container">
+<div class="container is-max-desktop">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
         <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;">
@@ -549,7 +574,7 @@
           <p class="test-desc hidden"> Overall results of different models on Morpheus-bench.</p>
           
           <h2 class="title is-3" style="margin-top: 40px;">Results</h2>
-          <div id="plotly-container">
+          <div id="plotly-container" style="max-width: 1200px; margin: 0 auto;">
             <iframe src="plots/scores_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
         </div>
         <style>
@@ -557,12 +582,27 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
           }
         
           .plot-grid iframe {
             width: 100%;
             height: 400px;
             border: none;
+          }
+          
+          /* Responsive grid for smaller screens */
+          @media screen and (max-width: 1024px) {
+            .plot-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+          
+          @media screen and (max-width: 768px) {
+            .plot-grid {
+              grid-template-columns: 1fr;
+            }
           }
         </style>
         
@@ -648,9 +688,10 @@
                   }
 
                   .container.is-max-desktop {
-                    max-width: 100% !important;
+                    max-width: 1344px !important;
                     width: 100%;
                     padding: 0 2rem;
+                    margin: 0 auto;
                   }
 
                   .video-wrapper {
@@ -710,7 +751,7 @@
         </section>
         <!-- End Video Examples -->
 
-        <div id="plotly-container2">
+        <div id="plotly-container2" style="max-width: 1200px; margin: 0 auto;">
           <iframe src="plots/discard_rate_agg_plot.html" width="100%" height="900px" style="border:none;"></iframe>
           <iframe src="plots/depth_cons_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
         </div>
