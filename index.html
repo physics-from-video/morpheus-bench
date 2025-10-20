@@ -192,15 +192,36 @@
   </div>
 </section>
 
+<!-- DATASET SECTION -->
+<section class="hero is-small">
+  <div class="hero-body" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div style="text-align: center;">
+            <img src="./static/images/main_method.png" style="width: 100%;" alt="Morpheus"/>
+          </div>
+          <div class="content has-text-justified"><br />
+            Comparison of evaluation methods for video generative models. Human or VLM-based judgments provide only qualitative and subjective assessments of physical plausibility. Trajectory matching compares generated and ground-truth paths but may misclassify physically valid trajectories. For example, many projectile parabolas remain plausible when a VGM is conditioned on a single image with unknown velocity. Morpheus instead evaluates generations with physics-informed scores that test conservation of invariants and consistency with governing equations of motion.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- Paper abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-three-fifths-desktop is-four-fifths-tablet is-full-mobile">
           <h2 class="title is-3">Summary</h2>
           <div class="content has-text-justified">
             <p>
-              As the development of Video Generation Models (VGMs) progresses, many are claimed to possess world modeling capabilities—the ability to generate arbitrary realistic videos. These models have significant potential for applications in fields such as robotics and autonomous driving as well as in scientific simulation and medical data augmentation. However, a critical question arises: to what extent do these models adhere to physical laws? To address this, we introduce MORPHEUS, a novel benchmark designed to evaluate the intrinsic physical reasoning capabilities of VGMs. MORPHEUS provides a curated dataset comprising 80 real-world videos of experiments that capture physical phenomena, guided by specific physical invariances such as energy or momentum conservation. These invariances reveal the specific physical phenomena missed by the models, enabling a fine-grained evaluation and forming the foundation of our interpretable Physical Score measure. We also propose a Statistical Score, based on Physics-Informed Neural Networks (PINNs), to provide a complementary evaluation across a broader range of physical scenarios. Our findings reveal that even with advanced prompting techniques, such as multi-frame prompting and enhanced textual descriptions, current VGMs demonstrate substantial limitations in their ability to model and understand physical phenomena.
+              Recent advances in image and video generation raise hopes that these models possess world modeling capabilities—the ability to generate realistic, physically plausible videos. This could revolutionize applications in robotics, autonomous driving, and scientific simulation. However, before treating these models as world models, we must ask: Do they adhere to physical laws? Current evaluation methods rely on subjective judgments or trajectory matching, limiting their usage for physical reasoning estimation, where many generations could be physically plausible.
+            </p>
+            <p>
+              We introduce <strong>Morpheus</strong>, a benchmark for evaluating video generation models on physical reasoning. It features 130 real-world videos capturing physical phenomena, guided by conservation laws. Using those as conditioning for video generation, we assess physical plausibility using physics-informed metrics evaluated with respect to infallible conservation laws known per physical setting, leveraging advances in physics-informed neural networks and vision-language foundation models.
             </p>
           </div>
         </div>
@@ -210,25 +231,6 @@
   <!-- End paper abstract -->
 
   <br>
-
-<!-- DATASET SECTION -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3" style="text-align: center;">Morpheus</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div style="text-align: center;">
-            <img src="./static/images/figure1.png" style="width: 70%;" alt="Morpheus"/>
-          </div>
-          <div class="content has-text-justified"><br />
-            The Morpheus benchmark. Physical Evaluation of VGMs for the holonomic pendulum experiment using Dynamical and Physical Invariance scores computed from the extracted trajectories.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
   <!-- Video Configuration and Grid Section -->
   <section class="section hero is-light">
