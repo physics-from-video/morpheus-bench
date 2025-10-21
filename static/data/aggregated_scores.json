@@ -1,0 +1,93 @@
+[
+  {
+    "model": "COSMOS-predict1",
+    "conditioning": "multi_frame_conditioning",
+    "statistical": 0.2682059506089404,
+    "physical": 0.2378178936175842,
+    "total": 0.4321560451192318
+  },
+  {
+    "model": "COSMOS-predict1",
+    "conditioning": "single_frame_conditioning",
+    "statistical": 0.17382407851363682,
+    "physical": 0.2253901690225505,
+    "total": 0.392246033314671
+  },
+  {
+    "model": "COSMOS-predict2",
+    "conditioning": "multi_frame_conditioning",
+    "statistical": 0.3007890346241105,
+    "physical": 0.2667348645116495,
+    "total": 0.5126190798551571
+  },
+  {
+    "model": "COSMOS-predict2",
+    "conditioning": "single_frame_conditioning",
+    "statistical": 0.25246848049237874,
+    "physical": 0.25061194670403475,
+    "total": 0.49640361689284856
+  },
+  {
+    "model": "CogVideo",
+    "conditioning": "keyframe_interpolation",
+    "statistical": 0.2545275182151439,
+    "physical": 0.23439828158127135,
+    "total": 0.47927902068227934
+  },
+  {
+    "model": "CogVideo",
+    "conditioning": "multi_frame_conditioning",
+    "statistical": 0.2059246414421507,
+    "physical": 0.2046618491254408,
+    "total": 0.37936658014901325
+  },
+  {
+    "model": "CogVideo",
+    "conditioning": "single_frame_conditioning",
+    "statistical": 0.20440426695544564,
+    "physical": 0.16249241294145084,
+    "total": 0.36403837517665466
+  },
+  {
+    "model": "LTX",
+    "conditioning": "multi_frame_conditioning",
+    "statistical": 0.16260563886283344,
+    "physical": 0.1967098131058376,
+    "total": 0.27363844345651456
+  },
+  {
+    "model": "LTX",
+    "conditioning": "single_frame_conditioning",
+    "statistical": 0.16164399103719418,
+    "physical": 0.15902598735977724,
+    "total": 0.2728523588314038
+  },
+  {
+    "model": "PyramidalFlow",
+    "conditioning": "multi_frame_conditioning",
+    "statistical": 0.17742653895547655,
+    "physical": 0.23744177778481732,
+    "total": 0.3683624733162067
+  },
+  {
+    "model": "PyramidalFlow",
+    "conditioning": "single_frame_conditioning",
+    "statistical": 0.14797258136026584,
+    "physical": 0.21231810966472972,
+    "total": 0.35340232178778863
+  },
+  {
+    "model": "WAN-2.1",
+    "conditioning": "keyframe_interpolation",
+    "statistical": 0.30103159026884385,
+    "physical": 0.3098479650695739,
+    "total": 0.6080177420565458
+  },
+  {
+    "model": "WAN-2.1",
+    "conditioning": "single_frame_conditioning",
+    "statistical": 0.22781910705496802,
+    "physical": 0.18470580765876637,
+    "total": 0.3900824332522449
+  }
+]

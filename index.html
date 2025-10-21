@@ -31,44 +31,10 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
-  <!-- Add CSS for experiment filter buttons -->
-  <style>
-    .experiment-filter {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    
-    .experiment-btn {
-      padding: 8px 15px;
-      border: 1px solid #ddd;
-      background-color: #f8f9fa;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .experiment-btn:hover {
-      background-color: #e9ecef;
-    }
-    
-    .experiment-btn.active {
-      background-color: #007bff;
-      color: white;
-      border-color: #007bff;
-    }
-
-    #toggleButton:hover {
-    background-color: #e8e8e8;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
   <!--<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>-->
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
@@ -510,71 +476,9 @@
 <div class="container">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;">
-          <b>MORPHEUS Leaderboard</b>
-        </button>
-
-        <!-- Add experiment filter buttons -->
-        <div class="experiment-filter" style="margin-top: 15px; margin-bottom: 15px;">
-          <button class="experiment-btn active" data-experiment="all">All Experiments</button>
-          <button class="experiment-btn" data-experiment="falling ball">Falling Ball</button>
-          <button class="experiment-btn" data-experiment="bouncing ball">Bouncing Ball</button>
-          <button class="experiment-btn" data-experiment="projectile">Projectile</button>
-          <button class="experiment-btn" data-experiment="holonomic pendulum">Holonomic Pendulum</button>
-          <button class="experiment-btn" data-experiment="non-holonomic pendulum">Non-holonomic Pendulum</button>
-          <button class="experiment-btn" data-experiment="double pendulum">Double Pendulum</button>
-        </div>
-
-        <div class="model-labels-container">
-            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">real-world</span>
-            <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">single frame</span>
-            <span class="leaderboard-label" style="background-color: rgba(117, 166, 215, 0.1);">multi frame</span>
-            <span class="leaderboard-label" style="background-color: rgba(112, 230, 102, 0.1);">keyframe interpolation</span>
-        </div>
-          <!-- Validation Set Leaderboard -->
-          <table id="table1" class="js-sort-table">
-            <thead>
-            <tr>
-              <th class="js-sort-number"><strong>Model Name</strong></th>
-              <th class="js-sort-date"><strong>Experiment Type</strong></th>
-              <th class="js-sort-number"><strong>Conditioning</strong></th>
-              <th class="js-sort-string"><strong>Prompt Type</strong></th>
-              <th class="js-sort-number"><strong>Discard Rate</strong></th>
-              <th class="js-sort-number"><strong>Physical Invariance Score</strong></th>
-              <th class="js-sort-number"><strong>Dynamical score</strong></th>
-            </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-          </table>
-          <p class="test-desc hidden"> Overall results of different models on Morpheus-bench.</p>
-          
-          <h2 class="title is-3" style="margin-top: 40px;">Results</h2>
-          <div id="plotly-container">
-            <iframe src="plots/scores_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
-        </div>
-        <style>
-          .plot-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-          }
-        
-          .plot-grid iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-          }
-        </style>
-        
-        <div class="plot-grid">
-          <iframe src="plots/scores_plot_falling_ball.html"></iframe>
-          <iframe src="plots/scores_plot_bouncing_ball.html"></iframe>
-          <iframe src="plots/scores_plot_projectile.html"></iframe>
-          <iframe src="plots/scores_plot_holonomic_pendulum.html"></iframe>
-          <iframe src="plots/scores_plot_non_holonomic.html"></iframe>
-          <iframe src="plots/scores_plot_double_pendulum.html"></iframe>
+        <div class="scores-chart-wrapper">
+          <div id="scores-chart"></div>
+          <p id="scores-chart-loading">Loading chart...</p>
         </div>
 
         <!-- Video Examples -->
