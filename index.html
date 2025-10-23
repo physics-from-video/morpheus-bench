@@ -66,9 +66,6 @@
                 <a >Daniil Cherniavskii</a><sup>2,*</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a >Andrii Zadaianchuk</a><sup>2,*</sup>,&nbsp;
-              </span>
-              <span class="author-block">
                 <a >Antonios Tragoudaras</a><sup>2,*</sup>,&nbsp;
               </span>
               <span class="author-block">
@@ -87,7 +84,10 @@
                 <a >Nicu Sebe</a><sup>1</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a >Efstratios Gavves</a><sup>2,3</sup>
+                <a >Andrii Zadaianchuk</a><sup>2,††</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a >Efstratios Gavves</a><sup>2,3,††</sup>
               </span>
             </div>
 
@@ -96,7 +96,8 @@
               <span class="author-block"><sup>2</sup><a href="https://www.uva.nl/" target="_blank">University of Amsterdam, the Netherlands</a></span><br>
               <span class="author-block"><sup>3</sup><a href="https://www.athenarc.gr/en/archimedes" target="_blank">Archimedes, Athena Research Center, Greece</a></span><br>
               <span class="author-block"><sup>*</sup>Equal contribution of first authors</span><br>
-               <span class="author-block"><sup>†</sup>Equal contribution of second authors</span>
+               <span class="author-block"><sup>†</sup>Equal contribution of second authors</span><br>
+               <span class="author-block"><sup>††</sup>Equal advising</span>
             </div>
 
             <div class="is-size-4" style="padding-top: 0.25em;">
@@ -125,15 +126,15 @@
               </span>                 -->
 
               <!-- ArXiv abstract Link -->
-              <!-- <span class="link-block">
-                <a href="XXX" target="_blank" class="external-link button is-normal is-rounded is-dark">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2504.02918" target="_blank" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
                 &nbsp;
-              </span> -->
+              </span>
 
               <!-- Github link -->
               <!-- <span class="link-block">
@@ -200,7 +201,7 @@
 
   <!-- Video Configuration and Grid Section -->
   <section class="section hero is-light">
-    <div class="container is-fluid">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-12">
           <h2 class="title is-3">Video examples</h2>
@@ -317,6 +318,13 @@
               max-width: 1200px;
               margin-left: auto;
               margin-right: auto;
+            }
+            
+            /* Improve responsive design for large screens */
+            @media screen and (min-width: 1408px) {
+              .container.is-max-desktop {
+                max-width: 1344px;
+              }
             }
             
             .video-grid .columns {
@@ -473,7 +481,7 @@
   </h1>
   </div>
 </section>
-<div class="container">
+<div class="container is-max-desktop">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
         <div class="scores-chart-wrapper">
@@ -554,9 +562,10 @@
                   }
 
                   .container.is-max-desktop {
-                    max-width: 100% !important;
+                    max-width: 1344px !important;
                     width: 100%;
                     padding: 0 2rem;
+                    margin: 0 auto;
                   }
 
                   .video-wrapper {
@@ -616,7 +625,7 @@
         </section>
         <!-- End Video Examples -->
 
-        <div id="plotly-container2">
+        <div id="plotly-container2" style="max-width: 1200px; margin: 0 auto;">
           <iframe src="plots/discard_rate_agg_plot.html" width="100%" height="900px" style="border:none;"></iframe>
           <iframe src="plots/depth_cons_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
         </div>
