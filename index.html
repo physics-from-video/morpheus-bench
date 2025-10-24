@@ -31,61 +31,10 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
-  <!-- Add CSS for experiment filter buttons -->
-  <style>
-    .experiment-filter {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    
-    .experiment-btn {
-      padding: 8px 15px;
-      border: 1px solid #ddd;
-      background-color: #f8f9fa;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .experiment-btn:hover {
-      background-color: #e9ecef;
-    }
-    
-    .experiment-btn.active {
-      background-color: #007bff;
-      color: white;
-      border-color: #007bff;
-    }
-
-    #toggleButton:hover {
-    background-color: #e8e8e8;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    /* Table and content max-width constraints */
-    .js-sort-table {
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    
-    /* Center content and add max-width for better readability */
-    @media screen and (min-width: 1600px) {
-      .container.is-max-desktop {
-        max-width: 1400px !important;
-      }
-      
-      .video-grid, .plot-grid, #plotly-container, #plotly-container2 {
-        max-width: 1400px !important;
-      }
-    }
-  </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
   <!--<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>-->
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
@@ -210,15 +159,36 @@
   </div>
 </section>
 
+<!-- DATASET SECTION -->
+<section class="hero is-small">
+  <div class="hero-body" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div style="text-align: center;">
+            <img src="./static/images/main_method.png" style="width: 100%;" alt="Morpheus"/>
+          </div>
+          <div class="content has-text-justified"><br />
+            Comparison of evaluation methods for video generative models. Human or VLM-based judgments provide only qualitative and subjective assessments of physical plausibility. Trajectory matching compares generated and ground-truth paths but may misclassify physically valid trajectories. For example, many projectile parabolas remain plausible when a VGM is conditioned on a single image with unknown velocity. Morpheus instead evaluates generations with physics-informed scores that test conservation of invariants and consistency with governing equations of motion.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- Paper abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-three-fifths-desktop is-four-fifths-tablet is-full-mobile">
           <h2 class="title is-3">Summary</h2>
           <div class="content has-text-justified">
             <p>
-              As the development of Video Generation Models (VGMs) progresses, many are claimed to possess world modeling capabilities—the ability to generate arbitrary realistic videos. These models have significant potential for applications in fields such as robotics and autonomous driving as well as in scientific simulation and medical data augmentation. However, a critical question arises: to what extent do these models adhere to physical laws? To address this, we introduce MORPHEUS, a novel benchmark designed to evaluate the intrinsic physical reasoning capabilities of VGMs. MORPHEUS provides a curated dataset comprising 80 real-world videos of experiments that capture physical phenomena, guided by specific physical invariances such as energy or momentum conservation. These invariances reveal the specific physical phenomena missed by the models, enabling a fine-grained evaluation and forming the foundation of our interpretable Physical Score measure. We also propose a Statistical Score, based on Physics-Informed Neural Networks (PINNs), to provide a complementary evaluation across a broader range of physical scenarios. Our findings reveal that even with advanced prompting techniques, such as multi-frame prompting and enhanced textual descriptions, current VGMs demonstrate substantial limitations in their ability to model and understand physical phenomena.
+              Recent advances in image and video generation raise hopes that these models possess world modeling capabilities—the ability to generate realistic, physically plausible videos. This could revolutionize applications in robotics, autonomous driving, and scientific simulation. However, before treating these models as world models, we must ask: Do they adhere to physical laws? Current evaluation methods rely on subjective judgments or trajectory matching, limiting their usage for physical reasoning estimation, where many generations could be physically plausible.
+            </p>
+            <p>
+              We introduce <strong>Morpheus</strong>, a benchmark for evaluating video generation models on physical reasoning. It features 130 real-world videos capturing physical phenomena, guided by conservation laws. Using those as conditioning for video generation, we assess physical plausibility using physics-informed metrics evaluated with respect to infallible conservation laws known per physical setting, leveraging advances in physics-informed neural networks and vision-language foundation models.
             </p>
           </div>
         </div>
@@ -229,24 +199,14 @@
 
   <br>
 
-<!-- DATASET SECTION -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3" style="text-align: center;">Morpheus</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div style="text-align: center;">
-            <img src="./static/images/figure1.png" style="width: 70%;" alt="Morpheus"/>
-          </div>
-          <div class="content has-text-justified"><br />
-            The Morpheus benchmark. Physical Evaluation of VGMs for the holonomic pendulum experiment using Dynamical and Physical Invariance scores computed from the extracted trajectories.
-          </div>
-        </div>
-      </div>
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mmmu">
+        <!-- <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/> -->
+        <span class="mmmu" style="vertical-align: middle">MORPHEUS</span>
+      </h1>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Video Configuration and Grid Section -->
   <section class="section hero is-light">
@@ -263,9 +223,13 @@
                   <select id="model-select">
                     <option value="real-world">Real World</option>
                     <option value="CogVideo">CogVideo</option>
-                    <option value="COSMOS">COSMOS</option>
+                    <option value="COSMOS-predict1">COSMOS-predict1</option>
+                    <option value="COSMOS-predict2">COSMOS-predict2</option>
                     <option value="LTX">LTX</option>
                     <option value="PyramidalFlow">PyramidalFlow</option>
+                    <option value="Veo3">Veo3</option>
+                    <option value="Veo3-fast">Veo3-fast</option>
+                    <option value="WAN-2.1">WAN-2.1</option>
                   </select>
                 </div>
               </div>
@@ -291,8 +255,7 @@
 
           <!-- Video Grid -->
           <div class="video-grid">
-            <!-- First Row -->
-            <div class="columns is-centered">
+            <div class="columns is-multiline is-centered">
               <div class="column is-4">
                 <div class="video-wrapper">
                   <video autoplay loop muted playsinline class="video-player" id="falling-ball">
@@ -301,6 +264,33 @@
                   </video>
                 </div>
                 <p class="video-caption">Falling Ball</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-apple">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Apple</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-marker">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Marker</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-tape">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Tape</p>
               </div>
               <div class="column is-4">
                 <div class="video-wrapper">
@@ -320,9 +310,6 @@
                 </div>
                 <p class="video-caption">Projectile</p>
               </div>
-            </div>
-            <!-- Second Row -->
-            <div class="columns is-centered">
               <div class="column is-4">
                 <div class="video-wrapper">
                   <video autoplay loop muted playsinline class="video-player" id="holonomic-pendulum">
@@ -350,9 +337,80 @@
                 </div>
                 <p class="video-caption">Double Pendulum</p>
               </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="rolling-empty-can">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Rolling Empty Can</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="rolling-full-can">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Rolling Full Can</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="rolling-orange">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Rolling Orange</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="sliding-book">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Sliding Book</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="spring">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Spring</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="collision-big-hits-small">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Collision: Big Hits Small</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="collision-equal">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Collision: Equal Masses</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="collision-small-hits-big">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Collision: Small Hits Big</p>
+              </div>
             </div>
           </div>
-
           <style>
             .configuration-selector {
               margin-bottom: 2rem;
@@ -425,95 +483,6 @@
             }
           </style>
 
-          <script>
-            async function updateVideoSources() {
-              const modelSelect = document.getElementById('model-select');
-              const conditioningSelect = document.getElementById('conditioning-select');
-              const promptSelect = document.getElementById('prompt-select');
-              const keyframeOption = conditioningSelect.querySelector('option[value="keyframe_interpolation"]');
-
-              const model = modelSelect.value;
-              const conditioning = conditioningSelect.value.toLowerCase().replace(/ /g, '_');
-              const promptType = promptSelect.value.toLowerCase().replace(/ /g, '_');
-
-              const videoIds = ['falling-ball', 'bouncing-ball', 'projectile', 'holonomic-pendulum', 'non-holonomic-pendulum', 'double-pendulum'];
-
-              // Disable/enable conditioning and prompt selects based on model choice
-              const isRealWorld = model === 'real-world';
-              conditioningSelect.disabled = isRealWorld;
-              promptSelect.disabled = isRealWorld;
-
-              // Disable/enable Keyframe Interpolation based on model
-              if (keyframeOption) {
-                if (model !== 'CogVideo' && !isRealWorld) {
-                  keyframeOption.disabled = true;
-                  // If Keyframe Interpolation was selected, switch to Single Frame
-                  if (conditioningSelect.value === 'keyframe_interpolation') {
-                    conditioningSelect.value = 'single_frame_conditioning';
-                    // Explicitly call updateVideoSources again and exit the current run
-                    updateVideoSources();
-                    return; 
-                  }
-                } else {
-                  keyframeOption.disabled = false;
-                }
-              }
-
-              for (const id of videoIds) {
-                const player = document.getElementById(id);
-                 if (!player) {
-                    console.warn(`Player element with ID ${id} not found.`);
-                    continue;
-                }
-                const source = player.querySelector('source');
-                if (!source) {
-                    console.warn(`Source element not found for player ${id}.`);
-                    continue;
-                }
-                const experimentId = id.replace(/-/g, '_'); // e.g., falling-ball -> falling_ball
-                let videoPath = '';
-
-                if (isRealWorld) {
-                  // Construct path for real-world videos
-                  videoPath = `static/videos/real-world/${experimentId}.webm`;
-                } else {
-                  // Construct path for generated videos
-                  videoPath = `static/videos/generated_videos/${conditioning}/${model}/${promptType}/${experimentId}/output_video.webm`;
-                }
-
-
-                try {
-                  // Check if the video file exists
-                  const response = await fetch(videoPath, { method: 'HEAD' });
-                  if (response.ok) {
-                    source.src = videoPath;
-                    player.load(); // Reload the video player with the new source
-                    // It's generally better practice to let users initiate play, but keeping autoplay logic as per original structure
-                    player.play().catch(e => console.log(`Autoplay prevented for ${id}:`, e.message)); // Attempt to play, catch errors
-                  } else {
-                    console.log(`Video not found: ${videoPath}`);
-                    source.removeAttribute('src'); // Clear the source if video not found
-                    player.load(); // Reload player to reflect the empty source
-                  }
-                } catch (error) {
-                  console.error(`Error checking or loading video ${id} at path ${videoPath}:`, error);
-                  source.removeAttribute('src'); // Clear the source on error
-                  player.load(); // Reload player
-                }
-              }
-            }
-
-            // Initialize videos and event listeners when the page loads
-            document.addEventListener('DOMContentLoaded', () => {
-              // Initial call to set videos based on default selections
-              updateVideoSources();
-
-              // Attach event listeners to dropdowns (Ensure this isn't duplicated elsewhere)
-              document.getElementById('model-select').addEventListener('change', updateVideoSources);
-              document.getElementById('conditioning-select').addEventListener('change', updateVideoSources);
-              document.getElementById('prompt-select').addEventListener('change', updateVideoSources);
-            });
-          </script>
         </div>
       </div>
     </div>
@@ -521,98 +490,23 @@
 
   <br>
 
-<!-- DATASET SECTION -->
-<section class="hero is-light is-small">
-  <div class="hero-body has-text-centered">
-  <h1 class="title is-1 mmmu">
-    <!-- <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/> -->
-    <span class="mmmu" style="vertical-align: middle">MORPHEUS</span>
-  </h1>
-  </div>
-</section>
+  <section class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="container is-max-desktop">
+      <div class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
+        <p>
+          Aggregated scores across all physical experiments (higher is better). We select the best scores between using the enhanced and plain versions of the textual prompt to represent the best model's ability. For comparison, real-world videos obtain Dynamical scores in the range of 0.98-0.99, and Physical Invariance score above 0.93.
+        </p>
+      </div>
+    </div>
+  </section>
+
 <div class="container is-max-desktop">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold; border-radius: 8px; padding: 10px 20px; background-color: #f5f5f5; border: 1px solid #ddd; transition: all 0.3s ease; cursor: pointer;">
-          <b>MORPHEUS Leaderboard</b>
-        </button>
 
-        <!-- Add experiment filter buttons -->
-        <div class="experiment-filter" style="margin-top: 15px; margin-bottom: 15px;">
-          <button class="experiment-btn active" data-experiment="all">All Experiments</button>
-          <button class="experiment-btn" data-experiment="falling ball">Falling Ball</button>
-          <button class="experiment-btn" data-experiment="bouncing ball">Bouncing Ball</button>
-          <button class="experiment-btn" data-experiment="projectile">Projectile</button>
-          <button class="experiment-btn" data-experiment="holonomic pendulum">Holonomic Pendulum</button>
-          <button class="experiment-btn" data-experiment="non-holonomic pendulum">Non-holonomic Pendulum</button>
-          <button class="experiment-btn" data-experiment="double pendulum">Double Pendulum</button>
-        </div>
-
-        <div class="model-labels-container">
-            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">real-world</span>
-            <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">single frame</span>
-            <span class="leaderboard-label" style="background-color: rgba(117, 166, 215, 0.1);">multi frame</span>
-            <span class="leaderboard-label" style="background-color: rgba(112, 230, 102, 0.1);">keyframe interpolation</span>
-        </div>
-          <!-- Validation Set Leaderboard -->
-          <table id="table1" class="js-sort-table">
-            <thead>
-            <tr>
-              <th class="js-sort-number"><strong>Model Name</strong></th>
-              <th class="js-sort-date"><strong>Experiment Type</strong></th>
-              <th class="js-sort-number"><strong>Conditioning</strong></th>
-              <th class="js-sort-string"><strong>Prompt Type</strong></th>
-              <th class="js-sort-number"><strong>Discard Rate</strong></th>
-              <th class="js-sort-number"><strong>Physical Invariance Score</strong></th>
-              <th class="js-sort-number"><strong>Dynamical score</strong></th>
-            </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-          </table>
-          <p class="test-desc hidden"> Overall results of different models on Morpheus-bench.</p>
-          
-          <h2 class="title is-3" style="margin-top: 40px;">Results</h2>
-          <div id="plotly-container" style="max-width: 1200px; margin: 0 auto;">
-            <iframe src="plots/scores_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
-        </div>
-        <style>
-          .plot-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-        
-          .plot-grid iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-          }
-          
-          /* Responsive grid for smaller screens */
-          @media screen and (max-width: 1024px) {
-            .plot-grid {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
-          
-          @media screen and (max-width: 768px) {
-            .plot-grid {
-              grid-template-columns: 1fr;
-            }
-          }
-        </style>
-        
-        <div class="plot-grid">
-          <iframe src="plots/scores_plot_falling_ball.html"></iframe>
-          <iframe src="plots/scores_plot_bouncing_ball.html"></iframe>
-          <iframe src="plots/scores_plot_projectile.html"></iframe>
-          <iframe src="plots/scores_plot_holonomic_pendulum.html"></iframe>
-          <iframe src="plots/scores_plot_non_holonomic.html"></iframe>
-          <iframe src="plots/scores_plot_double_pendulum.html"></iframe>
+        <div class="scores-chart-wrapper" data-source="static/data/score_breakdown_aggregated_scores.csv">
+          <div id="scores-chart"></div>
+          <p id="scores-chart-loading">Loading aggregated score breakdown...</p>
         </div>
 
         <!-- Video Examples -->
@@ -621,7 +515,7 @@
             <div class="columns is-centered has-text-centered">
               <div class="column is-full">
                 <h3 class="title is-3" style="margin-bottom: 2rem;">Discarded videos</h3>
-                
+
                 <!-- Video Grid -->
                 <div class="columns is-centered">
                   <!-- First Video -->
@@ -745,19 +639,42 @@
                     }
                   }
                 </style>
+
+                <p class="content has-text-justified" style="max-width: 960px; margin: 2rem auto 0 auto;">
+                  The analysis of the major reasons behind high discard rates reveals the absence of motion (i.e. stillness) and the presence of duplicate objects, as well as, to a lesser extent, the disappearance of the object from the video.
+                </p>
+
+                <div class="discard-chart-wrapper" data-source="static/data/discard_stats_summary.csv" style="margin-top: 3rem;">
+                  <div id="discard-chart"></div>
+                  <p id="discard-chart-loading">Loading discard breakdown...</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
         <!-- End Video Examples -->
 
-        <div id="plotly-container2" style="max-width: 1200px; margin: 0 auto;">
-          <iframe src="plots/discard_rate_agg_plot.html" width="100%" height="900px" style="border:none;"></iframe>
-          <iframe src="plots/depth_cons_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
-        </div>
+        <div id="plotly-container2" style="max-width: 1200px; margin: 0 auto;"></div>
       </div>
     </div>
 </div>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h3 class="title is-3" style="margin-bottom: 2rem;">Augmentations</h3>
+        <p class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
+          The relative difference between the score on the original, lab videos and augmented realistic settings. The realistic augmented settings appear to be much harder to predict.
+        </p>
+        <div class="augmentation-chart-wrapper" data-source="static/data/augmentation_improvements_summary.csv">
+          <div id="augmentation-chart"></div>
+          <p id="augmentation-chart-loading">Loading augmentation improvements...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <footer class="footer">
     <div class="container">
