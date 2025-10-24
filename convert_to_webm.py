@@ -1,20 +1,43 @@
 #! /usr/bin/env python3
 # Convert videos or image sequences to webm format
 
+import argparse
+import os
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from typing import Dict, List, NamedTuple, Sequence
 
 
 SUPPORTED_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png")
 DEFAULT_FPS = 30
+DEFAULT_WORKERS = max(1, min(8, os.cpu_count() or 1))
+
+
+class ConversionTask(NamedTuple):
+    kind: str
+    path: Path
+    payload: Sequence[Path] | None = None
 
 
 def run_ffmpeg(command, cwd=None):
     try:
-        subprocess.run(command, check=True, cwd=cwd)
+        completed = subprocess.run(
+            command,
+            check=True,
+            cwd=cwd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
+        if completed.stdout:
+            print(completed.stdout.rstrip())
         return True
     except subprocess.CalledProcessError as exc:
+        output = exc.stdout if isinstance(exc.stdout, str) else ""
+        if output:
+            print(output.rstrip())
         print(f"ffmpeg failed with exit code {exc.returncode}")
         return False
 
@@ -121,7 +144,81 @@ def convert_image_sequence_to_webm(image_dir, image_files, fps=DEFAULT_FPS):
     print(f"Failed to create WebM from image sequence in {image_dir}")
     return False
 
-def process_directory(directory):
+def build_tasks(
+    mp4_files: Sequence[Path], image_sequences: Dict[Path, Sequence[Path]]
+) -> List[ConversionTask]:
+    tasks: List[ConversionTask] = [
+        ConversionTask("video", Path(video_path)) for video_path in sorted(mp4_files)
+    ]
+
+    for image_dir in sorted(image_sequences.keys()):
+        tasks.append(
+            ConversionTask(
+                "sequence",
+                Path(image_dir),
+                tuple(image_sequences[image_dir]),
+            )
+        )
+
+    return tasks
+
+
+def run_task(task: ConversionTask) -> bool:
+    if task.kind == "video":
+        return convert_to_webm(task.path)
+
+    if task.kind == "sequence" and task.payload is not None:
+        return convert_image_sequence_to_webm(task.path, task.payload)
+
+    raise ValueError(f"Unsupported task kind: {task.kind}")
+
+
+def execute_tasks(tasks: Sequence[ConversionTask], workers: int) -> Dict[str, Dict[str, int]]:
+    results: Dict[str, Dict[str, int]] = {
+        "video": {"success": 0, "failed": 0},
+        "sequence": {"success": 0, "failed": 0},
+    }
+
+    total = len(tasks)
+    if total == 0:
+        return results
+
+    worker_count = max(1, min(workers, total))
+    print(f"Processing {total} task(s) with {worker_count} worker(s)...")
+
+    if worker_count == 1:
+        for index, task in enumerate(tasks, start=1):
+            try:
+                success = run_task(task)
+            except Exception as exc:  # pylint: disable=broad-exception-caught
+                print(f"Task raised an exception for {task.path}: {exc}")
+                success = False
+
+            status_key = "success" if success else "failed"
+            results[task.kind][status_key] += 1
+            print(f"[{index}/{total}] {status_key.upper()}: {task.path}")
+
+        return results
+
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        future_to_task = {executor.submit(run_task, task): task for task in tasks}
+
+        for index, future in enumerate(as_completed(future_to_task), start=1):
+            task = future_to_task[future]
+            try:
+                success = future.result()
+            except Exception as exc:  # pylint: disable=broad-exception-caught
+                print(f"Task raised an exception for {task.path}: {exc}")
+                success = False
+
+            status_key = "success" if success else "failed"
+            results[task.kind][status_key] += 1
+            print(f"[{index}/{total}] {status_key.upper()}: {task.path}")
+
+    return results
+
+
+def process_directory(directory, workers=DEFAULT_WORKERS):
     """Process MP4 files and image sequences in the given path."""
     directory_path = Path(directory)
 
@@ -148,34 +245,39 @@ def process_directory(directory):
         f"Found {len(mp4_files)} MP4 files and {len(image_sequences)} image sequences to process"
     )
 
-    video_successful = 0
-    video_failed = 0
-    for video_path in mp4_files:
-        if convert_to_webm(video_path):
-            video_successful += 1
-        else:
-            video_failed += 1
-
-    sequence_successful = 0
-    sequence_failed = 0
-    for image_dir, image_files in image_sequences.items():
-        if convert_image_sequence_to_webm(image_dir, image_files):
-            sequence_successful += 1
-        else:
-            sequence_failed += 1
+    tasks = build_tasks(mp4_files, image_sequences)
+    results = execute_tasks(tasks, workers)
 
     print("\nConversion complete:")
     print(
-        f"Video files converted: {video_successful} succeeded, {video_failed} failed"
+        f"Video files converted: {results['video']['success']} succeeded, {results['video']['failed']} failed"
     )
     print(
-        f"Image sequences converted: {sequence_successful} succeeded, {sequence_failed} failed"
+        "Image sequences converted: "
+        f"{results['sequence']['success']} succeeded, {results['sequence']['failed']} failed"
     )
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python convert_to_webm.py <path_to_video_or_directory>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Convert MP4 files and image sequences to WebM format."
+    )
+    parser.add_argument("path", help="Path to a video file or a directory to process.")
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=DEFAULT_WORKERS,
+        help="Number of parallel workers to use (default: %(default)s).",
+    )
+    parser.add_argument(
+        "--sequential",
+        action="store_true",
+        help="Force sequential processing regardless of worker count.",
+    )
 
-    process_directory(sys.argv[1])
+    args = parser.parse_args()
+    workers = 1 if args.sequential else args.workers
+    if workers < 1:
+        parser.error("--workers must be at least 1")
+
+    process_directory(args.path, workers=workers)
