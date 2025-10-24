@@ -509,18 +509,13 @@
           <p id="scores-chart-loading">Loading aggregated score breakdown...</p>
         </div>
 
-        <div class="discard-chart-wrapper" data-source="static/data/discard_stats_summary.csv">
-          <div id="discard-chart"></div>
-          <p id="discard-chart-loading">Loading discard breakdown...</p>
-        </div>
-
         <!-- Video Examples -->
         <section class="section hero">
           <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
               <div class="column is-full">
                 <h3 class="title is-3" style="margin-bottom: 2rem;">Discarded videos</h3>
-                
+
                 <!-- Video Grid -->
                 <div class="columns is-centered">
                   <!-- First Video -->
@@ -644,6 +639,15 @@
                     }
                   }
                 </style>
+
+                <p class="content has-text-justified" style="max-width: 960px; margin: 2rem auto 0 auto;">
+                  The analysis of the major reasons behind high discard rates reveals the absence of motion (i.e. stillness) and the presence of duplicate objects, as well as, to a lesser extent, the disappearance of the object from the video.
+                </p>
+
+                <div class="discard-chart-wrapper" data-source="static/data/discard_stats_summary.csv" style="margin-top: 3rem;">
+                  <div id="discard-chart"></div>
+                  <p id="discard-chart-loading">Loading discard breakdown...</p>
+                </div>
               </div>
             </div>
           </div>
@@ -654,6 +658,23 @@
       </div>
     </div>
 </div>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h3 class="title is-3" style="margin-bottom: 2rem;">Augmentations</h3>
+        <p class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
+          The relative difference between the score on the original, lab videos and augmented realistic settings. The realistic augmented settings appear to be much harder to predict.
+        </p>
+        <div class="augmentation-chart-wrapper" data-source="static/data/augmentation_improvements_summary.csv">
+          <div id="augmentation-chart"></div>
+          <p id="augmentation-chart-loading">Loading augmentation improvements...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <footer class="footer">
     <div class="container">

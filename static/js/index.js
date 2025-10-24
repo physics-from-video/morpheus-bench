@@ -650,6 +650,169 @@ function initDiscardChart() {
         });
 }
 
+function loadAugmentationData() {
+    const loadingText = document.getElementById('augmentation-chart-loading');
+    if (loadingText) {
+        loadingText.textContent = 'Loading augmentation improvements...';
+    }
+
+    return fetch('static/data/augmentation_improvements_summary.csv', {
+        headers: {
+            'Cache-Control': 'no-cache'
+        }
+    })
+        .then(response => response.text())
+        .then(text => d3.csvParse(text, row => ({
+            model: row.model,
+            conditioning: row.conditioning,
+            totalImprovement: parseFloat(row.score_sum_mean_improvement) || 0
+        })));
+}
+
+function prepareAugmentationData(data) {
+    const conditioningMap = {
+        'single_frame_conditioning': 'single',
+        'multi_frame_conditioning': 'multi',
+        'keyframe_interpolation': 'keyframe'
+    };
+
+    const conditioningLabels = {
+        single: 'single frame',
+        multi: 'multiple frames',
+        keyframe: 'first&last frame'
+    };
+
+    return data
+        .filter(d => conditioningMap[d.conditioning])
+        .map(d => ({
+            model: d.model,
+            conditioning: conditioningMap[d.conditioning],
+            conditioningLabel: conditioningLabels[conditioningMap[d.conditioning]],
+            label: `${d.model} (${conditioningMap[d.conditioning]})`,
+            improvement: d.totalImprovement
+        }));
+}
+
+function renderAugmentationChart(data) {
+    const loadingText = document.getElementById('augmentation-chart-loading');
+    const chartData = prepareAugmentationData(data);
+
+    if (!chartData.length) {
+        if (loadingText) {
+            loadingText.style.display = 'block';
+            loadingText.textContent = 'No data available.';
+        }
+        return;
+    }
+
+    const singleData = chartData.filter(d => d.conditioning === 'single')
+        .sort((a, b) => (b.improvement - a.improvement));
+    const multiData = chartData.filter(d => d.conditioning !== 'single')
+        .sort((a, b) => (b.improvement - a.improvement));
+
+    const combined = [...singleData, ...multiData];
+
+    const labels = combined.map(d => `${d.model}<br>(${d.conditioning})`);
+    const values = combined.map(d => d.improvement);
+    const colors = combined.map(d => MODEL_COLORS[d.model] || '#999999');
+
+    const trace = {
+        x: labels,
+        y: values,
+        type: 'bar',
+        marker: {
+            color: colors,
+            line: { color: colors, width: 1.5 }
+        },
+        customdata: combined.map(d => [
+            d.model,
+            d.conditioningLabel,
+            d.improvement
+        ]),
+        hovertemplate: 'Model: %{customdata[0]}<br>' +
+            'Conditioning: %{customdata[1]}<br>' +
+            'Total score difference: %{customdata[2]:.1f}%<extra></extra>'
+    };
+
+    const zeroLine = 0;
+
+    const layout = {
+        margin: { t: 20, l: 70, r: 30, b: 140 },
+        xaxis: {
+            tickangle: -25,
+            automargin: true,
+            tickfont: { size: 13 },
+            categoryorder: 'array',
+            categoryarray: labels
+        },
+        yaxis: {
+            title: 'Total Score Difference (%)',
+            automargin: true,
+            zeroline: true,
+            zerolinecolor: '#666',
+            zerolinewidth: 2
+        },
+        height: 520,
+        shapes: singleData.length && multiData.length ? [{
+            type: 'line',
+            xref: 'x',
+            yref: 'paper',
+            x0: singleData.length - 0.5,
+            x1: singleData.length - 0.5,
+            y0: 0,
+            y1: 1,
+            line: {
+                color: '#666',
+                width: 2,
+                dash: 'dash'
+            }
+        }] : [],
+        hovermode: 'closest',
+        font: {
+            family: 'Google Sans, Noto Sans, Arial, sans-serif',
+            size: 14,
+            color: '#222'
+        },
+        annotations: combined.map((d, idx) => ({
+            x: labels[idx],
+            y: values[idx] >= 0 ? values[idx] + 2 : values[idx] - 2,
+            text: `${values[idx] >= 0 ? '+' : ''}${values[idx].toFixed(1)}%`,
+            showarrow: false,
+            font: { size: 12, color: '#333', family: 'sans-serif', weight: 'bold' }
+        }))
+    };
+
+    const config = {
+        responsive: true,
+        displaylogo: false,
+        modeBarButtonsToRemove: ['lasso2d', 'select2d']
+    };
+
+    Plotly.newPlot('augmentation-chart', [trace], layout, config)
+        .then(() => {
+            if (loadingText) {
+                loadingText.style.display = 'none';
+            }
+        })
+        .catch(err => {
+            console.error('Error rendering augmentation chart:', err);
+            if (loadingText) {
+                loadingText.style.display = 'block';
+                loadingText.textContent = `Failed to render chart: ${err && err.message ? err.message : err}`;
+            }
+        });
+}
+
+function initAugmentationChart() {
+    loadAugmentationData()
+        .then(data => {
+            renderAugmentationChart(data);
+        })
+        .catch(err => {
+            console.error('Failed to load augmentation data:', err);
+        });
+}
+
 function populateConditioningOptions(model, conditioningSelect) {
     const allowedConditionings = MODEL_CONDITIONINGS[model] || [];
     Array.from(conditioningSelect.options).forEach(option => {
@@ -807,6 +970,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initScoresChart();
     initDiscardChart();
+    initAugmentationChart();
 
     const modelSelect = document.getElementById('model-select');
     const conditioningSelect = document.getElementById('conditioning-select');
