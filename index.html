@@ -199,6 +199,15 @@
 
   <br>
 
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mmmu">
+        <!-- <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/> -->
+        <span class="mmmu" style="vertical-align: middle">MORPHEUS</span>
+      </h1>
+    </div>
+  </section>
+
   <!-- Video Configuration and Grid Section -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
@@ -214,9 +223,13 @@
                   <select id="model-select">
                     <option value="real-world">Real World</option>
                     <option value="CogVideo">CogVideo</option>
-                    <option value="COSMOS">COSMOS</option>
+                    <option value="COSMOS-predict1">COSMOS-predict1</option>
+                    <option value="COSMOS-predict2">COSMOS-predict2</option>
                     <option value="LTX">LTX</option>
                     <option value="PyramidalFlow">PyramidalFlow</option>
+                    <option value="Veo3">Veo3</option>
+                    <option value="Veo3-fast">Veo3-fast</option>
+                    <option value="WAN-2.1">WAN-2.1</option>
                   </select>
                 </div>
               </div>
@@ -242,8 +255,7 @@
 
           <!-- Video Grid -->
           <div class="video-grid">
-            <!-- First Row -->
-            <div class="columns is-centered">
+            <div class="columns is-multiline is-centered">
               <div class="column is-4">
                 <div class="video-wrapper">
                   <video autoplay loop muted playsinline class="video-player" id="falling-ball">
@@ -252,6 +264,33 @@
                   </video>
                 </div>
                 <p class="video-caption">Falling Ball</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-apple">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Apple</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-marker">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Marker</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="falling-tape">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Falling Tape</p>
               </div>
               <div class="column is-4">
                 <div class="video-wrapper">
@@ -271,9 +310,6 @@
                 </div>
                 <p class="video-caption">Projectile</p>
               </div>
-            </div>
-            <!-- Second Row -->
-            <div class="columns is-centered">
               <div class="column is-4">
                 <div class="video-wrapper">
                   <video autoplay loop muted playsinline class="video-player" id="holonomic-pendulum">
@@ -301,9 +337,80 @@
                 </div>
                 <p class="video-caption">Double Pendulum</p>
               </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="rolling-empty-can">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Rolling Empty Can</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="rolling-full-can">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Rolling Full Can</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="rolling-orange">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Rolling Orange</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="sliding-book">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Sliding Book</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="spring">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Spring</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="collision-big-hits-small">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Collision: Big Hits Small</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="collision-equal">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Collision: Equal Masses</p>
+              </div>
+              <div class="column is-4">
+                <div class="video-wrapper">
+                  <video autoplay loop muted playsinline class="video-player" id="collision-small-hits-big">
+                    <source type="video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="video-caption">Collision: Small Hits Big</p>
+              </div>
             </div>
           </div>
-
           <style>
             .configuration-selector {
               margin-bottom: 2rem;
@@ -376,95 +483,6 @@
             }
           </style>
 
-          <script>
-            async function updateVideoSources() {
-              const modelSelect = document.getElementById('model-select');
-              const conditioningSelect = document.getElementById('conditioning-select');
-              const promptSelect = document.getElementById('prompt-select');
-              const keyframeOption = conditioningSelect.querySelector('option[value="keyframe_interpolation"]');
-
-              const model = modelSelect.value;
-              const conditioning = conditioningSelect.value.toLowerCase().replace(/ /g, '_');
-              const promptType = promptSelect.value.toLowerCase().replace(/ /g, '_');
-
-              const videoIds = ['falling-ball', 'bouncing-ball', 'projectile', 'holonomic-pendulum', 'non-holonomic-pendulum', 'double-pendulum'];
-
-              // Disable/enable conditioning and prompt selects based on model choice
-              const isRealWorld = model === 'real-world';
-              conditioningSelect.disabled = isRealWorld;
-              promptSelect.disabled = isRealWorld;
-
-              // Disable/enable Keyframe Interpolation based on model
-              if (keyframeOption) {
-                if (model !== 'CogVideo' && !isRealWorld) {
-                  keyframeOption.disabled = true;
-                  // If Keyframe Interpolation was selected, switch to Single Frame
-                  if (conditioningSelect.value === 'keyframe_interpolation') {
-                    conditioningSelect.value = 'single_frame_conditioning';
-                    // Explicitly call updateVideoSources again and exit the current run
-                    updateVideoSources();
-                    return; 
-                  }
-                } else {
-                  keyframeOption.disabled = false;
-                }
-              }
-
-              for (const id of videoIds) {
-                const player = document.getElementById(id);
-                 if (!player) {
-                    console.warn(`Player element with ID ${id} not found.`);
-                    continue;
-                }
-                const source = player.querySelector('source');
-                if (!source) {
-                    console.warn(`Source element not found for player ${id}.`);
-                    continue;
-                }
-                const experimentId = id.replace(/-/g, '_'); // e.g., falling-ball -> falling_ball
-                let videoPath = '';
-
-                if (isRealWorld) {
-                  // Construct path for real-world videos
-                  videoPath = `static/videos/real-world/${experimentId}.webm`;
-                } else {
-                  // Construct path for generated videos
-                  videoPath = `static/videos/generated_videos/${conditioning}/${model}/${promptType}/${experimentId}/output_video.webm`;
-                }
-
-
-                try {
-                  // Check if the video file exists
-                  const response = await fetch(videoPath, { method: 'HEAD' });
-                  if (response.ok) {
-                    source.src = videoPath;
-                    player.load(); // Reload the video player with the new source
-                    // It's generally better practice to let users initiate play, but keeping autoplay logic as per original structure
-                    player.play().catch(e => console.log(`Autoplay prevented for ${id}:`, e.message)); // Attempt to play, catch errors
-                  } else {
-                    console.log(`Video not found: ${videoPath}`);
-                    source.removeAttribute('src'); // Clear the source if video not found
-                    player.load(); // Reload player to reflect the empty source
-                  }
-                } catch (error) {
-                  console.error(`Error checking or loading video ${id} at path ${videoPath}:`, error);
-                  source.removeAttribute('src'); // Clear the source on error
-                  player.load(); // Reload player
-                }
-              }
-            }
-
-            // Initialize videos and event listeners when the page loads
-            document.addEventListener('DOMContentLoaded', () => {
-              // Initial call to set videos based on default selections
-              updateVideoSources();
-
-              // Attach event listeners to dropdowns (Ensure this isn't duplicated elsewhere)
-              document.getElementById('model-select').addEventListener('change', updateVideoSources);
-              document.getElementById('conditioning-select').addEventListener('change', updateVideoSources);
-              document.getElementById('prompt-select').addEventListener('change', updateVideoSources);
-            });
-          </script>
         </div>
       </div>
     </div>
@@ -472,21 +490,28 @@
 
   <br>
 
-<!-- DATASET SECTION -->
-<section class="hero is-light is-small">
-  <div class="hero-body has-text-centered">
-  <h1 class="title is-1 mmmu">
-    <!-- <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/> -->
-    <span class="mmmu" style="vertical-align: middle">MORPHEUS</span>
-  </h1>
-  </div>
-</section>
+  <section class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="container is-max-desktop">
+      <div class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
+        <p>
+          Aggregated scores across all physical experiments (higher is better). We select the best scores between using the enhanced and plain versions of the textual prompt to represent the best model's ability. For comparison, real-world videos obtain Dynamical scores in the range of 0.98-0.99, and Physical Invariance score above 0.93.
+        </p>
+      </div>
+    </div>
+  </section>
+
 <div class="container is-max-desktop">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <div class="scores-chart-wrapper">
+
+        <div class="scores-chart-wrapper" data-source="static/data/score_breakdown_aggregated_scores.csv">
           <div id="scores-chart"></div>
-          <p id="scores-chart-loading">Loading chart...</p>
+          <p id="scores-chart-loading">Loading aggregated score breakdown...</p>
+        </div>
+
+        <div class="discard-chart-wrapper" data-source="static/data/discard_stats_summary.csv">
+          <div id="discard-chart"></div>
+          <p id="discard-chart-loading">Loading discard breakdown...</p>
         </div>
 
         <!-- Video Examples -->
@@ -625,10 +650,7 @@
         </section>
         <!-- End Video Examples -->
 
-        <div id="plotly-container2" style="max-width: 1200px; margin: 0 auto;">
-          <iframe src="plots/discard_rate_agg_plot.html" width="100%" height="900px" style="border:none;"></iframe>
-          <iframe src="plots/depth_cons_agg_plot.html" width="100%" height="660px" style="border:none;"></iframe>
-        </div>
+        <div id="plotly-container2" style="max-width: 1200px; margin: 0 auto;"></div>
       </div>
     </div>
 </div>
