@@ -1237,7 +1237,7 @@ function updateVideoExamplesView(state) {
     filteredVideos.forEach(video => {
         const isReal = video.model === 'real-world';
         const title = isReal ? 'Original (lab)' : video.model;
-        const subtitle = isReal ? '' : `${formatConditioningLabel(video.conditioning)} · ${formatPromptLabel(video.prompt)}`;
+        const subtitle = isReal ? 'Real world capture' : `${video.model} · ${formatConditioningLabel(video.conditioning)} · ${formatPromptLabel(video.prompt)}`;
         const card = createVideoExampleCard({
             title,
             subtitle,
