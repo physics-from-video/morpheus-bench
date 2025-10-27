@@ -434,6 +434,193 @@ body {
   text-transform: lowercase;
 }
 
+.video-examples-section {
+  margin-top: 3rem;
+}
+
+.video-examples {
+  align-items: stretch;
+}
+
+.video-experiments-panel {
+  background: #fafafa;
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.video-experiment-list {
+  display: grid;
+  gap: 0.75rem;
+  overflow-y: auto;
+  max-height: 540px;
+}
+
+.video-example-button {
+  border: none;
+  background: white;
+  border-radius: 14px;
+  padding: 1rem 1rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  width: 100%;
+}
+
+.video-example-button.is-active {
+  background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+  color: #4338ca;
+  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.16);
+}
+
+.video-example-button:hover,
+.video-example-button:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  outline: none;
+}
+
+.video-examples-viewer {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.video-examples-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.video-examples-header h5 {
+  margin-bottom: 0;
+}
+
+.video-generation-filters {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.video-generation-filters.is-visible {
+  display: grid;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-chip {
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: white;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4338ca;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.filter-chip.is-active {
+  background: #4338ca;
+  color: white;
+  border-color: #4338ca;
+}
+
+.video-examples-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.video-cards {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.video-example-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.video-example-card video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.video-example-caption {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: #f8fafc;
+  color: #111827;
+}
+
+.video-example-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.video-example-meta {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.video-example-empty {
+  display: none;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.video-example-empty.is-visible {
+  display: block;
+}
+
 .augmentation-nav {
   border: none;
   background: white;
@@ -495,6 +682,35 @@ body {
 
   .augmentation-cards {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .video-examples {
+    flex-direction: column;
+  }
+
+  .video-experiments-panel {
+    margin-bottom: 1.5rem;
+  }
+
+  .video-generation-filters {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video-examples-viewer {
+    padding: 1.5rem;
+  }
+
+  .video-generation-filters {
+    padding: 0.75rem;
+  }
+
+  .video-cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.1rem;
   }
 }
 

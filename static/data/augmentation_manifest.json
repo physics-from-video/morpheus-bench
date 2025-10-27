@@ -1,0 +1,33 @@
+{
+  "experiments": [
+    {
+      "id": "falling_ball",
+      "title": "Falling Ball",
+      "videos": [
+        { "id": "original", "label": "Original (Lab)", "filename": "original.webm" },
+        { "id": "basketball_seed3", "label": "Basketball Court", "filename": "basketball_seed3.webm" },
+        { "id": "baseball_seed2", "label": "Baseball Toss", "filename": "baseball_seed2.webm" },
+        { "id": "pingpong_seed9", "label": "Ping Pong Ball", "filename": "pingpong_seed9.webm" }
+      ]
+    },
+    {
+      "id": "projectile",
+      "title": "Projectile",
+      "videos": [
+        { "id": "original", "label": "Original (Lab)", "filename": "original.webm" },
+        { "id": "beach_volleyball_seed5", "label": "Beach Volleyball", "filename": "beach_volleyball_seed5.webm" },
+        { "id": "kitchen_lemon_seed4", "label": "Kitchen Lemon", "filename": "kitchen_lemon_seed4.webm" },
+        { "id": "pinecone_seed6", "label": "Forest Pinecone", "filename": "pinecone_seed6.webm" }
+      ]
+    },
+    {
+      "id": "holonomic_pendulum",
+      "title": "Holonomic Pendulum",
+      "videos": [
+        { "id": "original", "label": "Original (Lab)", "filename": "original.webm" },
+        { "id": "pendulum_seed1", "label": "Workshop Pendulum", "filename": "pendulum_seed1.webm" },
+        { "id": "wrecking_ball_seed3", "label": "Wrecking Ball", "filename": "wrecking_ball_seed3.webm" }
+      ]
+    }
+  ]
+}

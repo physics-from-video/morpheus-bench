@@ -813,6 +813,25 @@ function initAugmentationChart() {
         });
 }
 
+async function fetchVideoExamplesManifest() {
+    try {
+        const response = await fetch('static/data/video_examples_manifest.json', {
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to load video examples manifest: ${response.status}`);
+        }
+
+        return response.json();
+    } catch (error) {
+        console.error('Error fetching video examples manifest:', error);
+        return null;
+    }
+}
+
 async function fetchAugmentationManifest() {
     try {
         const response = await fetch('static/data/augmentation_manifest.json', {
@@ -951,8 +970,20 @@ function updateAugmentationViewer(experiment, manifest) {
 }
 
 function initAugmentationShowcase(manifest) {
-    if (!manifest || !Array.isArray(manifest.experiments)) {
+    if (!manifest || !Array.isArray(manifest.experiments) || manifest.experiments.length === 0) {
         console.warn('Augmentation manifest missing experiments array');
+        const experimentList = document.getElementById('augmentation-experiment-list');
+        const cardsContainer = document.getElementById('augmentation-cards');
+        const emptyMessage = document.getElementById('augmentation-empty-message');
+        if (experimentList) {
+            experimentList.innerHTML = '<p class="augmentation-empty" style="display:block;">No augmentations available.</p>';
+        }
+        if (cardsContainer) {
+            cardsContainer.classList.add('is-empty');
+        }
+        if (emptyMessage) {
+            emptyMessage.style.display = 'block';
+        }
         return;
     }
 
@@ -973,6 +1004,207 @@ function initAugmentationShowcase(manifest) {
 
     const defaultExperiment = manifest.experiments[0] || null;
     updateAugmentationViewer(defaultExperiment, manifest);
+}
+
+function createVideoExampleButton(experiment, isActive) {
+    const button = document.createElement('button');
+    button.className = 'video-example-button'.concat(isActive ? ' is-active' : '');
+    button.type = 'button';
+    button.setAttribute('data-experiment-id', experiment.id);
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-selected', String(isActive));
+    button.textContent = experiment.title;
+    return button;
+}
+
+function createVideoExampleCard({ title, subtitle, filename }) {
+    const card = document.createElement('article');
+    card.className = 'video-example-card';
+
+    const video = document.createElement('video');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
+    video.innerHTML = `<source src="${filename}" type="video/webm">`;
+    video.load();
+
+    const caption = document.createElement('div');
+    caption.className = 'video-example-caption';
+
+    const heading = document.createElement('span');
+    heading.className = 'video-example-title';
+    heading.textContent = title;
+
+    const meta = document.createElement('span');
+    meta.className = 'video-example-meta';
+    meta.textContent = subtitle;
+
+    caption.appendChild(heading);
+    caption.appendChild(meta);
+
+    card.appendChild(video);
+    card.appendChild(caption);
+
+    return card;
+}
+
+function populateFilterChips(container, values, activeValue, onSelect) {
+    container.innerHTML = '';
+
+    values.forEach(value => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'filter-chip'.concat(value === activeValue ? ' is-active' : '');
+        chip.textContent = value.label;
+        chip.setAttribute('data-value', value.id);
+        chip.addEventListener('click', () => onSelect(value.id));
+        container.appendChild(chip);
+    });
+}
+
+function updateVideoExamplesView(state) {
+    const { manifest, selectedExperimentId, selectedModel, selectedConditioning, selectedPrompt } = state;
+    const experiment = manifest.experiments.find(item => item.id === selectedExperimentId);
+    const titleEl = document.getElementById('video-example-title');
+    const cardsContainer = document.getElementById('video-examples-cards');
+    const emptyMessage = document.getElementById('video-example-empty');
+    const filters = document.getElementById('video-generation-filters');
+
+    if (!experiment) {
+        titleEl.textContent = 'Video examples';
+        cardsContainer.innerHTML = '';
+        emptyMessage.classList.add('is-visible');
+        filters.classList.remove('is-visible');
+        return;
+    }
+
+    // Update experiment buttons
+    const buttons = document.querySelectorAll('.video-example-button');
+    buttons.forEach(button => {
+        const isActive = button.getAttribute('data-experiment-id') === experiment.id;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+    });
+
+    titleEl.textContent = experiment.title;
+
+    const availableVideos = Array.isArray(experiment.videos) ? experiment.videos : [];
+    const hasGeneratedVideos = availableVideos.some(video => video.model !== 'real-world');
+
+    if (!hasGeneratedVideos) {
+        filters.classList.remove('is-visible');
+    } else {
+        filters.classList.add('is-visible');
+    }
+
+    const modelOptions = [...new Set(availableVideos.filter(item => item.model !== 'real-world').map(item => item.model))]
+        .map(model => ({ id: model, label: model }));
+    const conditioningOptions = [...new Set(availableVideos.filter(item => item.model !== 'real-world').map(item => item.conditioning))]
+        .map(value => ({ id: value, label: value.replace(/_/g, ' ') }));
+    const promptOptions = [...new Set(availableVideos.filter(item => item.model !== 'real-world').map(item => item.prompt))]
+        .map(value => ({ id: value, label: value }));
+
+    const modelValue = modelOptions.some(option => option.id === selectedModel) ? selectedModel : (modelOptions[0] && modelOptions[0].id);
+    const conditioningValue = conditioningOptions.some(option => option.id === selectedConditioning) ? selectedConditioning : (conditioningOptions[0] && conditioningOptions[0].id);
+    const promptValue = promptOptions.some(option => option.id === selectedPrompt) ? selectedPrompt : (promptOptions[0] && promptOptions[0].id);
+
+    state.selectedModel = modelValue;
+    state.selectedConditioning = conditioningValue;
+    state.selectedPrompt = promptValue;
+
+    const modelsContainer = document.getElementById('video-filter-models');
+    const conditioningContainer = document.getElementById('video-filter-conditioning');
+    const promptsContainer = document.getElementById('video-filter-prompts');
+
+    if (hasGeneratedVideos) {
+        populateFilterChips(modelsContainer, modelOptions, modelValue, value => {
+            state.selectedModel = value;
+            updateVideoExamplesView(state);
+        });
+        populateFilterChips(conditioningContainer, conditioningOptions, conditioningValue, value => {
+            state.selectedConditioning = value;
+            updateVideoExamplesView(state);
+        });
+        populateFilterChips(promptsContainer, promptOptions, promptValue, value => {
+            state.selectedPrompt = value;
+            updateVideoExamplesView(state);
+        });
+    } else {
+        modelsContainer.innerHTML = '';
+        conditioningContainer.innerHTML = '';
+        promptsContainer.innerHTML = '';
+    }
+
+    const filteredVideos = availableVideos.filter(item => {
+        if (item.model === 'real-world') {
+            return true;
+        }
+        return (!modelValue || item.model === modelValue) &&
+            (!conditioningValue || item.conditioning === conditioningValue) &&
+            (!promptValue || item.prompt === promptValue);
+    });
+
+    cardsContainer.innerHTML = '';
+    filteredVideos.forEach(video => {
+        const subtitle = video.model === 'real-world'
+            ? 'Real capture'
+            : `${video.model} · ${video.conditioning.replace(/_/g, ' ')} · ${video.prompt}`;
+        const card = createVideoExampleCard({
+            title: video.model === 'real-world' ? 'Original (lab)' : video.model,
+            subtitle,
+            filename: video.filename
+        });
+        cardsContainer.appendChild(card);
+    });
+
+    const shouldShowEmpty = filteredVideos.length === 0;
+    emptyMessage.classList.toggle('is-visible', shouldShowEmpty);
+}
+
+function initVideoExamples(manifest) {
+    if (!manifest || !Array.isArray(manifest.experiments) || manifest.experiments.length === 0) {
+        console.warn('Video examples manifest missing experiments array');
+        const listContainer = document.getElementById('video-example-experiment-list');
+        const realPane = document.getElementById('video-pane-real');
+        const generatedPane = document.getElementById('video-pane-generated');
+        const emptyMessage = document.getElementById('video-example-empty');
+        const filters = document.getElementById('video-generation-filters');
+        if (listContainer) {
+            listContainer.innerHTML = '<p class="video-example-empty is-visible">No video examples available.</p>';
+        }
+        if (realPane) realPane.innerHTML = '';
+        if (generatedPane) generatedPane.innerHTML = '';
+        if (emptyMessage) emptyMessage.classList.add('is-visible');
+        if (filters) filters.classList.remove('is-visible');
+        return;
+    }
+
+    const state = {
+        manifest,
+        selectedExperimentId: manifest.experiments[0] ? manifest.experiments[0].id : null,
+        selectedModel: null,
+        selectedConditioning: null,
+        selectedPrompt: null
+    };
+
+    const listContainer = document.getElementById('video-example-experiment-list');
+    if (!listContainer) {
+        return;
+    }
+
+    listContainer.innerHTML = '';
+
+    manifest.experiments.forEach((experiment, index) => {
+        const button = createVideoExampleButton(experiment, index === 0);
+        button.addEventListener('click', () => {
+            state.selectedExperimentId = experiment.id;
+            updateVideoExamplesView(state);
+        });
+        listContainer.appendChild(button);
+    });
+
+    updateVideoExamplesView(state);
 }
 
 function populateConditioningOptions(model, conditioningSelect) {
@@ -1138,11 +1370,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const conditioningSelect = document.getElementById('conditioning-select');
     const promptSelect = document.getElementById('prompt-select');
 
-    updateVideoSources();
-
-    modelSelect.addEventListener('change', updateVideoSources);
-    conditioningSelect.addEventListener('change', updateVideoSources);
-    promptSelect.addEventListener('change', updateVideoSources);
+    if (modelSelect && conditioningSelect && promptSelect) {
+        updateVideoSources();
+        modelSelect.addEventListener('change', updateVideoSources);
+        conditioningSelect.addEventListener('change', updateVideoSources);
+        promptSelect.addEventListener('change', updateVideoSources);
+    }
 
     fetchAugmentationManifest()
         .then(manifest => {
@@ -1152,6 +1385,16 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Unable to initialize augmentation showcase:', error);
+        });
+
+    fetchVideoExamplesManifest()
+        .then(manifest => {
+            if (manifest) {
+                initVideoExamples(manifest);
+            }
+        })
+        .catch(error => {
+            console.error('Unable to initialize video examples:', error);
         });
 });
 

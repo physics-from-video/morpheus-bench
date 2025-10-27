@@ -208,280 +208,48 @@
     </div>
   </section>
 
-  <!-- Video Configuration and Grid Section -->
-  <section class="section hero is-light">
+  <!-- Video Examples Showcase -->
+  <section class="section hero is-light video-examples-section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-12">
-          <h2 class="title is-3">Video examples</h2>
-          
-          <!-- Configuration Selector -->
-          <div class="configuration-selector" style="margin-bottom: 2rem;">
-            <div class="field is-grouped is-grouped-centered">
-              <div class="control">
-                <div class="select">
-                  <select id="model-select">
-                    <option value="real-world">Real World</option>
-                    <option value="CogVideo">CogVideo</option>
-                    <option value="COSMOS-predict1">COSMOS-predict1</option>
-                    <option value="COSMOS-predict2">COSMOS-predict2</option>
-                    <option value="LTX">LTX</option>
-                    <option value="PyramidalFlow">PyramidalFlow</option>
-                    <!-- <option value="Veo3">Veo3</option> -->
-                    <!-- <option value="Veo3-fast">Veo3-fast</option> -->
-                    <option value="WAN-2.1">WAN-2.1</option>
-                  </select>
-                </div>
+        <div class="column is-full">
+          <h2 class="title is-3">Video Examples</h2>
+
+          <div class="video-examples columns is-variable is-6">
+            <div class="column is-12-mobile is-4-tablet is-3-desktop">
+              <div class="video-experiments-panel">
+                <h4 class="title is-5">Experiments</h4>
+                <div class="video-experiment-list" id="video-example-experiment-list" role="tablist" aria-label="Video experiments"></div>
               </div>
-              <div class="control">
-                <div class="select">
-                  <select id="conditioning-select">
-                    <option value="single_frame_conditioning">Single Frame</option>
-                    <option value="multi_frame_conditioning">Multi Frame</option>
-                    <option value="keyframe_interpolation">Keyframe Interpolation</option>
-                  </select>
+            </div>
+            <div class="column is-12-mobile is-8-tablet is-9-desktop">
+              <div class="video-examples-viewer" aria-live="polite">
+                <div class="video-examples-header">
+                  <h5 class="title is-5" id="video-example-title"></h5>
                 </div>
-              </div>
-              <div class="control">
-                <div class="select">
-                  <select id="prompt-select">
-                    <option value="plain">Plain Text</option>
-                    <option value="enhanced">Enhanced Text</option>
-                  </select>
+
+                <div class="video-generation-filters" id="video-generation-filters" aria-label="Generation filters">
+                  <div class="filter-group">
+                    <span class="filter-label">Model</span>
+                    <div class="filter-chips" id="video-filter-models"></div>
+                  </div>
+                  <div class="filter-group">
+                    <span class="filter-label">Conditioning</span>
+                    <div class="filter-chips" id="video-filter-conditioning"></div>
+                  </div>
+                  <div class="filter-group">
+                    <span class="filter-label">Prompt</span>
+                    <div class="filter-chips" id="video-filter-prompts"></div>
+                  </div>
+                </div>
+
+                <div class="video-examples-body">
+                  <div class="video-cards" id="video-examples-cards"></div>
+                  <p class="video-example-empty" id="video-example-empty">No videos available for this configuration yet.</p>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Video Grid -->
-          <div class="video-grid">
-            <div class="columns is-multiline is-centered">
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="falling-ball">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Falling Ball</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="falling-apple">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Falling Apple</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="falling-marker">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Falling Marker</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="falling-tape">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Falling Tape</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="bouncing-ball">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Bouncing Ball</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="projectile">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Projectile</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="holonomic-pendulum">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Holonomic Pendulum</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="non-holonomic-pendulum">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Non-holonomic Pendulum</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="double-pendulum">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Double Pendulum</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="rolling-empty-can">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Rolling Empty Can</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="rolling-full-can">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Rolling Full Can</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="rolling-orange">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Rolling Orange</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="sliding-book">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Sliding Book</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="spring">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Spring</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="collision-big-hits-small">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Collision: Big Hits Small</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="collision-equal">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Collision: Equal Masses</p>
-              </div>
-              <div class="column is-4">
-                <div class="video-wrapper">
-                  <video autoplay loop muted playsinline class="video-player" id="collision-small-hits-big">
-                    <source type="video/webm">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="video-caption">Collision: Small Hits Big</p>
-              </div>
-            </div>
-          </div>
-          <style>
-            .configuration-selector {
-              margin-bottom: 2rem;
-            }
-            
-            .configuration-selector .select {
-              margin: 0 0.5rem;
-            }
-            
-            .video-grid {
-              margin-top: 2rem;
-              max-width: 1200px;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            
-            /* Improve responsive design for large screens */
-            @media screen and (min-width: 1408px) {
-              .container.is-max-desktop {
-                max-width: 1344px;
-              }
-            }
-            
-            .video-grid .columns {
-              margin-bottom: 2rem;
-            }
-            
-            .video-wrapper {
-              width: 100%;
-              position: relative;
-              background: #000;
-              border-radius: 24px;
-              overflow: hidden;
-              box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-              margin: 0 auto;
-              aspect-ratio: 16/9;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              max-width: 350px;
-            }
-            
-            .video-player {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              max-width: 100%;
-              max-height: 100%;
-              display: block;
-              background: #000;
-            }
-            
-            .video-caption {
-              text-align: center;
-              margin-top: 1rem;
-              font-size: 1.1rem;
-              color: #363636;
-            }
-
-            /* Add media query for smaller screens */
-            @media screen and (max-width: 768px) {
-              .video-wrapper {
-                aspect-ratio: 4/3;
-              }
-              
-              .video-player {
-                width: 100%;
-                height: 100%;
-              }
-            }
-          </style>
 
         </div>
       </div>
