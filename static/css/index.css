@@ -529,6 +529,10 @@ body {
   gap: 0.4rem;
 }
 
+.filter-group.is-hidden {
+  display: none;
+}
+
 .filter-label {
   font-size: 0.75rem;
   text-transform: uppercase;

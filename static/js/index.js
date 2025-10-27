@@ -85,10 +85,10 @@ const MODEL_COLORS = {
     'CogVideo': '#FFBE0B',
     'LTX': '#8338EC',
     'PyramidalFlow': '#FB5607',
-    'Veo3': '#FF006E',
-    'Veo3-fast': '#FF4081',
     'WAN-2.1': '#45B7D1'
 };
+
+const FILTER_ALL_VALUE = '__all__';
 
 function adjustColorBrightness(color, factor = 0.2) {
     const base = d3.color(color);
@@ -1026,7 +1026,9 @@ function createVideoExampleCard({ title, subtitle, filename }) {
     video.setAttribute('loop', '');
     video.setAttribute('muted', '');
     video.setAttribute('autoplay', '');
-    video.innerHTML = `<source src="${filename}" type="video/webm">`;
+    const srcPath = filename.startsWith('static/') ? filename : `static/${filename}`;
+    const finalSrc = srcPath.replace('static/static/', 'static/');
+    video.innerHTML = `<source src="${finalSrc}" type="video/webm">`;
     video.load();
 
     const caption = document.createElement('div');
@@ -1036,12 +1038,12 @@ function createVideoExampleCard({ title, subtitle, filename }) {
     heading.className = 'video-example-title';
     heading.textContent = title;
 
-    const meta = document.createElement('span');
-    meta.className = 'video-example-meta';
-    meta.textContent = subtitle;
-
-    caption.appendChild(heading);
-    caption.appendChild(meta);
+    if (subtitle) {
+        const meta = document.createElement('span');
+        meta.className = 'video-example-meta';
+        meta.textContent = subtitle;
+        caption.appendChild(meta);
+    }
 
     card.appendChild(video);
     card.appendChild(caption);
@@ -1049,16 +1051,16 @@ function createVideoExampleCard({ title, subtitle, filename }) {
     return card;
 }
 
-function populateFilterChips(container, values, activeValue, onSelect) {
+function populateFilterChips(container, options, activeValue, onSelect) {
     container.innerHTML = '';
 
-    values.forEach(value => {
+    options.forEach(option => {
         const chip = document.createElement('button');
         chip.type = 'button';
-        chip.className = 'filter-chip'.concat(value === activeValue ? ' is-active' : '');
-        chip.textContent = value.label;
-        chip.setAttribute('data-value', value.id);
-        chip.addEventListener('click', () => onSelect(value.id));
+        chip.className = 'filter-chip'.concat(option.id === activeValue ? ' is-active' : '');
+        chip.textContent = option.label;
+        chip.setAttribute('data-value', option.id);
+        chip.addEventListener('click', () => onSelect(option.id));
         container.appendChild(chip);
     });
 }
@@ -1089,69 +1091,155 @@ function updateVideoExamplesView(state) {
 
     titleEl.textContent = experiment.title;
 
-    const availableVideos = Array.isArray(experiment.videos) ? experiment.videos : [];
-    const hasGeneratedVideos = availableVideos.some(video => video.model !== 'real-world');
-
-    if (!hasGeneratedVideos) {
-        filters.classList.remove('is-visible');
-    } else {
-        filters.classList.add('is-visible');
-    }
-
-    const modelOptions = [...new Set(availableVideos.filter(item => item.model !== 'real-world').map(item => item.model))]
-        .map(model => ({ id: model, label: model }));
-    const conditioningOptions = [...new Set(availableVideos.filter(item => item.model !== 'real-world').map(item => item.conditioning))]
-        .map(value => ({ id: value, label: value.replace(/_/g, ' ') }));
-    const promptOptions = [...new Set(availableVideos.filter(item => item.model !== 'real-world').map(item => item.prompt))]
-        .map(value => ({ id: value, label: value }));
-
-    const modelValue = modelOptions.some(option => option.id === selectedModel) ? selectedModel : (modelOptions[0] && modelOptions[0].id);
-    const conditioningValue = conditioningOptions.some(option => option.id === selectedConditioning) ? selectedConditioning : (conditioningOptions[0] && conditioningOptions[0].id);
-    const promptValue = promptOptions.some(option => option.id === selectedPrompt) ? selectedPrompt : (promptOptions[0] && promptOptions[0].id);
-
-    state.selectedModel = modelValue;
-    state.selectedConditioning = conditioningValue;
-    state.selectedPrompt = promptValue;
+    const rawVideos = Array.isArray(experiment.videos) ? experiment.videos : [];
+    const availableVideos = rawVideos
+        .filter(video => !['Veo3', 'Veo3-fast'].includes(video.model))
+        .map(video => ({
+            ...video,
+            filename: video.filename.startsWith('static/') ? video.filename : `static/${video.filename}`
+        }));
+    const generatedVideos = availableVideos.filter(video => video.model !== 'real-world');
 
     const modelsContainer = document.getElementById('video-filter-models');
     const conditioningContainer = document.getElementById('video-filter-conditioning');
     const promptsContainer = document.getElementById('video-filter-prompts');
 
-    if (hasGeneratedVideos) {
-        populateFilterChips(modelsContainer, modelOptions, modelValue, value => {
-            state.selectedModel = value;
-            updateVideoExamplesView(state);
-        });
-        populateFilterChips(conditioningContainer, conditioningOptions, conditioningValue, value => {
-            state.selectedConditioning = value;
-            updateVideoExamplesView(state);
-        });
-        populateFilterChips(promptsContainer, promptOptions, promptValue, value => {
-            state.selectedPrompt = value;
-            updateVideoExamplesView(state);
-        });
-    } else {
-        modelsContainer.innerHTML = '';
-        conditioningContainer.innerHTML = '';
-        promptsContainer.innerHTML = '';
+    const modelGroup = modelsContainer?.closest('.filter-group');
+    const conditioningGroup = conditioningContainer?.closest('.filter-group');
+    const promptGroup = promptsContainer?.closest('.filter-group');
+
+    const modelValues = getUniqueSorted(generatedVideos.map(video => video.model));
+    const conditioningValuesAll = getUniqueSorted(generatedVideos.map(video => video.conditioning));
+    const promptValuesAll = getUniqueSorted(generatedVideos.map(video => video.prompt));
+
+    const hasFilterChoices = generatedVideos.length > 0 && (
+        modelValues.length > 1 || conditioningValuesAll.length > 1 || promptValuesAll.length > 1
+    );
+    filters.classList.toggle('is-visible', hasFilterChoices);
+
+    const modelOptionsBase = modelValues.map(model => ({ id: model, label: model }));
+    const modelOptions = modelOptionsBase.length > 1
+        ? [{ id: FILTER_ALL_VALUE, label: 'All models' }, ...modelOptionsBase]
+        : modelOptionsBase;
+
+    if (!modelOptions.some(option => option.id === selectedModel)) {
+        state.selectedModel = modelOptions[0] ? modelOptions[0].id : FILTER_ALL_VALUE;
     }
 
-    const filteredVideos = availableVideos.filter(item => {
-        if (item.model === 'real-world') {
+    const effectiveModel = state.selectedModel || FILTER_ALL_VALUE;
+    const filteredByModel = generatedVideos.filter(video => (
+        effectiveModel === FILTER_ALL_VALUE || video.model === effectiveModel
+    ));
+
+    const conditioningValues = getUniqueSorted(filteredByModel.map(video => video.conditioning));
+    const conditioningOptionsBase = conditioningValues.map(value => ({
+        id: value,
+        label: formatConditioningLabel(value)
+    }));
+    const conditioningOptions = conditioningOptionsBase.length > 1
+        ? [{ id: FILTER_ALL_VALUE, label: 'All conditionings' }, ...conditioningOptionsBase]
+        : conditioningOptionsBase;
+
+    if (!conditioningOptions.some(option => option.id === selectedConditioning)) {
+        state.selectedConditioning = conditioningOptions[0] ? conditioningOptions[0].id : FILTER_ALL_VALUE;
+    }
+
+    const effectiveConditioning = state.selectedConditioning || FILTER_ALL_VALUE;
+    const filteredByConditioning = filteredByModel.filter(video => (
+        effectiveConditioning === FILTER_ALL_VALUE || video.conditioning === effectiveConditioning
+    ));
+
+    const promptValues = getUniqueSorted(filteredByConditioning.map(video => video.prompt));
+    const promptOptionsBase = promptValues.map(value => ({
+        id: value,
+        label: formatPromptLabel(value)
+    }));
+    const promptOptions = promptOptionsBase.length > 1
+        ? [{ id: FILTER_ALL_VALUE, label: 'All prompts' }, ...promptOptionsBase]
+        : promptOptionsBase;
+
+    if (!promptOptions.some(option => option.id === selectedPrompt)) {
+        state.selectedPrompt = promptOptions[0] ? promptOptions[0].id : FILTER_ALL_VALUE;
+    }
+
+    const effectivePrompt = state.selectedPrompt || FILTER_ALL_VALUE;
+
+    if (modelGroup) {
+        const showModels = modelOptionsBase.length > 1;
+        modelGroup.classList.toggle('is-hidden', !showModels);
+        if (showModels) {
+            populateFilterChips(modelsContainer, modelOptions, effectiveModel, value => {
+                state.selectedModel = value;
+                state.selectedConditioning = FILTER_ALL_VALUE;
+                state.selectedPrompt = FILTER_ALL_VALUE;
+                updateVideoExamplesView(state);
+            });
+        } else if (modelsContainer) {
+            modelsContainer.innerHTML = '';
+            state.selectedModel = modelOptionsBase[0] ? modelOptionsBase[0].id : FILTER_ALL_VALUE;
+        }
+    }
+
+    if (conditioningGroup) {
+        const showConditionings = conditioningOptionsBase.length > 1;
+        conditioningGroup.classList.toggle('is-hidden', !showConditionings);
+        if (showConditionings) {
+            populateFilterChips(conditioningContainer, conditioningOptions, effectiveConditioning, value => {
+                state.selectedConditioning = value;
+                state.selectedPrompt = FILTER_ALL_VALUE;
+                updateVideoExamplesView(state);
+            });
+        } else if (conditioningContainer) {
+            conditioningContainer.innerHTML = '';
+            state.selectedConditioning = conditioningOptionsBase[0] ? conditioningOptionsBase[0].id : FILTER_ALL_VALUE;
+        }
+    }
+
+    if (promptGroup) {
+        const showPrompts = promptOptionsBase.length > 1;
+        promptGroup.classList.toggle('is-hidden', !showPrompts);
+        if (showPrompts) {
+            populateFilterChips(promptsContainer, promptOptions, effectivePrompt, value => {
+                state.selectedPrompt = value;
+                updateVideoExamplesView(state);
+            });
+        } else if (promptsContainer) {
+            promptsContainer.innerHTML = '';
+            state.selectedPrompt = promptOptionsBase[0] ? promptOptionsBase[0].id : FILTER_ALL_VALUE;
+        }
+    }
+
+    const filteredVideos = availableVideos.filter(video => {
+        if (video.model === 'real-world') {
             return true;
         }
-        return (!modelValue || item.model === modelValue) &&
-            (!conditioningValue || item.conditioning === conditioningValue) &&
-            (!promptValue || item.prompt === promptValue);
+        if (effectiveModel !== FILTER_ALL_VALUE && video.model !== effectiveModel) {
+            return false;
+        }
+        if (effectiveConditioning !== FILTER_ALL_VALUE && video.conditioning !== effectiveConditioning) {
+            return false;
+        }
+        if (effectivePrompt !== FILTER_ALL_VALUE && video.prompt !== effectivePrompt) {
+            return false;
+        }
+        return true;
+    }).sort((a, b) => {
+        if (a.model === 'real-world' && b.model !== 'real-world') return -1;
+        if (b.model === 'real-world' && a.model !== 'real-world') return 1;
+        const modelCompare = a.model.localeCompare(b.model);
+        if (modelCompare !== 0) return modelCompare;
+        const conditioningCompare = (a.conditioning || '').localeCompare(b.conditioning || '');
+        if (conditioningCompare !== 0) return conditioningCompare;
+        return (a.prompt || '').localeCompare(b.prompt || '');
     });
 
     cardsContainer.innerHTML = '';
     filteredVideos.forEach(video => {
-        const subtitle = video.model === 'real-world'
-            ? 'Real capture'
-            : `${video.model} · ${video.conditioning.replace(/_/g, ' ')} · ${video.prompt}`;
+        const isReal = video.model === 'real-world';
+        const title = isReal ? 'Original (lab)' : video.model;
+        const subtitle = isReal ? '' : `${formatConditioningLabel(video.conditioning)} · ${formatPromptLabel(video.prompt)}`;
         const card = createVideoExampleCard({
-            title: video.model === 'real-world' ? 'Original (lab)' : video.model,
+            title,
             subtitle,
             filename: video.filename
         });
@@ -1403,3 +1491,21 @@ window.onerror = function(msg, url, line) {
     console.error('File:', url);
     console.error('Line:', line);
 };
+
+function formatConditioningLabel(value) {
+    if (!value) return '';
+    return value
+        .replace(/_conditioning$/, '')
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, char => char.toUpperCase())
+        .trim();
+}
+
+function formatPromptLabel(value) {
+    if (!value) return '';
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function getUniqueSorted(values) {
+    return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+}

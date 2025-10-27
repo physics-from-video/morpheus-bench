@@ -8,169 +8,157 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/bouncing_ball.webm"
+          "filename": "videos/real-world/bouncing_ball.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/bouncing_ball/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/bouncing_ball/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/bouncing_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/bouncing_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/bouncing_ball/video_0/output_video.webm"
         }
       ]
     },
@@ -182,175 +170,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/collision_big_hits_small.webm"
+          "filename": "videos/real-world/collision_big_hits_small.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/collision_big_hits_small/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/collision_big_hits_small/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/collision_big_hits_small/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/collision_big_hits_small/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/collision_big_hits_small/video_0/output_video.webm"
         }
       ]
     },
@@ -362,175 +338,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/collision_equal.webm"
+          "filename": "videos/real-world/collision_equal.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/collision_equal/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/collision_equal/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/collision_equal/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/collision_equal/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/collision_equal/video_0/output_video.webm"
         }
       ]
     },
@@ -542,175 +506,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/collision_small_hits_big.webm"
+          "filename": "videos/real-world/collision_small_hits_big.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/collision_small_hits_big/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/collision_small_hits_big/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/collision_small_hits_big/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/collision_small_hits_big/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/collision_small_hits_big/video_0/output_video.webm"
         }
       ]
     },
@@ -722,175 +674,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/double_pendulum.webm"
+          "filename": "videos/real-world/double_pendulum.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/double_pendulum/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/double_pendulum/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/double_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/double_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/double_pendulum/video_0/output_video.webm"
         }
       ]
     },
@@ -902,175 +842,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/falling_apple.webm"
+          "filename": "videos/real-world/falling_apple.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_apple/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/falling_apple/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_apple/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_apple/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_apple/video_0/output_video.webm"
         }
       ]
     },
@@ -1082,175 +1010,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/falling_ball.webm"
+          "filename": "videos/real-world/falling_ball.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_ball/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/falling_ball/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_ball/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_ball/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_ball/video_0/output_video.webm"
         }
       ]
     },
@@ -1262,175 +1178,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/falling_marker.webm"
+          "filename": "videos/real-world/falling_marker.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_marker/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/falling_marker/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_marker/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_marker/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_marker/video_0/output_video.webm"
         }
       ]
     },
@@ -1442,175 +1346,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/falling_tape.webm"
+          "filename": "videos/real-world/falling_tape.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_tape/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/falling_tape/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/falling_tape/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_tape/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/falling_tape/video_0/output_video.webm"
         }
       ]
     },
@@ -1622,175 +1514,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/holonomic_pendulum.webm"
+          "filename": "videos/real-world/holonomic_pendulum.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/holonomic_pendulum/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/holonomic_pendulum/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/holonomic_pendulum/video_0/output_video.webm"
         }
       ]
     },
@@ -1802,175 +1682,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/non_holonomic_pendulum.webm"
+          "filename": "videos/real-world/non_holonomic_pendulum.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/non_holonomic_pendulum/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/non_holonomic_pendulum/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/non_holonomic_pendulum/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/non_holonomic_pendulum/video_0/output_video.webm"
         }
       ]
     },
@@ -1982,175 +1850,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/projectile.webm"
+          "filename": "videos/real-world/projectile.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/projectile/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/projectile/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/projectile/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/projectile/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/projectile/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/projectile/video_0/output_video.webm"
         }
       ]
     },
@@ -2162,175 +2018,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/rolling_empty_can.webm"
+          "filename": "videos/real-world/rolling_empty_can.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/rolling_empty_can/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/rolling_empty_can/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/rolling_empty_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/rolling_empty_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/rolling_empty_can/video_0/output_video.webm"
         }
       ]
     },
@@ -2342,175 +2186,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/rolling_full_can.webm"
+          "filename": "videos/real-world/rolling_full_can.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/rolling_full_can/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/rolling_full_can/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/rolling_full_can/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/rolling_full_can/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/rolling_full_can/video_0/output_video.webm"
         }
       ]
     },
@@ -2522,175 +2354,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/rolling_orange.webm"
+          "filename": "videos/real-world/rolling_orange.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/rolling_orange/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/rolling_orange/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/rolling_orange/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/rolling_orange/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/rolling_orange/video_0/output_video.webm"
         }
       ]
     },
@@ -2702,175 +2522,163 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/sliding_book.webm"
+          "filename": "videos/real-world/sliding_book.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/sliding_book/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/sliding_book/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/PyramidalFlow/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/sliding_book/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/sliding_book/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/sliding_book/video_0/output_video.webm"
         }
       ]
     },
@@ -2882,163 +2690,151 @@
           "model": "real-world",
           "conditioning": "real-world",
           "prompt": "real-world",
-          "filename": "static/videos/real-world/spring.webm"
+          "filename": "videos/real-world/spring.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict1/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict1/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/COSMOS-predict2/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "COSMOS-predict2",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/COSMOS-predict2/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/CogVideo/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/CogVideo/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/CogVideo/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/CogVideo/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "CogVideo",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/CogVideo/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/CogVideo/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/LTX/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/LTX/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "LTX",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/LTX/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/LTX/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "PyramidalFlow",
           "conditioning": "multi_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/spring/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3/enhanced/spring/video_0/output_video.webm"
-        },
-        {
-          "model": "Veo3-fast",
-          "conditioning": "single_frame_conditioning",
-          "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/Veo3-fast/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/multi_frame_conditioning/PyramidalFlow/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "keyframe_interpolation",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/keyframe_interpolation/WAN-2.1/plain/spring/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "enhanced",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/enhanced/spring/video_0/output_video.webm"
         },
         {
           "model": "WAN-2.1",
           "conditioning": "single_frame_conditioning",
           "prompt": "plain",
-          "filename": "static/videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/spring/video_0/output_video.webm"
+          "filename": "videos/generated_videos/single_frame_conditioning/WAN-2.1/plain/spring/video_0/output_video.webm"
         }
       ]
     }
