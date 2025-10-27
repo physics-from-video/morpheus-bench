@@ -659,14 +659,45 @@
     </div>
 </div>
 
-<section class="section hero">
+<section class="section hero augmentation-section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <h3 class="title is-3" style="margin-bottom: 2rem;">Augmentations</h3>
-        <p class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
+
+        <div class="augmentation-showcase columns is-variable is-6">
+          <div class="column is-12-mobile is-4-tablet is-3-desktop">
+            <div class="augmentation-experiments">
+              <h4 class="title is-5">Experiments</h4>
+              <div class="augmentation-experiment-list" id="augmentation-experiment-list" role="tablist" aria-label="Augmentation experiments"></div>
+            </div>
+          </div>
+          <div class="column is-12-mobile is-8-tablet is-10-desktop">
+            <div class="augmentation-viewer" aria-live="polite">
+              <div class="augmentation-viewer-header">
+                <h5 class="title is-5" id="augmentation-experiment-title"></h5>
+                <p class="augmentation-viewer-subtitle" id="augmentation-experiment-subtitle"></p>
+              </div>
+              <div class="augmentation-viewer-body">
+                <button class="augmentation-nav" id="augmentation-prev" type="button" aria-label="Previous experiment or videos" disabled>
+                  <span class="icon"><i class="fas fa-chevron-left" aria-hidden="true"></i></span>
+                </button>
+                <div class="augmentation-carousel">
+                  <div class="augmentation-cards" id="augmentation-cards" aria-describedby="augmentation-experiment-title"></div>
+                  <p class="augmentation-empty" id="augmentation-empty-message">No videos available yet for this experiment.</p>
+                </div>
+                <button class="augmentation-nav" id="augmentation-next" type="button" aria-label="Next experiment or videos" disabled>
+                  <span class="icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="content has-text-justified" style="max-width: 960px; margin: 2rem auto 2rem auto;">
           The relative difference between the score on the original, lab videos and augmented realistic settings. The realistic augmented settings appear to be much harder to predict.
         </p>
+
         <div class="augmentation-chart-wrapper" data-source="static/data/augmentation_improvements_summary.csv">
           <div id="augmentation-chart"></div>
           <p id="augmentation-chart-loading">Loading augmentation improvements...</p>

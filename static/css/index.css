@@ -282,5 +282,239 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.augmentation-showcase {
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+.augmentation-experiments {
+  background: #fafafa;
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.augmentation-experiments h4 {
+  margin-bottom: 0.75rem;
+}
+
+.augmentation-experiment-list {
+  display: grid;
+  gap: 0.75rem;
+  padding-right: 0.25rem;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.augmentation-experiment-button {
+  border: none;
+  background: white;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.augmentation-experiment-button:hover,
+.augmentation-experiment-button:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  outline: none;
+}
+
+.augmentation-experiment-button.is-active {
+  background: linear-gradient(135deg, #fdf4ff, #f5f3ff);
+  color: #4338ca;
+  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.16);
+}
+
+.augmentation-experiment-title {
+  font-size: 1rem;
+}
+
+.augmentation-experiment-meta {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.augmentation-viewer {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.augmentation-viewer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.augmentation-viewer-subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.augmentation-viewer-body {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.augmentation-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.augmentation-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+
+.augmentation-card {
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.2);
+  min-width: 0;
+}
+
+.augmentation-card video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  max-height: 360px;
+}
+
+.augmentation-card-caption {
+  padding: 1.1rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.augmentation-card-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.augmentation-card-meta {
+  font-size: 0.7rem;
+  color: rgba(226, 232, 240, 0.78);
+  text-transform: lowercase;
+}
+
+.augmentation-nav {
+  border: none;
+  background: white;
+  border-radius: 999px;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.augmentation-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.augmentation-nav:not(:disabled):hover,
+.augmentation-nav:not(:disabled):focus {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.16);
+  outline: none;
+}
+
+.augmentation-empty {
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b7280;
+  display: none;
+}
+
+.augmentation-cards.is-empty {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .augmentation-showcase {
+    flex-direction: column;
+  }
+
+  .augmentation-experiments {
+    margin-bottom: 1.5rem;
+  }
+
+  .augmentation-viewer-body {
+    grid-template-columns: 1fr;
+  }
+
+  .augmentation-nav {
+    justify-self: center;
+  }
+
+  .augmentation-carousel {
+    width: 100%;
+  }
+
+  .augmentation-cards {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .augmentation-viewer {
+    padding: 1.5rem;
+  }
+
+  .augmentation-experiments {
+    padding: 1.5rem;
+  }
+
+  .augmentation-cards {
+    gap: 1rem;
+  }
+
+  .augmentation-card-caption {
+    padding: 0.75rem 0.85rem 0.9rem;
+  }
+}
+
 
 

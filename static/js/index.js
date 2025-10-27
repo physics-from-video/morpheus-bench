@@ -813,6 +813,168 @@ function initAugmentationChart() {
         });
 }
 
+async function fetchAugmentationManifest() {
+    try {
+        const response = await fetch('static/data/augmentation_manifest.json', {
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to load manifest: ${response.status}`);
+        }
+
+        return response.json();
+    } catch (error) {
+        console.error('Error fetching augmentation manifest:', error);
+        return null;
+    }
+}
+
+function createExperimentButton(experiment, isActive) {
+    const button = document.createElement('button');
+    button.className = 'augmentation-experiment-button'.concat(isActive ? ' is-active' : '');
+    button.type = 'button';
+    button.setAttribute('data-experiment-id', experiment.id);
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-selected', String(isActive));
+    button.setAttribute('aria-controls', 'augmentation-cards');
+
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'augmentation-experiment-title';
+    titleSpan.textContent = experiment.title;
+
+    button.appendChild(titleSpan);
+
+    return button;
+}
+
+function createVideoCard({ label, filename, id }, experimentId) {
+    const card = document.createElement('article');
+    card.className = 'augmentation-card';
+
+    const video = document.createElement('video');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
+    video.innerHTML = `<source src="static/videos/augmentations/${experimentId}/${filename}" type="video/webm">`;
+    video.load();
+
+    video.addEventListener('error', () => {
+        console.warn('Failed to load augmentation video:', experimentId, filename);
+    });
+
+    const caption = document.createElement('div');
+    caption.className = 'augmentation-card-caption';
+
+    const title = document.createElement('span');
+    title.className = 'augmentation-card-label';
+    title.textContent = label;
+
+    const meta = document.createElement('span');
+    meta.className = 'augmentation-card-meta';
+    meta.textContent = id === 'original' ? 'Captured in the lab' : 'Generated with Cosmos-Transfer1';
+
+    caption.appendChild(title);
+    caption.appendChild(meta);
+
+    card.appendChild(video);
+    card.appendChild(caption);
+
+    return card;
+}
+
+function updateAugmentationViewer(experiment, manifest) {
+    const titleEl = document.getElementById('augmentation-experiment-title');
+    const subtitleEl = document.getElementById('augmentation-experiment-subtitle');
+    const cardsContainer = document.getElementById('augmentation-cards');
+    const emptyMessage = document.getElementById('augmentation-empty-message');
+
+    if (!experiment) {
+        cardsContainer.classList.add('is-empty');
+        emptyMessage.style.display = 'block';
+        titleEl.textContent = 'No experiment selected';
+        subtitleEl.textContent = '';
+        return;
+    }
+
+    titleEl.textContent = experiment.title;
+    subtitleEl.textContent = experiment.summary || '';
+
+    cardsContainer.innerHTML = '';
+
+    const experimentVideos = experiment.videos || [];
+    const hasVideos = experimentVideos.length > 0;
+
+    if (!hasVideos) {
+        cardsContainer.classList.add('is-empty');
+        emptyMessage.style.display = 'block';
+        return;
+    }
+
+    emptyMessage.style.display = 'none';
+    cardsContainer.classList.remove('is-empty');
+
+    experimentVideos.forEach(video => {
+        cardsContainer.appendChild(createVideoCard(video, experiment.id));
+    });
+
+    cardsContainer.dataset.currentExperiment = experiment.id;
+
+    const buttons = document.querySelectorAll('.augmentation-experiment-button');
+    buttons.forEach(button => {
+        const isActive = button.getAttribute('data-experiment-id') === experiment.id;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+    });
+
+    const experimentIndex = manifest.experiments.findIndex(item => item.id === experiment.id);
+    const prevButton = document.getElementById('augmentation-prev');
+    const nextButton = document.getElementById('augmentation-next');
+
+    prevButton.disabled = experimentIndex <= 0;
+    nextButton.disabled = experimentIndex < 0 || experimentIndex >= manifest.experiments.length - 1;
+
+    prevButton.onclick = () => {
+        if (experimentIndex > 0) {
+            updateAugmentationViewer(manifest.experiments[experimentIndex - 1], manifest);
+        }
+    };
+
+    nextButton.onclick = () => {
+        if (experimentIndex < manifest.experiments.length - 1) {
+            updateAugmentationViewer(manifest.experiments[experimentIndex + 1], manifest);
+        }
+    };
+}
+
+function initAugmentationShowcase(manifest) {
+    if (!manifest || !Array.isArray(manifest.experiments)) {
+        console.warn('Augmentation manifest missing experiments array');
+        return;
+    }
+
+    const listContainer = document.getElementById('augmentation-experiment-list');
+    if (!listContainer) {
+        return;
+    }
+
+    listContainer.innerHTML = '';
+
+    manifest.experiments.forEach((experiment, index) => {
+        const button = createExperimentButton(experiment, index === 0);
+        button.addEventListener('click', () => {
+            updateAugmentationViewer(experiment, manifest);
+        });
+        listContainer.appendChild(button);
+    });
+
+    const defaultExperiment = manifest.experiments[0] || null;
+    updateAugmentationViewer(defaultExperiment, manifest);
+}
+
 function populateConditioningOptions(model, conditioningSelect) {
     const allowedConditionings = MODEL_CONDITIONINGS[model] || [];
     Array.from(conditioningSelect.options).forEach(option => {
@@ -981,6 +1143,16 @@ document.addEventListener('DOMContentLoaded', () => {
     modelSelect.addEventListener('change', updateVideoSources);
     conditioningSelect.addEventListener('change', updateVideoSources);
     promptSelect.addEventListener('change', updateVideoSources);
+
+    fetchAugmentationManifest()
+        .then(manifest => {
+            if (manifest) {
+                initAugmentationShowcase(manifest);
+            }
+        })
+        .catch(error => {
+            console.error('Unable to initialize augmentation showcase:', error);
+        });
 });
 
 window.onerror = function(msg, url, line) {
