@@ -90,6 +90,42 @@ const MODEL_COLORS = {
 
 const FILTER_ALL_VALUE = '__all__';
 
+function ensureAutoplay(video) {
+    if (!video) {
+        return;
+    }
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    let attempts = 0;
+    const maxAttempts = 6;
+    const attemptDelayMs = 150;
+
+    const tryPlay = () => {
+        video.play().catch(() => {
+            if (attempts < maxAttempts) {
+                attempts += 1;
+                setTimeout(tryPlay, attemptDelayMs);
+            }
+        });
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        requestAnimationFrame(tryPlay);
+    } else {
+        video.addEventListener('loadeddata', () => {
+            attempts = 0;
+            tryPlay();
+        }, { once: true });
+    }
+
+    requestAnimationFrame(tryPlay);
+}
+
 function adjustColorBrightness(color, factor = 0.2) {
     const base = d3.color(color);
     if (!base) return color;
@@ -1029,6 +1065,7 @@ function createVideoExampleCard({ title, subtitle, filename }) {
     const srcPath = filename.startsWith('static/') ? filename : `static/${filename}`;
     const finalSrc = srcPath.replace('static/static/', 'static/');
     video.innerHTML = `<source src="${finalSrc}" type="video/webm">`;
+
     video.load();
 
     const caption = document.createElement('div');
@@ -1244,10 +1281,15 @@ function updateVideoExamplesView(state) {
             filename: video.filename
         });
         cardsContainer.appendChild(card);
+        ensureAutoplay(card.querySelector('video'));
     });
 
     const shouldShowEmpty = filteredVideos.length === 0;
     emptyMessage.classList.toggle('is-visible', shouldShowEmpty);
+
+    requestAnimationFrame(() => {
+        cardsContainer.querySelectorAll('video').forEach(ensureAutoplay);
+    });
 }
 
 function initVideoExamples(manifest) {
@@ -1442,10 +1484,19 @@ function updateVideoSources() {
             return;
         }
 
-        return setVideoSource(player, source, path);
+        return setVideoSource(player, source, path).then(() => ensureAutoplay(player));
     });
 
-    return Promise.all(videoUpdatePromises);
+    return Promise.all(videoUpdatePromises).then(() => {
+        requestAnimationFrame(() => {
+            VIDEO_EXPERIMENT_IDS.forEach(id => {
+                const player = document.getElementById(id);
+                if (player) {
+                    ensureAutoplay(player);
+                }
+            });
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1484,6 +1535,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Unable to initialize video examples:', error);
         });
+
+    setTimeout(() => {
+        document.querySelectorAll('video[autoplay]').forEach(ensureAutoplay);
+    }, 200);
 });
 
 window.onerror = function(msg, url, line) {
