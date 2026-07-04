@@ -60,13 +60,13 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a >Chenyu Zhang</a><sup>1,*</sup>,&nbsp;
+                <a >Antonios Tragoudaras</a><sup>2,*</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a >Chenyu Zhang</a><sup>2,1,*</sup>,&nbsp;
               </span>
               <span class="author-block">
                 <a >Daniil Cherniavskii</a><sup>2,*</sup>,&nbsp;
-              </span>
-              <span class="author-block">
-                <a >Antonios Tragoudaras</a><sup>2,*</sup>,&nbsp;
               </span>
               <span class="author-block">
                 <a >Antonios Vozikis</a><sup>2,†</sup>,&nbsp;
@@ -87,14 +87,13 @@
                 <a >Andrii Zadaianchuk</a><sup>2,††</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a >Efstratios Gavves</a><sup>2,3,††</sup>
+                <a >Stratis Gavves</a><sup>2,††</sup>
               </span>
             </div>
 
-            <div class="is-size-5 publication-authors" style="margin-top: 1em;"> 
+            <div class="is-size-5 publication-authors" style="margin-top: 1em;">
               <span class="author-block"><sup>1</sup><a href="https://www.unitn.it/en" target="_blank">University of Trento, Italy</a></span><br>
               <span class="author-block"><sup>2</sup><a href="https://www.uva.nl/" target="_blank">University of Amsterdam, the Netherlands</a></span><br>
-              <span class="author-block"><sup>3</sup><a href="https://www.athenarc.gr/en/archimedes" target="_blank">Archimedes, Athena Research Center, Greece</a></span><br>
               <span class="author-block"><sup>*</sup>Equal contribution of first authors</span><br>
                <span class="author-block"><sup>†</sup>Equal contribution of second authors</span><br>
                <span class="author-block"><sup>††</sup>Equal advising</span>
@@ -137,8 +136,8 @@
               </span>
 
               <!-- Github link -->
-              <!-- <span class="link-block">
-                <a href="XXX" target="_blank"
+              <span class="link-block">
+                <a href="https://github.com/physics-from-video/Morpheus" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <i class="fab fa-github"></i>
@@ -146,10 +145,19 @@
                 <span>Code</span>
                 </a>
                 &nbsp;
-              </span> -->
+              </span>
 
-              <!-- Github link -->
-
+              <!-- HuggingFace dataset link -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/physics-from-video/morpheus-real-world" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-database"></i>
+                </span>
+                <span>Dataset</span>
+                </a>
+                &nbsp;
+              </span>
 
             </div>
           </div>
@@ -262,7 +270,7 @@
     <div class="container is-max-desktop">
       <div class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
         <p>
-          Aggregated scores across all physical experiments (higher is better). We select the best scores between using the enhanced and plain versions of the textual prompt to represent the best model's ability. For comparison, real-world videos obtain Dynamical scores in the range of 0.98-0.99, and Physical Invariance score above 0.93.
+          Aggregated scores across all physical experiments (higher is better). We select the best scores between using the enhanced and plain versions of the textual prompt to represent the best model's ability. For comparison, real-world videos obtain Dynamical scores in the range of 0.96-0.99, and Physical Invariance score of 0.90 or above.
         </p>
       </div>
     </div>
@@ -470,6 +478,106 @@
           <div id="augmentation-chart"></div>
           <p id="augmentation-chart-loading">Loading augmentation improvements...</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered">
+        <h3 class="title is-3" style="margin-bottom: 0.5rem;">Why Alternative Evaluation Methods Fall Short</h3>
+        <p class="content has-text-justified" style="max-width: 960px; margin: 0 auto 2rem auto;">
+          Two common alternatives to Morpheus &mdash; comparing generated trajectories directly against a reference (trajectory matching) and asking a vision-language model to judge physical plausibility &mdash; both struggle to certify physically clean, real-world footage as physical. The following findings, drawn from the paper's appendix, motivate Morpheus's physics-informed scoring instead.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h4 class="title is-4">Trajectory matching penalizes physically valid, divergent realizations</h4>
+        <div class="content has-text-justified" style="max-width: 960px; margin: 0 auto;">
+          <p>
+            To isolate the failure mode of trajectory matching from any generative-model noise, we ran it real-vs-real: for each experiment, every pair of <em>distinct real-world recordings of the same phenomenon</em> was cross-compared using Physics-IQ (Motamed et al. 2026) overlap metrics. Since both videos in every pair are clean physical realizations, a metric that measured physical correctness should score them near-perfectly &mdash; instead, overlap is low across every category, showing that small, unobservable differences in initial conditions, mass distribution, or friction make trajectory matching reject physically valid futures. Morpheus, which scores functional adherence to governing equations and conserved invariants instead of matching paths, scores near-perfectly on these same real-world references.
+          </p>
+        </div>
+
+        <div class="table-container" style="max-width: 720px; margin: 1.5rem auto 0.5rem auto;">
+          <table class="table is-striped is-narrow is-fullwidth has-text-centered">
+            <thead>
+              <tr>
+                <th>Experiment</th>
+                <th>Spatiotemporal IoU</th>
+                <th>Spatial IoU</th>
+                <th>Weighted Spatial IoU</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Bouncing Ball</td><td>0.100</td><td>0.274</td><td>0.169</td></tr>
+              <tr><td>Collision</td><td>0.021</td><td>0.184</td><td>0.112</td></tr>
+              <tr><td>Double Pendulum</td><td>0.087</td><td>0.561</td><td>0.408</td></tr>
+              <tr><td>Falling</td><td>0.164</td><td>0.396</td><td>0.342</td></tr>
+              <tr><td>Holonomic Pendulum</td><td>0.072</td><td>0.532</td><td>0.397</td></tr>
+              <tr><td>Projectile</td><td>0.010</td><td>0.040</td><td>0.034</td></tr>
+              <tr><td>Rolling</td><td>0.306</td><td>0.773</td><td>0.725</td></tr>
+              <tr><td>Sliding Book</td><td>0.189</td><td>0.240</td><td>0.202</td></tr>
+              <tr><td>Spring</td><td>0.189</td><td>0.298</td><td>0.233</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="content has-text-justified" style="max-width: 960px; margin: 0.5rem auto 0 auto; font-size: 0.95rem; color: #4a4a4a;">
+          <em>Real-vs-real Physics-IQ overlap scores. Even perfect-vs-perfect physics yields low overlap &mdash; trajectory matching penalizes valid but divergent realizations, not physical incorrectness.</em>
+        </p>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h4 class="title is-4">VLM-based auto-eval (VideoPhy2-AutoEval) can't reliably tell real physics from generated</h4>
+        <div class="content has-text-justified" style="max-width: 960px; margin: 0 auto;">
+          <p>
+            We also benchmarked against VideoPhy2-AutoEval (Bansal et al. 2026), a VLM fine-tuned for physical commonsense judgments, on both real-world recordings and generations from 9 models. Aggregated across all experiments, the VLM assigns real-world footage a Joint Physical Consistency (JPC) pass rate of only <strong>23.6%</strong> (95% CI [16.1, 31.1]), barely above generated videos at <strong>13.9%</strong> ([12.1, 15.8]) &mdash; the VLM fails to assign ceiling scores to real physics and barely separates real from generated, with no significant gap in rule adherence.
+          </p>
+          <p>
+            The per-category breakdown is the sharpest evidence: the VLM scores several physically clean real-world videos (bouncing ball, all three collision variants, three of four falling variants, both rolling-can variants, sliding book) at a <strong>0% JPC pass rate</strong>, and for double pendulum it rates the <em>generated</em> videos as more physically plausible (41.4%) than the real ones (30.0%). An evaluator that cannot confidently certify that a real video obeys physical laws is fundamentally unsuited to benchmarking generative models &mdash; precisely what motivates Morpheus's physics-informed scoring.
+          </p>
+        </div>
+
+        <div class="table-container" style="max-width: 640px; margin: 1.5rem auto 0.5rem auto;">
+          <table class="table is-striped is-narrow is-fullwidth has-text-centered">
+            <thead>
+              <tr>
+                <th>Experiment</th>
+                <th>Real-world JPC pass</th>
+                <th>Generated JPC pass</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Falling ball</td><td>100.0%</td><td>34.5%</td></tr>
+              <tr><td>Rolling orange</td><td>100.0%</td><td>39.1%</td></tr>
+              <tr><td>Spring</td><td>85.7%</td><td>72.4%</td></tr>
+              <tr><td>Double pendulum</td><td>30.0%</td><td>41.4%</td></tr>
+              <tr><td>Holonomic pendulum</td><td>27.8%</td><td>13.8%</td></tr>
+              <tr><td>Bouncing ball</td><td>0.0%</td><td>5.7%</td></tr>
+              <tr><td>Collision (big hits small)</td><td>0.0%</td><td>4.6%</td></tr>
+              <tr><td>Collision (equal)</td><td>0.0%</td><td>0.0%</td></tr>
+              <tr><td>Collision (small hits big)</td><td>0.0%</td><td>3.4%</td></tr>
+              <tr><td>Falling apple</td><td>0.0%</td><td>0.0%</td></tr>
+              <tr><td>Falling marker</td><td>0.0%</td><td>0.0%</td></tr>
+              <tr><td>Falling tape</td><td>0.0%</td><td>0.0%</td></tr>
+              <tr><td>Projectile</td><td>0.0%</td><td>2.3%</td></tr>
+              <tr><td>Rolling empty can</td><td>0.0%</td><td>0.0%</td></tr>
+              <tr><td>Rolling full can</td><td>0.0%</td><td>0.0%</td></tr>
+              <tr><td>Sliding book</td><td>0.0%</td><td>5.7%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="content has-text-justified" style="max-width: 960px; margin: 0.5rem auto 0 auto; font-size: 0.95rem; color: #4a4a4a;">
+          <em>Joint Physical Consistency (PC&ge;4 and rule adherence) pass rate assigned by VideoPhy2-AutoEval, real-world vs. generated, per experiment.</em>
+        </p>
       </div>
     </div>
   </div>

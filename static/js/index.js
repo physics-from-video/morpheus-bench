@@ -31,6 +31,7 @@ const MODEL_CONDITIONINGS = {
     'PyramidalFlow': ['single_frame_conditioning', 'multi_frame_conditioning'],
     'Veo3': ['single_frame_conditioning'],
     'Veo3-fast': ['single_frame_conditioning'],
+    'Kling-Turbo': ['single_frame_conditioning'],
     'WAN-2.1': ['single_frame_conditioning', 'keyframe_interpolation']
 };
 
@@ -42,6 +43,7 @@ const MODEL_PROMPTS = {
     'PyramidalFlow': ['plain', 'enhanced'],
     'Veo3': ['enhanced'],
     'Veo3-fast': ['enhanced'],
+    'Kling-Turbo': ['enhanced'],
     'WAN-2.1': ['plain', 'enhanced']
 };
 
@@ -85,7 +87,10 @@ const MODEL_COLORS = {
     'CogVideo': '#FFBE0B',
     'LTX': '#8338EC',
     'PyramidalFlow': '#FB5607',
-    'WAN-2.1': '#45B7D1'
+    'WAN-2.1': '#45B7D1',
+    'Veo3': '#FF006E',
+    'Veo3-fast': '#FF4081',
+    'Kling-Turbo': '#10B981'
 };
 
 const FILTER_ALL_VALUE = '__all__';
@@ -1130,7 +1135,6 @@ function updateVideoExamplesView(state) {
 
     const rawVideos = Array.isArray(experiment.videos) ? experiment.videos : [];
     const availableVideos = rawVideos
-        .filter(video => !['Veo3', 'Veo3-fast'].includes(video.model))
         .map(video => ({
             ...video,
             filename: video.filename.startsWith('static/') ? video.filename : `static/${video.filename}`
